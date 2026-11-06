@@ -1,0 +1,23 @@
+#!/bin/sh
+# opkg wykonuje ten skrypt po rozpakowaniu paczki.
+set -eu
+case "${1:-configure}" in
+    configure) ;;
+    *) exit 0 ;;
+esac
+TVSAT_ROOT=${IPKG_INSTROOT:-}
+if [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQ/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQLarge/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Converter/PolsQEventRemaining.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Plugins/Extensions/PolsQSettings/plugin.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Renderer/PolsQSummary.py" ]; then
+    printf '%s\n' 'PolsQ: instalacja niekompletna — brak plików skórki lub modułów PolsQ.' >&2
+    exit 1
+fi
+printf '\n%s\n' '======================================================'
+printf '%s\n' 'PolsQ — INSTALACJA ZAKOŃCZONA POMYŚLNIE'
+if [ -r "$TVSAT_ROOT/usr/share/enigma2/PolsQ/VERSION" ]; then
+    TVSAT_VERSION=$(cat "$TVSAT_ROOT/usr/share/enigma2/PolsQ/VERSION")
+    printf 'Wersja: %s\n' "$TVSAT_VERSION"
+fi
+printf '%s\n' 'Wybierz PolsQ w menu skórek, jeśli to pierwsza instalacja.'
+printf '%s\n' 'Wtyczki → PolsQ — wygląd: wybierz Standard lub Duże napisy i zapisz.'
+printf '%s\n' 'Uruchom ponownie interfejs GUI, aby wczytać zmiany.'
+printf '%s\n\n' '======================================================'
+

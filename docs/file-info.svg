@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — FileCommanderData — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="54" width="5" height="28" fill="#46baff" fill-opacity="1.000000"/>
+<text x="84" y="78.0" font-size="40" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
+<text x="420" y="73.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">INFORMACJE O PLIKU</text>
+<text x="1856" y="76.0" font-size="36" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<image x="64" y="126" width="1792" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Informacje o pliku</text>
+<rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
+<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
+<text x="64" y="264.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Ścieżka: /tmp/PolsQ.ipk</text>
+<text x="64" y="299.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Typ: pakiet instalacyjny</text>
+<text x="64" y="334.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Rozmiar: 58 kB</text>
+<text x="64" y="369.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Uprawnienia: -rw-r--r--</text>
+<text x="64" y="952.0" font-size="22" font-weight="normal" fill="#b1c4e5" text-anchor="start">↑ ↓  Przewiń     EXIT  Powrót</text>
+</g>
+</svg>

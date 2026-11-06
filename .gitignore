@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+dist/
+PolsQ/assets/
+PolsQ/epg/
+PolsQ/extensions/
+PolsQ/icons/
+PolsQ/mainmenu/
+PolsQ/picon_default.png
+PolsQLarge/assets/
+PolsQLarge/epg/
+PolsQLarge/extensions/
+PolsQLarge/icons/
+PolsQLarge/mainmenu/
+PolsQLarge/picon_default.png

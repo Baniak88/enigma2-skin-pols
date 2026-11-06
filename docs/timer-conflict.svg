@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — ConflictTimerOverview — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="54" width="5" height="28" fill="#46baff" fill-opacity="1.000000"/>
+<text x="84" y="78.0" font-size="40" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
+<text x="420" y="73.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">KONFLIKT NAGRAŃ</text>
+<text x="1856" y="76.0" font-size="36" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<image x="64" y="126" width="1792" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Konflikt zaplanowanych nagrań</text>
+<rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
+<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Usuń</text>
+<rect x="960" y="1012" width="6" height="24" fill="#f5ce55" fill-opacity="1.000000"/>
+<text x="982" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wyłącz</text>
+<rect x="1408" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
+<text x="1430" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Ignoruj</text>
+<text x="64" y="242.0" font-size="28" font-weight="normal" fill="#f5ce55" text-anchor="start">Nagrania nakładają się. Wybierz timer, aby zmienić czas lub go wyłączyć.</text>
+<rect x="64" y="292" width="1792" height="384" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="292" width="1792" height="104" fill="#0759ad" fill-opacity="1.000000"/>
+<image x="80" y="320" width="44" height="44" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAdklEQVR42u1XWw4AIAjqrN7/DnWCHooNarL1l4QujVorvIZu1meLdvBVIR7ydCFRshQRKAkUn1XGMM8uyHPx3AJWAdEOcImYbUba8FgAmj1chYzsoSqUgBJA7wL6HJCYhPS3QOI1pPsBCUck4QklXLHMv6DwLQYDovwJNb+5wQAAAABJRU5ErkJggg=="/>
+<text x="148" y="336.0" font-size="32" font-weight="normal" fill="#f3f6fa" text-anchor="start">Fakty</text>
+<text x="148" y="377.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">TVN HD</text>
+<text x="1828" y="352.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:30 — 21:00</text>
+<rect x="64" y="404" width="1792" height="104" fill="#18284e" fill-opacity="1.000000"/>
+<image x="80" y="432" width="44" height="44" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAdklEQVR42u1XWw4AIAjqrN7/DnWCHooNarL1l4QujVorvIZu1meLdvBVIR7ydCFRshQRKAkUn1XGMM8uyHPx3AJWAdEOcImYbUba8FgAmj1chYzsoSqUgBJA7wL6HJCYhPS3QOI1pPsBCUck4QklXLHMv6DwLQYDovwJNb+5wQAAAABJRU5ErkJggg=="/>
+<text x="148" y="448.0" font-size="32" font-weight="normal" fill="#f3f6fa" text-anchor="start">Film wieczoru</text>
+<text x="148" y="489.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">Polsat HD</text>
+<text x="1828" y="464.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45 — 22:30</text>
+<text x="64" y="858.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">Dwa nagrania korzystają z tego samego tunera w nakładających się godzinach. Wybierz timer i zmień jego czas lub</text>
+<text x="64" y="893.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">wyłącz go.</text>
+</g>
+</svg>

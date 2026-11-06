@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — PolsQSettings — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="54" width="5" height="28" fill="#46baff" fill-opacity="1.000000"/>
+<text x="84" y="78.0" font-size="40" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
+<text x="420" y="73.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">WYGLĄD I CZYTELNOŚĆ</text>
+<text x="1856" y="76.0" font-size="36" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<image x="64" y="126" width="1792" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Wybierz rozmiar interfejsu</text>
+<rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
+<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Anuluj</text>
+<rect x="512" y="1012" width="6" height="24" fill="#00e676" fill-opacity="1.000000"/>
+<text x="534" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zapisz</text>
+<rect x="64" y="236" width="1120" height="560" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="236" width="1120" height="80" fill="#0759ad" fill-opacity="1.000000"/>
+<text x="84" y="290.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="start">Rozmiar interfejsu</text>
+<text x="1161.6000000000001" y="290.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="end">Standard</text>
+<rect x="1216" y="236" width="2" height="688" fill="#304a72" fill-opacity="1.000000"/>
+<text x="1256" y="274.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">Standard: 10 pozycji. Nazwa kanału u</text>
+<text x="1256" y="309.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">góry, audycja pod spodem.</text>
+<text x="1256" y="344.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start"></text>
+<text x="1256" y="379.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">Duże napisy: także 10 pozycji, z</text>
+<text x="1256" y="414.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">nieco większą czcionką.</text>
+<text x="1256" y="449.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start"></text>
+<text x="1256" y="484.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">Naciśnij ZIELONY — Zapisz również po</text>
+<text x="1256" y="519.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">aktualizacji, aby ustawić 10 pozycji</text>
+<text x="1256" y="554.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">również w starszym trybie listy.</text>
+<text x="1256" y="742.0" font-size="26" font-weight="normal" fill="#f5ce55" text-anchor="start">Po zapisaniu potrzebny jest restart GUI.</text>
+<text x="1256" y="774.5" font-size="26" font-weight="normal" fill="#f5ce55" text-anchor="start">Anuluj pozostawia ustawienia bez zmian.</text>
+<text x="64" y="940.0" font-size="24" font-weight="normal" fill="#b1c4e5" text-anchor="start">← →  Zmień wariant     Zielony — zapisz     EXIT — anuluj</text>
+</g>
+</svg>

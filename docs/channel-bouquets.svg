@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — ChannelSelection — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#101938" fill-opacity="1.000000"/>
+<rect x="40" y="32" width="4" height="26" fill="#46baff" fill-opacity="1.000000"/>
+<text x="60" y="56.0" font-size="36" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
+<image x="304" y="30" width="28" height="28" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAV0lEQVR42mNgGAWjYBSggUNnrv+nNR5Qy/E6YlA5gNbRO+qAUQeMOmDUASPDAW67/v+HYbo7ANlyGB5ZIUBxGhiZ7YEBb5JRPU4HurE6KFrKwyMEhjUAAOT96tCqQUrPAAAAAElFTkSuQmCC"/>
+<text x="348" y="52.0" font-size="24" font-weight="normal" fill="#b1c4e5" text-anchor="start">TELEWIZJA</text>
+<text x="1880" y="52.0" font-size="32" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<image x="40" y="88" width="1840" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<text x="40" y="137.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="start">TV — Użytkownik — Listy kanałów</text>
+<rect x="40" y="974" width="1840" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="40" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
+<text x="62" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wszystkie</text>
+<rect x="500" y="1012" width="6" height="24" fill="#00e676" fill-opacity="1.000000"/>
+<text x="522" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Listy odbioru</text>
+<rect x="960" y="1012" width="6" height="24" fill="#f5ce55" fill-opacity="1.000000"/>
+<text x="982" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Dostawcy</text>
+<rect x="1420" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
+<text x="1442" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Bukiety</text>
+<rect x="40" y="168" width="1136" height="760" fill="#101938" fill-opacity="1.000000"/>
+<rect x="40" y="168" width="1136" height="76" fill="#0759ad" fill-opacity="1.000000"/>
+<rect x="40" y="168" width="4" height="76" fill="#46baff" fill-opacity="1.000000"/>
+<rect x="48" y="243" width="1128" height="1" fill="#0759ad" fill-opacity="1.000000"/>
+<image x="56" y="190" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="216.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Polskie</text>
+<rect x="40" y="244" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="319" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="266" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="292.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Polsat Box</text>
+<rect x="40" y="320" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="395" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="342" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="368.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Canal+</text>
+<rect x="40" y="396" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="471" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="418" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="444.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Canal+ (stary układ)</text>
+<rect x="40" y="472" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="547" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="494" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="520.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Telewizja na kartę</text>
+<rect x="40" y="548" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="623" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="570" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="596.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Polskie FTA</text>
+<rect x="40" y="624" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="699" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="646" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="672.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Filmy i seriale</text>
+<rect x="40" y="700" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="775" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="722" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="748.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Sport</text>
+<rect x="40" y="776" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="851" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="798" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="824.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Informacyjne</text>
+<rect x="40" y="852" width="4" height="76" fill="#101938" fill-opacity="1.000000"/>
+<rect x="48" y="927" width="1128" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<image x="56" y="874" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR42mNgGAWjYBSMgsEGDp25/p8QHlDLaeoIUhxAE0cQazipDiXa4aT4jiaOIDV4B9wBVI/iQesAagU1WQ6gNLHhMmvohMCQSwNUdwA1S7qhGQIDlgZojQenA+jliNF25yhABgCcfRfxVr5yVQAAAABJRU5ErkJggg=="/>
+<text x="104" y="900.5" font-size="28" font-weight="bold" fill="#f3f6fa" text-anchor="start">Dzieci</text>
+<text x="40" y="961.0" font-size="21" font-weight="normal" fill="#b1c4e5" text-anchor="start">OK — kanał     INFO — opis     EXIT — powrót</text>
+<rect x="1200" y="168" width="2" height="760" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="1272" y="168" width="608" height="342" fill="#12232e" fill-opacity="1.000000"/>
+<rect x="1274" y="170" width="604" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<polygon points="1554.0,301.0 1554.0,357.0 1602.0,329.0" fill="#46baff"/>
+<text x="1576.0" y="402.0" font-size="25" font-weight="normal" fill="#b1c4e5" text-anchor="middle">Podgląd TV · 16:9</text>
+<text x="1232" y="546.0" font-size="20" font-weight="normal" fill="#b1c4e5" text-anchor="start">ZAZNACZONA POZYCJA</text>
+<text x="1232" y="584.0" font-size="26" font-weight="normal" fill="#46baff" text-anchor="start">Polskie</text>
+<rect x="1232" y="606" width="648" height="1" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="1232" y="774" width="648" height="4" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="1232" y="774" width="648" height="4" fill="#304a72" fill-opacity="1.000000"/>
+<text x="1232" y="960.0" font-size="20" font-weight="normal" fill="#b1c4e5" text-anchor="start">INFO — pełny opis</text>
+</g>
+</svg>

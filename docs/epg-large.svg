@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — GraphicalEPG — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="54" width="5" height="28" fill="#46baff" fill-opacity="1.000000"/>
+<text x="84" y="82.0" font-size="44" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
+<text x="420" y="77.0" font-size="29" font-weight="normal" fill="#b1c4e5" text-anchor="start">PROGRAM TV</text>
+<text x="1856" y="80.0" font-size="40" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<image x="64" y="126" width="1792" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<text x="64" y="181.0" font-size="31" font-weight="normal" fill="#b1c4e5" text-anchor="start">Ulubione — wtorek, 3 listopada</text>
+<rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
+<rect x="64" y="1012" width="6" height="39" fill="#ff6262" fill-opacity="1.000000"/>
+<text x="86" y="1027.0" font-size="29" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wyszukaj</text>
+<rect x="512" y="1012" width="6" height="39" fill="#00e676" fill-opacity="1.000000"/>
+<text x="534" y="1027.0" font-size="29" font-weight="normal" fill="#f3f6fa" text-anchor="start">Dodaj timer</text>
+<rect x="960" y="1012" width="6" height="39" fill="#f5ce55" fill-opacity="1.000000"/>
+<text x="982" y="1027.0" font-size="29" font-weight="normal" fill="#f3f6fa" text-anchor="start">Szukaj w EPG</text>
+<rect x="1408" y="1012" width="6" height="39" fill="#5eacff" fill-opacity="1.000000"/>
+<text x="1430" y="1027.0" font-size="29" font-weight="normal" fill="#f3f6fa" text-anchor="start">AutoTimer</text>
+<text x="64" y="256.0" font-size="38" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wszystko przed nami</text>
+<text x="64" y="314.0" font-size="30" font-weight="normal" fill="#46baff" text-anchor="start">20:00</text>
+<text x="208" y="314.0" font-size="30" font-weight="normal" fill="#b1c4e5" text-anchor="start">– 21:30</text>
+<rect x="64" y="320" width="1792" height="46" fill="#101938" fill-opacity="1.000000"/>
+<text x="384.0" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">20:00</text>
+<text x="629.3333333333334" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">20:30</text>
+<text x="874.6666666666667" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">21:00</text>
+<text x="1120.0" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">21:30</text>
+<text x="1365.3333333333335" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">22:00</text>
+<text x="1610.6666666666667" y="346.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">22:30</text>
+<rect x="64" y="366" width="1792" height="560" fill="#101938" fill-opacity="1.000000"/>
+<rect x="64" y="366.0" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="408.3333333333333" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">CINEMA</text>
+<text x="170" y="407.0" font-size="23" font-weight="normal" fill="#46baff" text-anchor="start">Sky Cinema HD</text>
+<rect x="384.0" y="366.0" width="488.6666666666667" height="91.33333333333333" fill="#0759ad" fill-opacity="1.000000"/>
+<rect x="384.0" y="366.0" width="3" height="91.33333333333333" fill="#46baff" fill-opacity="1.000000"/>
+<text x="396.0" y="409.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wszystko przed nami</text>
+<rect x="874.6666666666667" y="366.0" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="409.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Nocna zmiana</text>
+<rect x="1365.3333333333335" y="366.0" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="409.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<rect x="64" y="459.3333333333333" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="501.66666666666663" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">ACTION</text>
+<text x="170" y="500.3333333333333" font-size="23" font-weight="normal" fill="#f3f6fa" text-anchor="start">Sky Cinema Act…</text>
+<rect x="384.0" y="459.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#123b68" fill-opacity="1.000000"/>
+<text x="396.0" y="502.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wieczór filmowy</text>
+<rect x="874.6666666666667" y="459.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="502.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Kolejna audycja</text>
+<image x="1321.3333333333335" y="518.6666666666666" width="28" height="28" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAdklEQVR42u1XWw4AIAjqrN7/DnWCHooNarL1l4QujVorvIZu1meLdvBVIR7ydCFRshQRKAkUn1XGMM8uyHPx3AJWAdEOcImYbUba8FgAmj1chYzsoSqUgBJA7wL6HJCYhPS3QOI1pPsBCUck4QklXLHMv6DwLQYDovwJNb+5wQAAAABJRU5ErkJggg=="/>
+<rect x="1365.3333333333335" y="459.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="502.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<rect x="64" y="552.6666666666666" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="595.0" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">SPORT</text>
+<text x="170" y="593.6666666666666" font-size="23" font-weight="normal" fill="#f3f6fa" text-anchor="start">Sky Sport HD</text>
+<rect x="384.0" y="552.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#123b68" fill-opacity="1.000000"/>
+<text x="396.0" y="595.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Magazyn sportowy</text>
+<rect x="874.6666666666667" y="552.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="595.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Kolejna audycja</text>
+<rect x="1365.3333333333335" y="552.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="595.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<rect x="64" y="646.0" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="688.3333333333334" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">ATLANTIC</text>
+<text x="170" y="687.0" font-size="23" font-weight="normal" fill="#f3f6fa" text-anchor="start">Sky Atlantic HD</text>
+<rect x="384.0" y="646.0" width="488.6666666666667" height="91.33333333333333" fill="#123b68" fill-opacity="1.000000"/>
+<text x="396.0" y="689.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Nowy rozdział</text>
+<rect x="874.6666666666667" y="646.0" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="689.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Kolejna audycja</text>
+<rect x="1365.3333333333335" y="646.0" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="689.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<image x="1812.0000000000002" y="705.3333333333334" width="28" height="28" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAdklEQVR42u1XWw4AIAjqrN7/DnWCHooNarL1l4QujVorvIZu1meLdvBVIR7ydCFRshQRKAkUn1XGMM8uyHPx3AJWAdEOcImYbUba8FgAmj1chYzsoSqUgBJA7wL6HJCYhPS3QOI1pPsBCUck4QklXLHMv6DwLQYDovwJNb+5wQAAAABJRU5ErkJggg=="/>
+<rect x="64" y="739.3333333333333" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="781.6666666666666" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">ERSTE</text>
+<text x="170" y="780.3333333333333" font-size="23" font-weight="normal" fill="#f3f6fa" text-anchor="start">Das Erste HD</text>
+<rect x="384.0" y="739.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#123b68" fill-opacity="1.000000"/>
+<text x="396.0" y="782.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wiadomości dnia</text>
+<rect x="874.6666666666667" y="739.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="782.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Kolejna audycja</text>
+<rect x="1365.3333333333335" y="739.3333333333333" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="782.3333333333333" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<rect x="64" y="832.6666666666666" width="318" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="116.0" y="875.0" font-size="15" font-weight="normal" fill="#f3f6fa" text-anchor="middle">ZDF</text>
+<text x="170" y="873.6666666666666" font-size="23" font-weight="normal" fill="#f3f6fa" text-anchor="start">ZDF HD</text>
+<rect x="384.0" y="832.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#123b68" fill-opacity="1.000000"/>
+<text x="396.0" y="875.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Na dobre i na złe</text>
+<rect x="874.6666666666667" y="832.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="886.6666666666667" y="875.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Kolejna audycja</text>
+<rect x="1365.3333333333335" y="832.6666666666666" width="488.6666666666667" height="91.33333333333333" fill="#18284e" fill-opacity="1.000000"/>
+<text x="1377.3333333333335" y="875.6666666666666" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Program wieczorny</text>
+<text x="64" y="962.0" font-size="26" font-weight="normal" fill="#b1c4e5" text-anchor="start">Zielona linia — teraz   •   Zegar — timer   •   Czerwony — timer nagrania</text>
+<rect x="744" y="366" width="3" height="560" fill="#46baff" fill-opacity="1.000000"/>
+</g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>PolsQ — InfoBar — dane przykładowe</title>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
+<rect x="0" y="0" width="640" height="1080" fill="#315b78" fill-opacity="1.000000"/>
+<rect x="640" y="0" width="640" height="1080" fill="#7c3c4c" fill-opacity="1.000000"/>
+<rect x="1280" y="0" width="640" height="1080" fill="#47694a" fill-opacity="1.000000"/>
+<text x="960.0" y="342.0" font-size="42" font-weight="normal" fill="#f3f6fa" text-anchor="middle">Przykładowy obraz TV — test przezroczystości</text>
+<rect x="0" y="662" width="1920" height="418" fill="#000000" fill-opacity="0.000000"/>
+<image x="348" y="830" width="128" height="48" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAwCAYAAADZ9HK+AAAAlklEQVR42u3coQGAMBAEwdRBQSma5sCiEh12xDbwN/rHvJ+x6dLRLfc1ehyD4eMQjB9HAAAAxi8jAAAAAOoAHCIcAAA4AgACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAGgYwBA0M2HEAAAAACC5vgAAOBVbHn86Vl0d/gdABh+PPq3Fw5sUZfgVh17AAAAAElFTkSuQmCC"/>
+<image x="0" y="662" width="1920" height="418" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAGiCAYAAAAm6qx9AAAApElEQVR42u3EoWpCUQAA0DdRRJChIMgYGAyGBYNFwWIxrFhWViwrKyaLxWKxWAwWi8FiMCwYFgYLA2EgggyH7m/kBN9HjHvCiXJ3jSi6dhOXUFIppZVRVrfKq6Ci7lVSWRU9qKqa6mqqpbYe1dGTntXVi17VU18DDTXSWBNNNdNcCy210lpv2uhdH/rUl7b61k57HfSjo3510jnuLxQKhUKh/90F+tzlN/dyeYoAAAAASUVORK5CYII="/>
+<image x="64" y="718" width="1792" height="18" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAASCAYAAABcrsoBAAADu0lEQVR42u3dW5IVRRSG0W5BQUAFFLl6AxR1IA7ayeFrR0ad3HunWaez66yHNYGKqHz4v8jIq3/+/XwFAAAAAAAAHIOPwDldAwAAAADABdMKEAAdBEO+AAAAAAAAKNJYDhR0jxjrVvlR7i3i/kK+BAAAAACAC7bSZr9KxxBAd4iKtxX4Vo5tKwevryZ6MNFDAAAAAABgmpkb/sy2sHIQXTlKnj0Qzo5+5wh3e0e4c8S06o/+9YBHRY+Lngz4BgAAAAAALtjItl7d76t9YKRB7B00zxEnzxEY9w6F5QA4I/TNCHkzgt2MIDcjuM2KatHh8W3Cd4GnCc8CzxO+BwAAAACAA8ts5dHentnso90/0w5mxMsZgXJGgJwRGWdFxBmRsBwCK/FvJPRVw95IxKtGu5FINxLjqvFtJLRVw9oPHS9O+PGElye86ngNAAAAAAAXrLehn9rdT+30p3b9XguohsqRMFmNkCPRcSQuVmPiSDyshsKRMJiKgJn4l4l+2ciXjXuZmJcNeNlwlwl12UCXjXKZCJeNb5ng9mbD2w3vNvy04ecNvzR+3fAbAAAAAABckK2tvN3Ttzb3rW1+a8Pf2vq3mkAmSGYjZCY+ZmNjNjBmwmI2JGYDYiYaZiNhNg5mYmA3AvbiXzX69UJfNfD1wl4U86KQ14t3UbTrBbso0lXiXBTkohDXC3DtofO+8aHxsfH7DX80PjX+bPzV+BsAAAAAAA6s3cXb3bzd1dvd/eYm3+717Z7f7v1RhOzFxyg69mJjFBmjuFgJilFI7MXDKBz2gmEUCaNA2AuD1Ri4GQHdAHQD0A1AAAAAAABwA9ANwIPeAPQGoDcAvQEIAAAAAADeAPQG4MHeAIwiYBQDs2GwFwczoTATDTPxMIqIUUzMhsVeXMyExmx07IXHTISMYmQ2TPbiZCZUAgAAAADAEWS28mhvz2z20e6faQdRf8g0jEwLiXpKpslEXSfThqK+lGlUmdYV9bJMc4u63VU2AGZD4EgYrETC0XBYjYiVoDgaGSvBcSRAVoPkSKCsxspqvAQAAAAAgCMb2dar+321D4w0iGrnqHaUkVZT7UHV3jTStKrdrNrlTja+KAD+nxg4MxTuERJnBcaZ8XGPODkrWs4MmgAAAAAAwLxgNjumzYpssyPc7EA3K9zNDntD0W80AJ4zEK4UF1eIkqsEzdWCKAAAAAAA3CUrbfardIxVus4qnWtKt5sZAPdwzZ0NoAAAAAAAwN2hsdxSrNvD6gGQY3EYAAAAAAAgGMHO/gPBXOJyqNGIYAAAAABJRU5ErkJggg=="/>
+<image x="64" y="726" width="1792" height="2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABwAAAAACCAYAAABfeMiaAAACVklEQVR42u3ZUUoVAAAF0RdJkmQYhkmSZBiGYZIoSYZh2CNJMgzDMEkSJcMwTJIkyTAMkyRJMgzDJEkyDMNQS5IkQzFMkkTDMAzbRk1wVyH342xiJhB89zeADdiIEGxCKDYjDFsQjq2IwDZEYjuisAPR2IkY7EIsdiMOexCPvUjAPiRiP5JwAMk4iBSkIg2HkI7DyMARZOIosnAM2TiOIE4gByeRi1PIw2nk4wwKcBaFOIcinEcxLqAEF1GKMpTjEipwGZW4gipcRTWuoQbXUYsbqMNN1OMWGnAbjbiDJtxFM+6hBffRigdow0O04xE68BideIIuPEU3nqEHz9GLF+jDS/TjFQbwGoN4gyG8xTBGMIr3GMMHjOMjJvAJk/iMKUxjBl8wi6+YwzfM4zsWsIgl/MAyfmIFv7CK31jDHzMzMzMzMzMzMzOzdWhNLXxVbXxFrXxZ7XxJLX1BbX1erX1O7X1WLX5GbX5KrX5S7X5CLX9cbX9MrX9U7X9YL2BIb2BQr2BA76BfL6FPb6FXr6FH76FbL6JLb6JTr6JD76JdL6NNb6NVr6NF76NZL6RJb6RRr6RB76ReL6VOb6VWr6VG76VaL6ZKb6ZSr6ZC76ZcL6dUb6dEr6dY76dIL6hQb6hAryhf7yhPLylXbylHrymo95StF5WlN5WpV5Whd5Wul5Wmt5Wi15Ws95WkF5aoN5agVxavdxanlxartxaj1xat9xalFxepNxehVxeudxemlxeqtxei1/f/+QUCHoAegB6AZmZmZmZmZmZmZmYegB6A62cA/gMSN2cCdGs08AAAAABJRU5ErkJggg=="/>
+<image x="64" y="760" width="220" height="132" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAACECAYAAAD7h0UbAAAAiElEQVR42u3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg2wDGUwABd6grAAAAAABJRU5ErkJggg=="/>
+<text x="174.0" y="820.0" font-size="27" font-weight="normal" fill="#f3f6fa" text-anchor="middle">CINEMA</text>
+<text x="360" y="798.0" font-size="42" font-weight="bold" fill="#f3f6fa" text-anchor="start">Sky Cinema HD</text>
+<text x="1856" y="796.0" font-size="40" font-weight="normal" fill="#f3f6fa" text-anchor="end">20:45</text>
+<text x="360" y="866.0" font-size="28" font-weight="normal" fill="#46baff" text-anchor="start">TERAZ</text>
+<text x="480" y="866.0" font-size="32" font-weight="normal" fill="#f3f6fa" text-anchor="start">20:00</text>
+<text x="640" y="866.0" font-size="36" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wszystko przed nami</text>
+<rect x="360" y="900" width="1496" height="6" fill="#647181" fill-opacity="1.000000"/>
+<rect x="360" y="900" width="1496" height="6" fill="#647181" fill-opacity="1.000000"/>
+<rect x="360" y="900" width="748" height="6" fill="#46baff" fill-opacity="1.000000"/>
+<text x="360" y="970.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="start">POTEM</text>
+<text x="480" y="970.0" font-size="32" font-weight="normal" fill="#b1c4e5" text-anchor="start">21:30</text>
+<text x="640" y="970.0" font-size="34" font-weight="normal" fill="#b1c4e5" text-anchor="start">Nocna zmiana</text>
+<text x="1856" y="1044.0" font-size="28" font-weight="normal" fill="#b1c4e5" text-anchor="end">Do końca: 15 min</text>
+<rect x="320" y="760" width="1" height="142" fill="#304a72" fill-opacity="1.000000"/>
+</g>
+</svg>
