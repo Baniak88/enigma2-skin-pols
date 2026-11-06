@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<skin>
+  <output id="0">
+    <resolution xres="1920" yres="1080" bpp="32" />
+  </output>
+  <colors>
+    <color name="background" value="#00101938" />
+    <color name="panel" value="#0018284e" />
+    <color name="foreground" value="#00ffffff" />
+    <color name="muted" value="#009baed2" />
+    <color name="accent" value="#000078e8" />
+  </colors>
+  <fonts>
+    <font filename="/usr/share/fonts/nmsbd.ttf" name="Regular" scale="100" />
+  </fonts>
+  <screen name="Menu" position="0,0" size="1920,1080" backgroundColor="#101938" flags="wfNoBorder">
+    <eLabel text="POLS Q" position="90,55" size="300,65" font="Regular;42" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Menu główne" position="430,62" size="1100,55" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="20:15" position="1650,65" size="180,50" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="90,185" size="620,680" font="Regular;36" itemHeight="85" foregroundColor="#ffffff" backgroundColor="#101938" backgroundColorSelected="#0078e8" foregroundColorSelected="#ffffff" scrollbarMode="showOnDemand" name="menu" />
+    <eLabel text="Twój wieczór. Twój wybór." position="810,220" size="1000,100" font="Regular;56" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Telewizja, nagrania i ustawienia" position="810,345" size="1000,65" font="Regular;32" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Wybierz pozycję za pomocą strzałek pilota." position="810,455" size="1000,60" font="Regular;28" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="●  Nagrywaj         ●  Ulubione         ●  Informacje         ●  Szukaj" position="90,985" size="1580,50" font="Regular;26" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="OK  Wybierz     EXIT  Wstecz" position="1330,990" size="520,42" font="Regular;24" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+  </screen>
+  <screen name="ChannelSelection" position="0,0" size="1920,1080" backgroundColor="#101938" flags="wfNoBorder">
+    <eLabel text="POLS Q" position="90,55" size="300,65" font="Regular;42" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Telewizja  /  Wszystkie kanały" position="430,62" size="1100,55" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="20:15" position="1650,65" size="180,50" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="90,190" size="1060,700" font="Regular;32" serviceNumberFont="Regular;28" serviceNameFont="Regular;32" serviceInfoFont="Regular;26" itemHeight="76" foregroundColor="#ffffff" backgroundColor="#101938" backgroundColorSelected="#0078e8" foregroundColorSelected="#ffffff" scrollbarMode="showOnDemand" name="list" />
+    <widget position="1230,210" size="600,60" source="ServiceEvent" render="Label" font="Regular;40" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget position="1230,325" size="600,100" source="ServiceEvent" render="Label" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget position="1230,460" size="590,380" source="ServiceEvent" render="Label" font="Regular;26" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <eLabel text="●  Nagrywaj         ●  Ulubione         ●  Informacje         ●  Szukaj" position="90,985" size="1580,50" font="Regular;26" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="OK  Wybierz     EXIT  Wstecz" position="1330,990" size="520,42" font="Regular;24" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+  </screen>
+  <screen name="InfoBar" position="0,0" size="1920,1080" backgroundColor="#ff000000" flags="wfNoBorder">
+    <eLabel text="" position="0,765" size="1920,315" font="Regular;30" foregroundColor="#ffffff" backgroundColor="#101938" transparent="0" />
+    <eLabel text="POLS Q" position="90,800" size="240,60" font="Regular;38" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="380,800" size="1100,60" source="session.CurrentService" render="Label" font="Regular;38" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget position="380,875" size="1120,55" source="session.Event_Now" render="Label" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget position="380,970" size="1100,50" source="session.Event_Next" render="Label" font="Regular;27" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget position="380,943" size="1120,6" source="session.Event_Now" render="Progress" foregroundColor="#0078e8" backgroundColor="#18284e">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <widget position="1660,805" size="190,55" source="global.CurrentTime" render="Label" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938">
+      <convert type="ClockToText">Default</convert>
+    </widget>
+  </screen>
+  <screen name="EPGSelection" position="0,0" size="1920,1080" backgroundColor="#101938" flags="wfNoBorder">
+    <eLabel text="POLS Q" position="90,55" size="300,65" font="Regular;42" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Program TV" position="430,62" size="1100,55" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="20:15" position="1650,65" size="180,50" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="90,150" size="1600,60" source="Service" render="Label" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget position="90,240" size="1740,650" font="Regular;30" itemHeight="72" foregroundColor="#ffffff" backgroundColor="#101938" backgroundColorSelected="#0078e8" foregroundColorSelected="#ffffff" scrollbarMode="showOnDemand" name="list" />
+    <eLabel text="●  Nagrywaj         ●  Ulubione         ●  Informacje         ●  Szukaj" position="90,985" size="1580,50" font="Regular;26" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="OK  Wybierz     EXIT  Wstecz" position="1330,990" size="520,42" font="Regular;24" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+  </screen>
+  <screen name="MovieSelection" position="0,0" size="1920,1080" backgroundColor="#101938" flags="wfNoBorder">
+    <eLabel text="POLS Q" position="90,55" size="300,65" font="Regular;42" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Moje nagrania" position="430,62" size="1100,55" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="20:15" position="1650,65" size="180,50" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="90,190" size="1740,700" font="Regular;32" itemHeight="76" foregroundColor="#ffffff" backgroundColor="#101938" backgroundColorSelected="#0078e8" foregroundColorSelected="#ffffff" scrollbarMode="showOnDemand" name="list" />
+    <eLabel text="●  Nagrywaj         ●  Ulubione         ●  Informacje         ●  Szukaj" position="90,985" size="1580,50" font="Regular;26" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="OK  Wybierz     EXIT  Wstecz" position="1330,990" size="520,42" font="Regular;24" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+  </screen>
+  <screen name="Setup" position="0,0" size="1920,1080" backgroundColor="#101938" flags="wfNoBorder">
+    <eLabel text="POLS Q" position="90,55" size="300,65" font="Regular;42" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="Ustawienia" position="430,62" size="1100,55" font="Regular;36" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <eLabel text="20:15" position="1650,65" size="180,50" font="Regular;34" foregroundColor="#ffffff" backgroundColor="#101938" transparent="1" />
+    <widget position="90,210" size="1740,650" font="Regular;32" itemHeight="72" foregroundColor="#ffffff" backgroundColor="#101938" backgroundColorSelected="#0078e8" foregroundColorSelected="#ffffff" scrollbarMode="showOnDemand" name="config" />
+    <widget position="90,975" size="500,50" font="Regular;28" foregroundColor="#ffffff" backgroundColor="#101938" name="key_red" />
+    <widget position="650,975" size="600,50" font="Regular;28" foregroundColor="#ffffff" backgroundColor="#101938" name="key_green" />
+  </screen>
+</skin>
