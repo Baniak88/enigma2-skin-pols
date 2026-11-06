@@ -32,7 +32,7 @@ class PolsQSettings(Screen, ConfigListScreen):
         self.onLayoutFinish.append(self.selectionChanged)
 
     def selectionChanged(self):
-        self['description'].setText('Standard: 10 pozycji. Nazwa kanału u góry, audycja pod spodem.\n\nDuże napisy: także 10 pozycji, z nieco większą czcionką.\n\nNaciśnij ZIELONY — Zapisz po aktualizacji, aby ustawić 10 pozycji również w starszym trybie listy. Historia kanałów pojawia się w panelu po lewej. Lista kanałów i timery pozostają bez zmian.')
+        self['description'].setText('Standard: 8 pozycji. Nazwa kanału u góry, audycja pod spodem.\n\nDuże napisy: także 8 pozycji, z nieco większą czcionką.\n\nNaciśnij ZIELONY — Zapisz po aktualizacji, aby ustawić 8 pozycji również w starszym trybie listy. Lista kanałów jest po prawej, podgląd po lewej. Historia kanałów pojawia się w panelu po lewej. Lista kanałów i timery pozostają bez zmian.')
 
     def keyCancel(self):
         self.close()

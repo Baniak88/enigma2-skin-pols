@@ -153,6 +153,9 @@ def build():
     line_icon('assets/line-history.png',[arc,[(16,10),(16,16),(21,19)]],[[(4,10),(4,5),(9,5)]])
     line_icon('icons/folder.png',folder+list_lines)
     line_icon('icons/marker.png',[[(8,4),(24,4),(24,28),(16,22),(8,28),(8,4)]])
+    from q_assets import build as build_q_assets, build_menu_icons
+    build_q_assets()
+    build_menu_icons()
     # Native components also resolve icons relative to the selected skin.
     large=ROOT.parent/'PolsQLarge';large.mkdir(exist_ok=True)
     (large/'VERSION').write_text(VERSION+'\n')

@@ -38,7 +38,7 @@ class Profiles(unittest.TestCase):
             self.assertEqual(config.skin.primary_skin.value,profile['skin'])
             self.assertEqual(selection.widgetStyle.value,profile['template'])
             self.assertTrue(selection.showPicon.value)
-            self.assertEqual(usage.serviceitems_per_page.value,10)
+            self.assertEqual(usage.serviceitems_per_page.value,8)
             self.assertEqual(usage.serviceitems_per_page_twolines.value,profile['rows'])
             self.assertTrue(usage.servicelist_twolines.value)
             self.assertIn(int(usage.servicelist_column.value),range(100,1325,25))
@@ -52,7 +52,7 @@ class Profiles(unittest.TestCase):
             normal=skins[0].find(f"screen[@name='{name}']");large=skins[1].find(f"screen[@name='{name}']")
             for a,b in zip(normal,large):
                 if a.get('font'):self.assertGreater(int(b.get('font').split(';')[1]),int(a.get('font').split(';')[1]))
-        for folder,rows in (('PolsQ',10),('PolsQLarge',10)):
+        for folder,rows in (('PolsQ',8),('PolsQLarge',8)):
             skin=E.parse(ROOT/folder/'skin.xml').getroot()
             height=int(skin.find("screen[@name='ChannelSelection']/widget[@name='list']").get('size').split(',')[1])
             template=E.parse(ROOT/folder/'skinTemplates.xml').getroot().find('template')

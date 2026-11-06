@@ -13,26 +13,26 @@ def write_xml(path,root):
 def service_templates(large=False):
     root=E.Element('templates')
     name='PolsQLarge' if large else 'PolsQ'
-    height=76
+    height=96
     template=E.SubElement(root,'template',name=name,component='serviceList',fonts='PolsQStrong;30,PolsQText;25,PolsQText;26' if large else 'PolsQStrong;28,PolsQText;23,PolsQText;24')
     def item(mode,tag,**attrs):
         return E.SubElement(mode,tag,{k:str(v) for k,v in attrs.items()})
     for kind in ('services','bouquets','other'):
-        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='1136',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
+        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='864',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
         item(mode,'rectangle',position='0,0',size=f'4,{height}',foregroundColor='bg',foregroundColorSelected='green')
-        item(mode,'rectangle',position=f'8,{height-1}',size='1128,1',foregroundColor='line',foregroundColorSelected='selected')
+        item(mode,'rectangle',position=f'8,{height-1}',size='856,1',foregroundColor='line',foregroundColorSelected='selected')
         if kind=='other':
             for index in ('FolderImage','MarkerImage'):
                 item(mode,'pixmap',index=index,position='16,22',size='32,32',alpha='blend',scale='scaleCenter')
-            item(mode,'text',index='EntryName',position='64,0',size=f'1048,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
+            item(mode,'text',index='EntryName',position='64,0',size=f'784,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
             continue
         item(mode,'text',index='Number',position='4,0',size=f'52,{height}',font='2',horizontalAlignment='right',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='white')
-        item(mode,'pixmap',index='Picon',position='72,11',size='96,54',alpha='blend',scale='scaleCenter')
+        item(mode,'pixmap',index='Picon',position='60,20',size='80,46',alpha='blend',scale='scaleCenter')
         # Both sizes use two distinct text lines. Channel names can use the full
         # upper line; programme titles end before the separate progress slot.
-        item(mode,'text',index='ServiceName',position='184,2',size='928,36',font='0',verticalAlignment='center',wrap='ellipsis')
-        item(mode,'text',index='Title1',position='184,40',size='800,32',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
-        item(mode,'progress',index='Progress',position='1016,54',size='96,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
+        item(mode,'text',index='ServiceName',position='160,6',size='680,40',font='0',verticalAlignment='center',wrap='ellipsis')
+        item(mode,'text',index='Title1',position='160,50',size='576,38',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
+        item(mode,'progress',index='Progress',position='768,68',size='64,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
     return root
 
 
@@ -142,7 +142,9 @@ def large_skin(skin):
 
 
 def write_variants(root,skin):
+    from q_layout import apply
+    large=large_skin(skin)
+    write_xml(root/'PolsQ/skin.xml',apply(skin))
+    write_xml(root/'PolsQLarge/skin.xml',apply(large,True))
     write_xml(root/'PolsQ/skinTemplates.xml',service_templates())
-    write_xml(root/'PolsQLarge/skin.xml',large_skin(skin))
     write_xml(root/'PolsQLarge/skinTemplates.xml',service_templates(True))
-

@@ -1,0 +1,135 @@
+"""Pols Q 0.3: original spatial composition over native OpenATV contracts."""
+from copy import deepcopy
+import xml.etree.ElementTree as E
+
+
+def node(s,tag,**a):return E.SubElement(s,tag,{k:str(v) for k,v in a.items()})
+def image(s,path,x,y,w,h,z=-10):return node(s,'ePixmap',position=f'{x},{y}',size=f'{w},{h}',pixmap='PolsQ/assets/'+path,scale='1',alphatest='blend',zPosition=z)
+def text(s,value,x,y,w,h,size=28,color='white',bold=False):return node(s,'eLabel',text=value,position=f'{x},{y}',size=f'{w},{h}',font=f'PolsQ{"Strong" if bold else "Text"};{size}',foregroundColor=color,transparent='1')
+def src(s,name,x,y,w,h,size=28,converts=(),render='Label',**kw):
+ a=dict(source=name,render=render,position=f'{x},{y}',size=f'{w},{h}',foregroundColor='white',transparent='1')
+ if render=='Picon':a['backgroundColor']='transparent'
+ if render in ('Label','PolsQSummary','FixedLabel'):a['font']=f'PolsQText;{size}'
+ a.update(kw)
+ if render=='Picon':node(s,'ePixmap',position=a['position'],size=a['size'],pixmap='PolsQ/picon_default.png',scale='1',alphatest='blend',zPosition='0')
+ n=node(s,'widget',**a)
+ for kind,arg in converts:node(n,'convert',type=kind).text=arg
+ return n
+
+def place(n,x,y,w,h):n.set('position',f'{x},{y}');n.set('size',f'{w},{h}');return n
+
+def shell(s,section):
+ image(s,'q-wallpaper.png',0,0,1920,1080,-30)
+ image(s,'q-rail.png',0,0,112,1080,-20)
+ text(s,'Q',34,40,60,68,48,bold=True)
+ for i,path in enumerate(['line-tv.png','line-bouquet.png','line-history.png']):image(s,path,38,234+i*112,36,36,0)
+ text(s,'POLS',28,960,80,44,20)
+ text(s,section,152,48,1350,68,40,bold=True)
+ src(s,'global.CurrentTime',1616,52,240,54,32,converts=[('ClockToText','Default')],halign='right')
+
+def menu(s,large):
+ saved={n.get('name') or n.get('source'):deepcopy(n) for n in s.findall('widget')}
+ s[:]=[];shell(s,'Twój wieczór')
+ image(s,'q-hero.png',144,164,1712,384,-10)
+ text(s,'NA ŻYWO',192,202,800,40,21,'green')
+ src(s,'session.CurrentService',192,252,850,46,28,converts=[('ServiceName','Name')])
+ src(s,'session.Event_Now',192,310,896,114,46,render='PolsQSummary',converts=[('EventName','Name')])
+ src(s,'session.Event_Now',192,444,850,70,25,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
+ src(s,'session.VideoPicture',1200,194,576,324,render='Pig',backgroundColor='transparent',zPosition='2')
+ n=saved['menu'];place(n,144,584,1712,352)
+ n.set('listOrientation','grid');n.set('itemWidth','570');n.set('itemHeight','176');n.set('backgroundColor','transparent');n.set('selectionPixmap','PolsQ/assets/q-tile-focus.png');n.set('selectionZoom','0');n.set('scrollbarMode','showOnDemand')
+ icon='MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)'
+ def title(index,x=32):return f'MultiContentEntryText(pos=({x},108),size=({530-x},54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text={index})'
+ styles={k:icon+','+title(0 if k=='default' else 3) for k in ('default','text','number','image','both')}
+ n.find('convert').text='{"itemHeight":176,"itemWidth":570,"template":['+styles['default']+'],"fonts":[gFont("PolsQStrong",'+str(32 if large else 28)+')],"templates":{'+','.join('"'+k+'":((570,176),['+v+'])' for k,v in styles.items())+'}}'
+ for i in range(6):image(s,'q-tile.png',144+(i%3)*570,584+(i//3)*176,570,176,-10)
+ s.append(n)
+ # The native menu also expects a menuimage GUI component.
+ m=saved['menuimage'];place(m,1080,212,64,64);s.append(m)
+ d=saved['description'];place(d,160,952,1650,44);d.set('font','PolsQText;24');s.append(d)
+ for key in ('key_red','key_green','key_yellow','key_blue'):
+  for original in [n for n in saved.values() if n.get('source')==key]:
+   # Captions remain native; empty actions are hidden by the original converter.
+   i=('key_red','key_green','key_yellow','key_blue').index(key)
+   place(original,184+i*424,1010,374,44);s.append(original)
+   src(s,key,160+i*424,1020,6,20,render='FixedLabel',text=' ',backgroundColor='nativeGreen' if key=='key_green' else key[4:],transparent='0',conditional=key,converts=[('ConditionalShowHide',None)])
+
+def channels(s,large):
+ old=s.get('name');saved={n.get('source'):deepcopy(n) for n in s.findall('widget') if n.get('source','').startswith('key_') and n.get('render')=='Label'}
+ s[:]=[];shell(s,'Telewizja' if old!='ChannelSelectionRadio' else 'Radio')
+ src(s,'Title',152,128,1660,44,24,foregroundColor='muted',wrap='ellipsis')
+ image(s,'q-hero.png',144,192,800,760,-10)
+ video=old in ('ChannelSelection','ChannelSelection_PIG')
+ if video:src(s,'session.VideoPicture',160,208,768,432,render='Pig',backgroundColor='transparent',zPosition='2')
+ else:
+  src(s,'ServiceEvent',392,260,304,172,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
+  text(s,'TWÓJ KANAŁ',192,470,680,50,32,'green')
+ src(s,'ServiceEvent',192,660,704,44,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
+ src(s,'ServiceEvent',192,714,704,84,34,render='PolsQSummary',converts=[('EventName','Name')])
+ src(s,'ServiceEvent',192,808,128,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
+ src(s,'ServiceEvent',340,808,168,38,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')],foregroundColor='muted')
+ src(s,'ServiceEvent',544,808,352,38,23,converts=[('PolsQEventRemaining','')],halign='right',foregroundColor='muted')
+ src(s,'ServiceEvent',192,858,704,6,render='Progress',backgroundColor='line',foregroundColor='green',borderWidth='0',converts=[('EventTime','Progress')])
+ src(s,'ServiceEvent',192,884,704,54,23,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
+ n=node(s,'widget',name='list',position='992,192',size='864,768',serviceItemHeight='96',serviceNameFont='PolsQText;'+str(32 if large else 28),serviceInfoFont='PolsQText;'+str(28 if large else 24),serviceNumberFont='PolsQText;24',foregroundColor='white',backgroundColor='bg',foregroundColorSelected='white',backgroundColorSelected='selected',foregroundColorEvent='muted',foregroundColorEventSelected='muted',selectionPixmap='PolsQ/assets/q-channel-focus.png',scrollbarMode='showOnDemand',scrollbarWidth='4',progressBarWidth='64',colorEventProgressbar='green',colorEventProgressbarSelected='green')
+ if s.get('label'):s.set('label',s.get('label').replace('10 kanałów','8 kanałów'))
+ text(s,'INFO — pełny opis',160,966,750,30,22,'muted')
+ for i,key in enumerate(('key_red','key_green','key_yellow','key_blue')):
+  if key in saved:
+   n=saved[key];place(n,184+i*424,1010,374,42);s.append(n)
+   src(s,key,160+i*424,1020,6,20,render='FixedLabel',text=' ',backgroundColor='nativeGreen' if key=='key_green' else key[4:],transparent='0',conditional=key,converts=[('ConditionalShowHide',None)])
+
+def infobar(s,large):
+ # A detached logo card, main programme and a separate Next column.
+ s[:]=[];s.set('position','64,772');s.set('size','1792,256');s.set('backgroundColor','transparent')
+ image(s,'q-logo-card.png',0,0,280,256,-10);image(s,'q-info-card.png',300,0,1492,256,-10)
+ src(s,'session.CurrentService',32,50,216,130,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
+ src(s,'session.RecordState',36,204,208,36,24,render='FixedLabel',text='● REC',foregroundColor='red',converts=[('ConditionalShowHide',None)])
+ src(s,'session.CurrentService',340,24,1096,48,34,converts=[('ServiceName','Name')],wrap='ellipsis')
+ src(s,'global.CurrentTime',1540,24,208,48,30,converts=[('ClockToText','Default')],halign='right')
+ text(s,'TERAZ',340,86,880,32,20,'green')
+ src(s,'session.Event_Now',340,124,880,52,32,converts=[('EventName','Name')],wrap='ellipsis')
+ src(s,'session.Event_Now',340,188,164,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')],foregroundColor='muted')
+ src(s,'session.Event_Now',530,188,690,38,24,converts=[('PolsQEventRemaining','')],foregroundColor='muted')
+ text(s,'NASTĘPNIE',1296,86,444,32,20,'green')
+ src(s,'session.Event_Next',1296,126,444,96,26,render='PolsQSummary',converts=[('EventName','Name')])
+ src(s,'session.Event_Now',340,236,1400,4,render='Progress',foregroundColor='green',backgroundColor='line',borderWidth='0',converts=[('EventTime','Progress')])
+
+def graph(s,large):
+ # Details form a wide top feature; the guide occupies the lower half.
+ for n in s:
+  key=n.get('name') or n.get('source','')
+  if key=='list':place(n,144,480,1712,480);n.set('NumberOfRows','5' if large else '6')
+  elif key in ('lab1','bouquetlist'):place(n,144,480,1712 if key=='lab1' else 720,480)
+  elif key=='timeline_text':place(n,144,430,1712,46)
+  elif key.startswith('timeline'):place(n,144,480,int(n.get('size').split(',')[0]),480)
+  elif key=='Event':
+   c=n.find('convert');arg=c.text if c is not None else ''
+   if arg=='Name':place(n,192,240,1100,94);n.set('font','PolsQStrong;'+str(42 if large else 38))
+   elif arg=='StartTime':place(n,192,352,140,44)
+   elif arg=='EndTime':place(n,350,352,180,44)
+  elif n.get('render')=='Pig':place(n,1376,160,480,270)
+ src(s,'Event',600,342,660 if s.get('name')=='GraphicalEPGPIG' else 1120,66,24,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
+ # Remove the inherited header and replace it without touching dynamic widgets.
+ s[:]=[n for n in s if not (n.tag in ('eLabel','ePixmap') and int(n.get('position').split(',')[1])<200) and n.get('source') not in ('Title','global.CurrentTime')]
+ image(s,'q-hero.png',144,188,1712,230,-15)
+ shell(s,'Program TV')
+ for n in s.findall('eLabel'):
+  if 'Zielona linia' in n.get('text',''):n.set('text','Niebieska linia — teraz   •   Zegar — timer');place(n,144,966,1712,30)
+
+def apply(skin,large=False):
+ for s in skin.findall('screen'):
+  name=s.get('name')
+  if name=='Menu':menu(s,large)
+  elif name.startswith('ChannelSelection'):channels(s,large)
+  elif name=='InfoBar':infobar(s,large)
+  elif name.startswith('Graphical'):graph(s,large)
+  elif s.get('size')=='1920,1080' and s.get('backgroundColor')!='transparent':
+   image(s,'q-wallpaper.png',0,0,1920,1080,-30)
+  if large and (name in ('Menu','InfoBar') or name.startswith('ChannelSelection')):
+   for n in s:
+    if n.get('font'):
+     family,size=n.get('font').split(';');n.set('font',family+';'+str(int(size)+4))
+     w,h=map(int,n.get('size').split(','));minimum=round((int(size)+4)*1.2)
+     if h<minimum:n.set('size',f'{w},{minimum}')
+ return skin

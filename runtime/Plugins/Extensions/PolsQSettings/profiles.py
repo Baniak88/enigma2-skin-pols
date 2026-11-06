@@ -1,7 +1,7 @@
 """Explicit profile changes used only after the viewer presses Save."""
 PROFILES = {
-    'standard': {'skin': 'PolsQ/skin.xml', 'template': 'PolsQ', 'rows': 10, 'two_lines': True},
-    'large': {'skin': 'PolsQLarge/skin.xml', 'template': 'PolsQLarge', 'rows': 10, 'two_lines': True},
+    'standard': {'skin': 'PolsQ/skin.xml', 'template': 'PolsQ', 'rows': 8, 'two_lines': True},
+    'large': {'skin': 'PolsQLarge/skin.xml', 'template': 'PolsQLarge', 'rows': 8, 'two_lines': True},
 }
 
 
@@ -24,7 +24,7 @@ def apply_profile(config, name):
     change(config.skin, 'primary_skin', profile['skin'])
     usage = getattr(config, 'usage', None)
     for key, value in {
-        'serviceitems_per_page': 10,
+        'serviceitems_per_page': 8,
         'serviceitems_per_page_twolines': profile['rows'],
         'servicelist_twolines': profile['two_lines'],
         'servicelist_column': 425,

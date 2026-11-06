@@ -1,6 +1,6 @@
-# Galeria Pols Q 0.2.0
+# Galeria Pols Q 0.3.0
 
-38 podglądów z XML z przykładowymi danymi. Nie są zrzutami z dekodera. Kolorowe pole TV pozwala ocenić gradient i przezroczystość.
+38 podglądów z XML z przykładowymi danymi. Nie są zrzutami z dekodera. Krajobraz to syntetyczna próbka obrazu TV, używana tylko w dokumentacji.
 
 ## appearance-large
 

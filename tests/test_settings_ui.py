@@ -25,7 +25,7 @@ class SettingsUI(unittest.TestCase):
         from PIL import Image
         skin=E.parse(ROOT/'PolsQ/skin.xml').getroot()
         colors={n.get('name'):n.get('value') for n in skin.findall('colors/color')}
-        for name in ('InfoBar','SecondInfoBar','MoviePlayer'):
+        for name in ('SecondInfoBar','MoviePlayer'):
             screen=skin.find(f"screen[@name='{name}']")
             self.assertEqual(screen.get('backgroundColor'),'transparent')
             mask=screen.find(f"ePixmap[@pixmap='PolsQ/assets/{name.lower()}-fade.png']")

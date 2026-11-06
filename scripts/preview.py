@@ -11,6 +11,9 @@ from build import VERSION
 from skin_colors import rgba
 
 ROOT=Path(__file__).resolve().parents[1]
+from demo_video import render as render_demo
+DEMO=ROOT/'docs/tv-demo.png'
+if not DEMO.exists():render_demo()
 SKIN=E.parse(ROOT/'PolsQ/skin.xml').getroot()
 COLORS={c.get('name'):c.get('value') for c in SKIN.findall('colors/color')}
 CHANNELS=['Sky Cinema HD','Sky Cinema Action','Sky Sport HD','Sky Atlantic HD','Das Erste HD','ZDF HD','RTL HD','ProSieben HD']
@@ -285,10 +288,10 @@ def draw_list(name,key,x,y,w,h):
         rows=['Informacje','Timery','Nagrania','Wtyczki','Ustawienia','Czuwanie / restart']
         icons=['information','timermenu','movie_selection','plugin_selection','setup','shutdown']
         for i,row in enumerate(rows):
-            rh=96 if PROFILE=='PolsQLarge' else 80
-            if i==0:rect(x,y,w,rh,'selected');rect(x,y,4,rh,'green')
-            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),x+16,y+i*rh+12,56,56)
-            text(x+92,y+i*rh+18,w-116,rh-20,row,36 if PROFILE=='PolsQLarge' else 32,'white',nowrap=True)
+            xx=x+(i%3)*570;yy=y+(i//3)*176
+            if i==0:png(ROOT/'PolsQ/assets/q-tile-focus.png',xx,yy,570,176)
+            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),xx+32,yy+28,64,64)
+            text(xx+32,yy+108,498,54,row,32 if PROFILE=='PolsQLarge' else 28,'white',nowrap=True,bold=True)
     elif name=='BouquetSelector':
         widget=SKIN.find("screen[@name='BouquetSelector']/widget[@name='menu']")
         rh=int(widget.get('itemHeight'));font=int(widget.get('font').split(';')[1])
@@ -302,7 +305,7 @@ def draw_list(name,key,x,y,w,h):
         sample=[(name,'','') for name in BOUQUETS] if STATE=='bouquets' else CHANNEL_ROWS
         for i,(channel,show,logo) in enumerate(sample[:int(h//rh)]):
             yy=y+i*rh
-            if i==0:rect(x,yy,w,rh,'selected')
+            if i==0:png(ROOT/'PolsQ/assets/q-channel-focus.png',x,yy,w,rh)
             for node in mode:
                 xx,dy=map(int,node.get('position').split(','));nw,nh=map(int,node.get('size').split(','))
                 nx,ny=x+xx,yy+dy
@@ -343,13 +346,9 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
     out=['<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">',f'<title>PolsQ — {name} — dane przykładowe</title>','<g font-family="DejaVu Sans, sans-serif">']
     rect(0,0,1920,1080,'#20282c')
     if name in ('InfoBar','EventView','InfoBarEventView','HistoryZap','HistoryZapSelector'):
-        # Deliberately synthetic TV backdrop, continued behind the whole bar.
-        for xx,fill in ((0,'#315b78'),(640,'#7c3c4c'),(1280,'#47694a')):
-            rect(xx,0,640,1080,fill)
-        if name in ('HistoryZap','HistoryZapSelector'):text(880,460,880,120,'Obraz TV',48,'white','center')
-        if name=='InfoBar':text(64,300,1792,180,'Przykładowy obraz TV — test przezroczystości',42,'white','center')
+        png(DEMO,0,0,1920,1080)
     rect(ox,oy,sw,sh,s.get('backgroundColor'))
-    for n in s:
+    for n in sorted(s,key=lambda n:int(n.get('zPosition','0'))):
         x,y=map(int,n.get('position').split(','));w,h=map(int,n.get('size').split(','));x+=ox;y+=oy
         key=n.get('name') or n.get('source','')
         if key in ('lab1','number','bouquetlist') or re_timeline(key):continue
@@ -358,9 +357,7 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
         if n.get('backgroundColor') and n.get('backgroundColor')!='transparent' and n.get('transparent')!='1':rect(x,y,w,h,n.get('backgroundColor'))
         if n.get('render')=='FixedLabel' and n.get('text')==' ':continue
         if n.get('render')=='Pig':
-            rect(x,y,w,h,'#12232e');rect(x+2,y+2,w-4,2,'line')
-            out.append(f'<polygon points="{x+w/2-22},{y+h/2-38} {x+w/2-22},{y+h/2+18} {x+w/2+26},{y+h/2-10}" fill="{color("green")}"/>')
-            text(x,y+h/2+38,w,60,'Podgląd TV · 16:9',25,'muted','center')
+            png(DEMO,x,y,w,h)
         elif n.get('render')=='Picon':fake_picon(0,x,y,w,h)
         elif n.tag=='ePixmap':png(ROOT/n.get('pixmap'),x,y,w,h)
         elif key=='menuimage':png(ROOT/'PolsQ/mainmenu/information.png',x,y,w,h)
@@ -376,7 +373,9 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
             size=int(n.get('font','Regular;28').split(';')[-1])
             display=n.get('text') if n.get('render')=='FixedLabel' and key.startswith('key_') else value(n,name)
             text(x,y,w,h,display,size,n.get('foregroundColor','white'),n.get('halign','left'),n.get('noWrap')=='1' or n.get('wrap')=='ellipsis',n.get('font','').startswith('PolsQStrong;'),n.get('font','').startswith('PolsQMono;'))
-    if name=='GraphicalEPG':rect(64+320+360,366,3,560,'green')
+    if name=='GraphicalEPG':
+        guide=s.find("widget[@name='list']");gx,gy=map(int,guide.get('position').split(','));gw,gh=map(int,guide.get('size').split(','))
+        rect(gx+320+360,gy,3,gh,'green')
     out+=['</g>','</svg>']
     dest=ROOT/'docs'/target;dest.parent.mkdir(exist_ok=True);dest.write_text('\n'.join(out)+'\n')
     if make_png:render_png(dest)

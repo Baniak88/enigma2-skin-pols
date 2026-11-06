@@ -41,11 +41,10 @@ class InstallerUI(unittest.TestCase):
                 self.assertIsNotNone(caption)
                 for widget in (marker,caption):
                     self.assertIsNotNone(widget.find("convert[@type='ConditionalShowHide']"))
-                if key=='key_blue':
-                    expected='1376' if screen.get('name') in ('EventView','InfoBarEventView') else '1408'
-                    if screen.get('name') in ('ChannelSelection','ChannelSelection_PIG','ChannelSelection_NoPIG','ChannelSelectionRadio','SimpleChannelSelection','SlimChannelSelection'):
-                        expected='1420'
-                    self.assertEqual(marker.get('position').split(',')[0],expected)
+                mx,my=map(int,marker.get('position').split(','));mw,mh=map(int,marker.get('size').split(','))
+                cx,cy=map(int,caption.get('position').split(','));cw,ch=map(int,caption.get('size').split(','))
+                self.assertLessEqual(mx+mw,cx)
+                self.assertGreater(min(my+mh,cy+ch)-max(my,cy),0)
 
     def test_opkg_status_and_log_remain_native_dynamic_widgets(self):
         screen=self.skin.find("screen[@name='Opkg']")

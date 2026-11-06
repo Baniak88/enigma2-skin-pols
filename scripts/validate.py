@@ -28,6 +28,7 @@ def check_template(code):
     templates=result.get('templates',{'default':(result.get('itemHeight'),result.get('template'))})
     assert 'default' in templates
     for style,(height,entries,*_) in templates.items():
+        height=height[1] if isinstance(height,tuple) else height
         assert height>0
         for _,kw in entries:
             x,y=kw['pos'];w,h=kw['size']

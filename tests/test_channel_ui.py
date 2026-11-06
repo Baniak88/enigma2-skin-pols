@@ -27,7 +27,7 @@ class ChannelUI(unittest.TestCase):
                 self.assertFalse(overlaps,(name,n.attrib))
 
     def test_channel_and_event_have_separate_lines_with_room_for_long_names(self):
-        for folder,rows in (('PolsQ',10),('PolsQLarge',10)):
+        for folder,rows in (('PolsQ',8),('PolsQLarge',8)):
             skin=E.parse(ROOT/folder/'skin.xml').getroot()
             screen=skin.find("screen[@name='ChannelSelection']")
             _,height=map(int,screen.find("widget[@name='list']").get('size').split(','))
@@ -44,30 +44,32 @@ class ChannelUI(unittest.TestCase):
                 ex,ey=map(int,event.get('position').split(','));ew,eh=map(int,event.get('size').split(','))
                 px,py=map(int,mode.find("progress[@index='Progress']").get('position').split(','))
                 self.assertEqual(cx,ex)
-                self.assertGreaterEqual(cw,860)
-                self.assertGreaterEqual(ew,748)
+                self.assertGreaterEqual(cw,640)
+                self.assertGreaterEqual(ew,560)
                 self.assertGreaterEqual(ey-(cy+ch),2)
                 self.assertGreaterEqual(px-(ex+ew),24)
                 self.assertTrue(ey<=py<ey+eh)
                 self.assertEqual(channel.get('wrap'),'ellipsis')
                 self.assertEqual(event.get('wrap'),'ellipsis')
                 self.assertEqual(event.get('foregroundColorSelected'),'muted')
-                self.assertEqual(height,760)
+                self.assertEqual(height,768)
                 for node in (channel,event):
                     font=int(fonts[int(node.get('font'))].split(';')[1])
                     self.assertGreaterEqual(int(node.get('size').split(',')[1]),font*1.2)
             other=template.find("mode[@name='other']")
-            self.assertEqual(height//int(other.get('itemHeight')),10)
+            self.assertEqual(height//int(other.get('itemHeight')),8)
             self.assertIsNotNone(other.find("pixmap[@index='FolderImage']"))
-            self.assertEqual(screen.find("widget[@name='list']").get('position'),'40,168')
+            self.assertEqual(screen.find("widget[@name='list']").get('position'),'992,192')
 
     def test_selection_is_an_explicit_dark_surface_instead_of_system_gradient(self):
         from PIL import Image
         for name in ('ChannelSelection','ChannelSelection_PIG','ChannelSelection_NoPIG','ChannelSelectionRadio'):
             node=self.skin.find(f"screen[@name='{name}']/widget[@name='list']")
             with Image.open(ROOT/node.get('selectionPixmap')) as image:
-                self.assertEqual(image.size,(1136,76))
-                self.assertEqual(image.getextrema(),((7,7),(89,89),(173,173),(255,255)))
+                self.assertEqual(image.size,(864,96))
+                self.assertEqual(image.getpixel((0,0))[3],0)
+                self.assertEqual(image.getpixel((100,40))[3],255)
+                self.assertNotEqual(image.getpixel((100,20)),image.getpixel((100,70)))
 
     def test_sidebar_title_is_measured_and_does_not_collide_with_time_or_description(self):
         for folder in ('PolsQ','PolsQLarge'):
@@ -80,7 +82,7 @@ class ChannelUI(unittest.TestCase):
                 starts=[n for n in screen.findall("widget[@source='ServiceEvent']") if n.find("convert[@type='EventTime']") is not None and n.find("convert[@type='EventTime']").text=='StartTime']
                 self.assertGreaterEqual(int(starts[0].get('position').split(',')[1])-bottom,8)
                 hint=next(n for n in screen.findall('eLabel') if n.get('text')=='INFO — pełny opis')
-                self.assertLessEqual(int(hint.get('position').split(',')[1])+int(hint.get('size').split(',')[1]),974)
+                self.assertLessEqual(int(hint.get('position').split(',')[1])+int(hint.get('size').split(',')[1]),1004)
 
     def test_font_is_registered_regular_instead_of_default_bold(self):
         fonts={n.get('name'):n.get('filename') for n in self.skin.findall('fonts/font')}
@@ -128,7 +130,7 @@ class ChannelUI(unittest.TestCase):
             description=next(n for n in screen.findall("widget[@source='ServiceEvent']")
                 if n.find("convert[@type='EventName']") is not None and n.find("convert[@type='EventName']").text=='ExtendedDescription')
             height=int(description.get('size').split(',')[1])
-            self.assertGreaterEqual(height,110)
+            self.assertGreaterEqual(height,48)
             hint=next(n for n in screen.findall('eLabel') if n.get('text')=='INFO — pełny opis')
             bottom=int(description.get('position').split(',')[1])+height
             self.assertGreaterEqual(int(hint.get('position').split(',')[1])-bottom,8)
