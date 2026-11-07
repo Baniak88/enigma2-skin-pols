@@ -5,7 +5,7 @@
 #   wget -qO- https://raw.githubusercontent.com/Baniak88/enigma2-skin-pols/main/online-install.sh | sh -s -- --restart
 # Inna gałąź: BRANCH=nazwa przed "sh", np. ... | BRANCH=claude/new-session-dlhvdu sh
 set -eu
-VERSION=0.4.0
+VERSION=0.4.1
 REPO=Baniak88/enigma2-skin-pols
 BRANCH=${BRANCH:-main}
 IPK=enigma2-plugin-skins-polsq_${VERSION}_all.ipk

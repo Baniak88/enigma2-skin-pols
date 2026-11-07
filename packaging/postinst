@@ -6,7 +6,7 @@ case "${1:-configure}" in
     *) exit 0 ;;
 esac
 TVSAT_ROOT=${IPKG_INSTROOT:-}
-if [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQ/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQLarge/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Converter/PolsQEventRemaining.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Plugins/Extensions/PolsQSettings/plugin.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Renderer/PolsQSummary.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Renderer/PolsQVideoFade.py" ]; then
+if [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQ/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/share/enigma2/PolsQLarge/skin.xml" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Converter/PolsQEventRemaining.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Plugins/Extensions/PolsQSettings/plugin.py" ] || [ ! -s "$TVSAT_ROOT/usr/lib/enigma2/python/Components/Renderer/PolsQSummary.py" ]; then
     printf '%s\n' 'PolsQ: instalacja niekompletna — brak plików skórki lub modułów PolsQ.' >&2
     exit 1
 fi

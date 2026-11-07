@@ -356,7 +356,6 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
         if key.startswith('key_') and not value(n,name):continue
         if n.get('backgroundColor') and n.get('backgroundColor')!='transparent' and n.get('transparent')!='1':rect(x,y,w,h,n.get('backgroundColor'))
         if n.get('render')=='FixedLabel' and n.get('text')==' ':continue
-        if n.get('render')=='PolsQVideoFade':continue  # hidden once the reveal ends
         if n.get('render')=='Pig':
             png(DEMO,x,y,w,h)
         elif n.get('render')=='Picon':fake_picon(0,x,y,w,h)
