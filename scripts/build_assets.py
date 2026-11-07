@@ -52,8 +52,9 @@ def build():
     # Single-column gradients are stretched natively; no blur shader or timer.
     for name,height in BAR_HEIGHTS.items():
         total=height+FADE_TOP
-        pixels=bytearray(c for y in range(total) for c in (*BODY_RGB,fade_alpha(y)))
-        png(Path('assets')/(name.lower()+'-fade.png'),1,total,(0,0,0,0),pixels=pixels)
+        # Full width: the bar is blitted 1:1 instead of stretched from 1 px.
+        pixels=bytearray(c for y in range(total) for c in (*BODY_RGB,fade_alpha(y))*1920)
+        png(Path('assets')/(name.lower()+'-fade.png'),1920,total,(0,0,0,0),pixels=pixels)
     event_pixels=bytearray(c for x in range(1920) for c in (*BODY_RGB,event_fade_alpha(x)))
     png(Path('assets/eventview-fade.png'),1920,1,(0,0,0,0),pixels=event_pixels)
     width=1792

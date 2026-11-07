@@ -1,4 +1,4 @@
-# Pols Q 0.4.0 — Enigma2 / OpenATV 8
+# Pols Q 0.4.1 — Enigma2 / OpenATV 8
 
 Skóra Full HD 1920×1080 inspirowana kolorystyką i czytelnością interfejsu SKY DE: granatowe powierzchnie, niebieskie zaznaczenie i jasnoniebieskie akcenty. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
 
@@ -14,13 +14,15 @@ Skóra Full HD 1920×1080 inspirowana kolorystyką i czytelnością interfejsu S
 - Instalator IPK, postęp, błędy, pakiety i logi; dwupanelowy FileCommander.
 - Wtyczka **PolsQ — wygląd** do jawnego zapisania profilu listy i rozmiaru interfejsu.
 
-## Efekty 0.4.0 — podgląd TV i UI/UX
+## Poprawki 0.4.1 — po teście na dekoderze
 
-- **Przejście w podglądzie TV** (menu, lista kanałów, EPG z PIG): przy otwarciu ekranu i przy każdej zmianie odtwarzanego kanału podgląd wyłania się spod granatowej zasłony z ukośnym rozbłyskiem światła (14 klatek, ok. 0,6 s). Zmiany EPG tego samego kanału nie odtwarzają animacji. Odpowiada za to renderer `PolsQVideoFade`: timer działa tylko w trakcie przejścia, potem widget jest ukryty.
-- **Pływająca ramka wideo**: szeroki miękki cień, niebieska poświata, ciemna oprawa z zaokrąglonymi narożnikami, szklany refleks u góry i delikatna winieta u dołu.
-- **Plakietka „NA ŻYWO”** z czerwoną kropką na podglądzie w liście kanałów.
-- **Cienie tekstu** pod tytułami sekcji, nazwami audycji oraz nazwą kanału i audycji w InfoBarze (lepsza czytelność na jasnym obrazie).
-- **Zaznaczenie z poświatą**: kafle menu i wiersz kanału mają świetlistą obwódkę i refleks; karty dostały podwójny cień (kontaktowy i rozproszony).
+- **Podgląd TV działa**: nad obrazem nie jest już nic rysowane. W wersji 0.4.0 animowana zasłona i ramka leżały na wideo i na dekoderze zasłaniały podgląd. Cień wokół podglądu ma teraz wycięty środek, a przezroczysta etykieta zawsze utrzymuje „okno” na wideo.
+- **Menu**: lista kafli nie wycina już dziury w OSD. Wcześniej kafle znikały, a pod nimi było czarne wideo.
+- **Szybkość**: tło, karty i paski są w PNG o dokładnym rozmiarze ekranowym. Dekoder rysuje je 1:1 zamiast skalować z przezroczystością w programie, co spowalniało każdy ekran. Nieprzezroczyste tło nie korzysta z mieszania alfa. Usunięto animację opartą na timerze.
+- **Lista kanałów**: plakietka „NA ŻYWO” jest pod podglądem, a opis audycji mieści się w karcie.
+- Zostają: cienie tekstu, pływający cień i poświata wokół podglądu, świecące zaznaczenie kafli i kanałów.
+
+Animowanego przejścia nad samym wideo nie da się zrobić bez rysowania na obrazie, a to na dekoderze zasłaniało podgląd i spowalniało interfejs.
 
 ## Kompozycja 0.3
 
@@ -28,7 +30,7 @@ Menu ma siatkę 3×2 dużych kafli pod szeroką kartą z aktualną audycją i po
 
 Kafle i karty mają zaokrąglenia, miękkie cienie, cienkie świetlne obramowania oraz pionowe gradienty. Niebieskie zaznaczenie ma własną teksturę. Tło łączy granat z niebieską i fioletową poświatą. InfoBar ma około 6% przezroczystości w polu napisów oraz przezroczyste marginesy i przerwę między kartami; dodatkowy pasek i odtwarzacz zachowują fade i około 15% przezroczystości. Opis audycji zachowuje gradient chroniący kontrast. Zielony znacznik przycisku pilota pozostaje zielony.
 
-Efekty są prawdziwymi grafikami PNG używanymi przez skórę. Animację otwierania okien kontroluje OpenATV. Jedyna własna animacja to krótkie przejście nad podglądem TV, uruchamiane zdarzeniem; nie ma rozmycia w czasie rzeczywistym ani stałej pętli. Natywne menu może zawierać więcej niż sześć pozycji — siatka pokazuje sześć naraz i korzysta z nawigacji systemowej.
+Efekty są prawdziwymi grafikami PNG używanymi przez skórę. Animację otwierania okien kontroluje OpenATV. Skóra nie ma własnych animacji ani rozmycia w czasie rzeczywistym. Natywne menu może zawierać więcej niż sześć pozycji — siatka pokazuje sześć naraz i korzysta z nawigacji systemowej.
 
 ## Wizualizacje
 
@@ -63,21 +65,21 @@ Skrypt [online-install.sh](online-install.sh) pobiera pakiet IPK z tego repozyto
 
 ### Ręcznie
 
-Pobierz [enigma2-plugin-skins-polsq_0.4.0_all.ipk](packages/enigma2-plugin-skins-polsq_0.4.0_all.ipk), prześlij do `/tmp` dekodera i uruchom:
+Pobierz [enigma2-plugin-skins-polsq_0.4.1_all.ipk](packages/enigma2-plugin-skins-polsq_0.4.1_all.ipk), prześlij do `/tmp` dekodera i uruchom:
 
 ```sh
-opkg install /tmp/enigma2-plugin-skins-polsq_0.4.0_all.ipk
+opkg install /tmp/enigma2-plugin-skins-polsq_0.4.1_all.ipk
 ```
 
 Zrestartuj GUI, a następnie otwórz **Wtyczki → PolsQ — wygląd**, wybierz Standard lub Duże napisy i naciśnij zielony Zapisz. Wtyczka zaproponuje restart GUI. Zapis ustawia profil listy oraz pikony w natywnych ustawieniach OpenATV. Instalacja i Anuluj nie zmieniają ustawień. Skóra nie zmienia bukietów ani timerów i nie instaluje paczki logotypów kanałów.
 
-Alternatywa: [PolsQ-0.4.0.tar.gz](packages/PolsQ-0.4.0.tar.gz). Rozpakuj do osobnego katalogu na dekoderze i wykonaj `sh install.sh`. Instalator ręczny tworzy kopie poprzednich plików i wycofuje częściową operację przy błędzie. Nie mieszaj instalacji ręcznej z opkg.
+Alternatywa: [PolsQ-0.4.1.tar.gz](packages/PolsQ-0.4.1.tar.gz). Rozpakuj do osobnego katalogu na dekoderze i wykonaj `sh install.sh`. Instalator ręczny tworzy kopie poprzednich plików i wycofuje częściową operację przy błędzie. Nie mieszaj instalacji ręcznej z opkg.
 
 **Aktualizacja z prototypu 0.1:** zainstaluj pełną paczkę — sama podmiana skin.xml już nie wystarcza. Nowa wersja używa grafik, szablonów i własnych modułów z runtime.
 
 ## Kontrole i ograniczenia
 
-Przeszło 50 testów: geometria obu wariantów, zapisane kontrakty widgetów OpenATV 7.5/7.6/8.0, struktura IPK, powtarzalność archiwów, instalator i wycofanie, pikony, kontrast oraz przezroczystość. Kontrakty ekranów przejęto z projektu referencyjnego. Dla nowego menu dodatkowo sprawdzono kod OpenATV 8.0: skin.py, Listbox, TemplatedMultiContent i Screens/Menu.py (obsługa listOrientation=grid, wymiarów kafli i stylów menu). **Nie wykonano testu GUI na dekoderze.** Docelowy obraz to OpenATV 8; model urządzenia nie został jeszcze podany. PIG zależy od sterownika odbiornika, a zewnętrzne dodatki mogą korzystać z wyglądu systemowego. [Lista ekranów i testów sprzętowych](docs/COMPATIBILITY.md).
+Przeszło 52 testy: geometria obu wariantów, zapisane kontrakty widgetów OpenATV 7.5/7.6/8.0, struktura IPK, powtarzalność archiwów, instalator i wycofanie, pikony, kontrast oraz przezroczystość. Kontrakty ekranów przejęto z projektu referencyjnego. Dla nowego menu dodatkowo sprawdzono kod OpenATV 8.0: skin.py, Listbox, TemplatedMultiContent i Screens/Menu.py (obsługa listOrientation=grid, wymiarów kafli i stylów menu). **Nie wykonano testu GUI na dekoderze.** Docelowy obraz to OpenATV 8; model urządzenia nie został jeszcze podany. PIG zależy od sterownika odbiornika, a zewnętrzne dodatki mogą korzystać z wyglądu systemowego. [Lista ekranów i testów sprzętowych](docs/COMPATIBILITY.md).
 
 ## Budowanie ze źródeł
 

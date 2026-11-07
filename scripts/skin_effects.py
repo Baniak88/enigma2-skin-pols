@@ -22,8 +22,10 @@ def event_fade_alpha(x):
     return round(EVENT_ALPHA_LEFT+(EVENT_ALPHA_RIGHT-EVENT_ALPHA_LEFT)*smooth)
 
 
-def pixmap(parent,path,x,y,w,h,z):
-    node=E.Element('ePixmap',position=f'{x},{y}',size=f'{w},{h}',pixmap=f'PolsQ/assets/{path}',scale='1',alphatest='blend',zPosition=str(z))
+def pixmap(parent,path,x,y,w,h,z,scale=False):
+    # Native-size PNGs avoid slow software scaling on the receiver.
+    node=E.Element('ePixmap',position=f'{x},{y}',size=f'{w},{h}',pixmap=f'PolsQ/assets/{path}',alphatest='blend',zPosition=str(z))
+    if scale:node.set('scale','1')
     parent.insert(0,node)
     return node
 
@@ -63,5 +65,5 @@ def modernize_bars(skin):
         scene.set('backgroundColor','transparent')
         # Fade gradually across 95% of the screen. The opacity floor protects
         # text contrast even when the video behind a paragraph turns white.
-        pixmap(scene,'eventview-fade.png',0,0,1920,1080,-10)
+        pixmap(scene,'eventview-fade.png',0,0,1920,1080,-10,scale=True)
 

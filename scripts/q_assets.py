@@ -1,7 +1,7 @@
-"""Render lightweight native PNG surfaces; blur and glow are baked in.
+"""Render native PNG surfaces with blur and glow baked in.
 
-The only motion is the short, event-driven PolsQVideoFade sequence over the TV
-preview; its frames are generated here as small PNGs scaled natively."""
+Each surface is produced at the exact size the skin draws it, so the receiver
+blits it 1:1 instead of scaling and blending in software (slow on STBs)."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter
 import math
@@ -36,8 +36,9 @@ def build():
   for x in range(w):
    a=math.exp(-(((x-780)/460)**2+((y-80)/300)**2));b=math.exp(-(((x-250)/600)**2+((y-490)/250)**2))
    p[x,y]=(round(7+10*a+12*b),round(12+27*a+7*b),round(29+65*a+39*b),255)
- im.save(ROOT/'q-wallpaper.png')
- panel('q-hero.png',856,380,(24,47,88,248),(11,22,47,246),26)
+ # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
+ im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
+ for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(24,47,88,248),(11,22,47,246),26)
  panel('q-tile.png',570,176,(25,47,80,245),(15,29,53,250),20)
  panel('q-tile-focus.png',570,176,(23,139,229,255),(12,67,143,255),20,glow=(110,200,255,150))
  panel('q-channel-focus.png',864,96,(19,115,201,255),(13,67,125,255),16,glow=(110,200,255,130))
@@ -48,11 +49,10 @@ def build():
  live_badge()
 
 
+HERO_SIZES=((1712,384),(800,760),(1712,230))
 BEZEL=(6,12,30,255)
 VIDEO_PAD=40
 VIDEO_RADIUS=14
-FADE_FRAMES=14
-FADE_SIZE=(320,180)
 
 
 def video_sizes():
@@ -70,64 +70,20 @@ def video_shadow(w,h):
  glow=Image.new('RGBA',(W,H));ImageDraw.Draw(glow).rounded_rectangle((p-10,p-10,p+w+9,p+h+9),radius=VIDEO_RADIUS+10,outline=(70,170,255,70),width=6)
  im.alpha_composite(glow.filter(ImageFilter.GaussianBlur(9)))
  ImageDraw.Draw(im).rounded_rectangle((p-6,p-6,p+w+5,p+h+5),radius=VIDEO_RADIUS+6,fill=BEZEL,outline=(120,190,255,70),width=1)
+ # The video rectangle itself stays fully transparent: the picture shows
+ # through the OSD there, so nothing may be painted on top of it.
+ ImageDraw.Draw(im).rectangle((p,p,p+w-1,p+h-1),fill=(0,0,0,0))
  im.save(ROOT/f'q-video-shadow-{w}x{h}.png')
-
-
-def video_frame(w,h):
- # Static OSD frame above the video: bezel-coloured corners give the picture
- # rounded edges, plus a glass highlight and a light vignette for badges.
- r=VIDEO_RADIUS;im=Image.new('RGBA',(w,h))
- mask=Image.new('L',(w,h),255);ImageDraw.Draw(mask).rounded_rectangle((0,0,w-1,h-1),radius=r,fill=0)
- im.paste(Image.new('RGBA',(w,h),BEZEL),mask=mask)
- shade=Image.new('RGBA',(w,h));pix=shade.load()
- for y in range(h):
-  t=y/(h-1);top=max(0,1-t/.22);bottom=max(0,(t-.72)/.28)
-  a=round(28*top*top+70*bottom*bottom)
-  c=(255,255,255) if top>0 else (0,6,20)
-  for x in range(w):pix[x,y]=c+(a,)
- inner=Image.new('L',(w,h));ImageDraw.Draw(inner).rounded_rectangle((0,0,w-1,h-1),radius=r,fill=255)
- shade.putalpha(Image.composite(shade.getchannel('A'),Image.new('L',(w,h)),inner))
- im.alpha_composite(shade)
- d=ImageDraw.Draw(im)
- d.rounded_rectangle((0,0,w-1,h-1),radius=r,outline=(150,210,255,90),width=1)
- d.line((r,1,w-1-r,1),fill=(255,255,255,90),width=1)
- im.save(ROOT/f'q-video-frame-{w}x{h}.png')
-
-
-def ease(t):return t*t*(3-2*t)
-
-
-def fade_frames():
- # A navy veil with a diagonal light sweep that dissolves into the picture.
- # Frames are small and scaled natively, so one set serves every preview.
- w,h=FADE_SIZE
- for i in range(FADE_FRAMES):
-  t=i/(FADE_FRAMES-1)
-  veil=round(255*(1-ease(min(1,max(0,(t-.18)/.82)))))
-  sweep=-.4+1.8*t
-  im=Image.new('RGBA',(w,h));pix=im.load()
-  for y in range(h):
-   for x in range(w):
-    u=x/w+.35*y/h
-    band=math.exp(-((u-sweep)/.11)**2)
-    glow=math.exp(-(((x-w*.5)/(w*.55))**2+((y-h*.5)/(h*.55))**2))
-    a=min(255,veil+round(70*band*(1-t*.6)))
-    if a<=0:pix[x,y]=(0,0,0,0);continue
-    k=band*.8
-    base=(round(10+22*glow),round(22+40*glow),round(52+70*glow))
-    pix[x,y]=tuple(round(b*(1-k)+c*k) for b,c in zip(base,(150,215,255)))+(a,)
-  im.save(ROOT/f'q-video-fade-{i:02d}.png')
 
 
 def build_video_effects():
  for w,h in video_sizes():
-  video_shadow(w,h);video_frame(w,h)
- fade_frames()
+  video_shadow(w,h)
 
 
 def live_badge():
- # Pill for the NA ŻYWO label on the preview; red dot pulses only via zap fade.
- w,h=172,44;s=4
+ # Pill for the NA ŻYWO label under the preview.
+ w,h=172,40;s=4
  im=Image.new('RGBA',(w*s,h*s));d=ImageDraw.Draw(im)
  d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(6,12,30,200),outline=(255,255,255,40),width=s)
  cx,cy,r=22*s,h*s//2,7*s

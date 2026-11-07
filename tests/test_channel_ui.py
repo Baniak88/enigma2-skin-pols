@@ -21,7 +21,7 @@ class ChannelUI(unittest.TestCase):
             vx,vy=map(int,video.get('position').split(','))
             # No later-created opaque decoration can cover the video aperture.
             for n in screen:
-                if n.tag not in ('eLabel','ePixmap') or not n.get('backgroundColor'):continue
+                if n.tag not in ('eLabel','ePixmap') or n.get('backgroundColor') in (None,'transparent'):continue
                 x,y=map(int,n.get('position').split(','));nw,nh=map(int,n.get('size').split(','))
                 overlaps=x<vx+w and x+nw>vx and y<vy+h and y+nh>vy
                 self.assertFalse(overlaps,(name,n.attrib))

@@ -4,7 +4,15 @@ import xml.etree.ElementTree as E
 
 
 def node(s,tag,**a):return E.SubElement(s,tag,{k:str(v) for k,v in a.items()})
-def image(s,path,x,y,w,h,z=-10):return node(s,'ePixmap',position=f'{x},{y}',size=f'{w},{h}',pixmap='PolsQ/assets/'+path,scale='1',alphatest='blend',zPosition=z)
+# Every PNG is rendered at its exact on-screen size: on set-top boxes a scaled,
+# alpha-blended blit is done in software and made screens visibly slow.
+def image(s,path,x,y,w,h,z=-10,scale=False,blend=True):
+ a=dict(position=f'{x},{y}',size=f'{w},{h}',pixmap='PolsQ/assets/'+path,zPosition=z)
+ if scale:a['scale']='1'
+ if blend:a['alphatest']='blend'
+ return node(s,'ePixmap',**a)
+def hero(s,x,y,w,h,z=-10):return image(s,f'q-hero-{w}x{h}.png',x,y,w,h,z)
+def wallpaper(s):return image(s,'q-wallpaper.png',0,0,1920,1080,-30,blend=False)
 def text(s,value,x,y,w,h,size=28,color='white',bold=False):return node(s,'eLabel',text=value,position=f'{x},{y}',size=f'{w},{h}',font=f'PolsQ{"Strong" if bold else "Text"};{size}',foregroundColor=color,transparent='1')
 def src(s,name,x,y,w,h,size=28,converts=(),render='Label',**kw):
  a=dict(source=name,render=render,position=f'{x},{y}',size=f'{w},{h}',foregroundColor='white',transparent='1')
@@ -24,27 +32,28 @@ def lift(n):
  return n
 
 VIDEO_PAD=40
-FADE_FRAMES=14
 def video_effects(s):
- # Native Pig is a hole in the OSD; decorations around and above it are PNGs.
+ # Native Pig shows video only through a transparent hole in the OSD. Nothing
+ # may be drawn over that rectangle: the shadow ring is cut out in the middle
+ # and an explicit transparent label keeps the hole open on every driver.
  for pig in s.findall("widget[@render='Pig']"):
   x,y=map(int,pig.get('position').split(','));w,h=map(int,pig.get('size').split(','))
   image(s,f'q-video-shadow-{w}x{h}.png',x-VIDEO_PAD,y-VIDEO_PAD,w+2*VIDEO_PAD,h+2*VIDEO_PAD,-5)
-  frames=','.join(f'PolsQ/assets/q-video-fade-{i:02d}.png' for i in range(FADE_FRAMES))
-  node(s,'widget',source='session.CurrentService',render='PolsQVideoFade',position=f'{x},{y}',size=f'{w},{h}',pixmaps=frames,interval=40,scale=1,alphatest='blend',zPosition=3)
-  image(s,f'q-video-frame-{w}x{h}.png',x,y,w,h,4)
+  node(s,'eLabel',position=f'{x},{y}',size=f'{w},{h}',backgroundColor='transparent',zPosition=1)
   if s.get('name').startswith('ChannelSelection'):
-   image(s,'q-live-badge.png',x+20,y+20,172,44,5)
-   lift(text(s,'NA ŻYWO',x+54,y+27,130,30,20,bold=True)).set('valign','center')
+   # Badge sits in the card right under the picture, never on the video.
+   bx,by=x+w-172,y+h+20
+   image(s,'q-live-badge.png',bx,by,172,40,5)
+   lift(text(s,'NA ŻYWO',bx+44,by+5,120,30,19,bold=True)).set('valign','center')
    s[-1].set('zPosition','6')
 
 def place(n,x,y,w,h):n.set('position',f'{x},{y}');n.set('size',f'{w},{h}');return n
 
 def shell(s,section):
- image(s,'q-wallpaper.png',0,0,1920,1080,-30)
+ wallpaper(s)
  image(s,'q-rail.png',0,0,112,1080,-20)
  text(s,'Q',34,40,60,68,48,bold=True)
- for i,path in enumerate(['line-tv.png','line-bouquet.png','line-history.png']):image(s,path,38,234+i*112,36,36,0)
+ for i,path in enumerate(['line-tv.png','line-bouquet.png','line-history.png']):image(s,path,38,234+i*112,36,36,0,scale=True)
  text(s,'POLS',28,960,80,44,20)
  lift(text(s,section,152,48,1350,68,40,bold=True))
  src(s,'global.CurrentTime',1616,52,240,54,32,converts=[('ClockToText','Default')],halign='right')
@@ -52,14 +61,14 @@ def shell(s,section):
 def menu(s,large):
  saved={n.get('name') or n.get('source'):deepcopy(n) for n in s.findall('widget')}
  s[:]=[];shell(s,'Twój wieczór')
- image(s,'q-hero.png',144,164,1712,384,-10)
+ hero(s,144,164,1712,384)
  text(s,'NA ŻYWO',192,202,800,40,21,'green')
  src(s,'session.CurrentService',192,252,850,46,28,converts=[('ServiceName','Name')])
  lift(src(s,'session.Event_Now',192,310,896,114,46,render='PolsQSummary',converts=[('EventName','Name')]))
  src(s,'session.Event_Now',192,444,850,70,25,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
  src(s,'session.VideoPicture',1200,194,576,324,render='Pig',backgroundColor='transparent',zPosition='2')
  n=saved['menu'];place(n,144,584,1712,352)
- n.set('listOrientation','grid');n.set('itemWidth','570');n.set('itemHeight','176');n.set('backgroundColor','transparent');n.set('selectionPixmap','PolsQ/assets/q-tile-focus.png');n.set('selectionZoom','0');n.set('scrollbarMode','showOnDemand')
+ n.set('listOrientation','grid');n.set('itemWidth','570');n.set('itemHeight','176');n.set('transparent','1');n.set('selectionPixmap','PolsQ/assets/q-tile-focus.png');n.set('selectionZoom','0');n.set('scrollbarMode','showOnDemand')
  icon='MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)'
  def title(index,x=32):return f'MultiContentEntryText(pos=({x},108),size=({530-x},54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text={index})'
  styles={k:icon+','+title(0 if k=='default' else 3) for k in ('default','text','number','image','both')}
@@ -80,19 +89,19 @@ def channels(s,large):
  old=s.get('name');saved={n.get('source'):deepcopy(n) for n in s.findall('widget') if n.get('source','').startswith('key_') and n.get('render')=='Label'}
  s[:]=[];shell(s,'Telewizja' if old!='ChannelSelectionRadio' else 'Radio')
  src(s,'Title',152,128,1660,44,24,foregroundColor='muted',wrap='ellipsis')
- image(s,'q-hero.png',144,192,800,760,-10)
+ hero(s,144,192,800,760)
  video=old in ('ChannelSelection','ChannelSelection_PIG')
  if video:src(s,'session.VideoPicture',160,208,768,432,render='Pig',backgroundColor='transparent',zPosition='2')
  else:
   src(s,'ServiceEvent',392,260,304,172,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
   text(s,'TWÓJ KANAŁ',192,470,680,50,32,'green')
- src(s,'ServiceEvent',192,660,704,44,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
- lift(src(s,'ServiceEvent',192,714,704,84,34,render='PolsQSummary',converts=[('EventName','Name')]))
+ src(s,'ServiceEvent',192,660,500 if video else 704,44,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
+ lift(src(s,'ServiceEvent',192,706,704,88,34,render='PolsQSummary',converts=[('EventName','Name')]))
  src(s,'ServiceEvent',192,808,128,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
  src(s,'ServiceEvent',340,808,168,38,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')],foregroundColor='muted')
  src(s,'ServiceEvent',544,808,352,38,23,converts=[('PolsQEventRemaining','')],halign='right',foregroundColor='muted')
  src(s,'ServiceEvent',192,858,704,6,render='Progress',backgroundColor='line',foregroundColor='green',borderWidth='0',converts=[('EventTime','Progress')])
- src(s,'ServiceEvent',192,884,704,54,23,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
+ src(s,'ServiceEvent',192,872,704,52,23,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
  n=node(s,'widget',name='list',position='992,192',size='864,768',serviceItemHeight='96',serviceNameFont='PolsQText;'+str(32 if large else 28),serviceInfoFont='PolsQText;'+str(28 if large else 24),serviceNumberFont='PolsQText;24',foregroundColor='white',backgroundColor='bg',foregroundColorSelected='white',backgroundColorSelected='selected',foregroundColorEvent='muted',foregroundColorEventSelected='muted',selectionPixmap='PolsQ/assets/q-channel-focus.png',scrollbarMode='showOnDemand',scrollbarWidth='4',progressBarWidth='64',colorEventProgressbar='green',colorEventProgressbarSelected='green')
  if s.get('label'):s.set('label',s.get('label').replace('10 kanałów','8 kanałów'))
  text(s,'INFO — pełny opis',160,966,750,30,22,'muted')
@@ -134,7 +143,7 @@ def graph(s,large):
  src(s,'Event',600,342,660 if s.get('name')=='GraphicalEPGPIG' else 1120,66,24,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
  # Remove the inherited header and replace it without touching dynamic widgets.
  s[:]=[n for n in s if not (n.tag in ('eLabel','ePixmap') and int(n.get('position').split(',')[1])<200) and n.get('source') not in ('Title','global.CurrentTime')]
- image(s,'q-hero.png',144,188,1712,230,-15)
+ hero(s,144,188,1712,230,-15)
  shell(s,'Program TV')
  for n in s.findall('eLabel'):
   if 'Zielona linia' in n.get('text',''):n.set('text','Niebieska linia — teraz   •   Zegar — timer');place(n,144,966,1712,30)
@@ -147,7 +156,7 @@ def apply(skin,large=False):
   elif name=='InfoBar':infobar(s,large)
   elif name.startswith('Graphical'):graph(s,large)
   elif s.get('size')=='1920,1080' and s.get('backgroundColor')!='transparent':
-   image(s,'q-wallpaper.png',0,0,1920,1080,-30)
+   wallpaper(s)
   video_effects(s)
   if large and (name in ('Menu','InfoBar') or name.startswith('ChannelSelection')):
    for n in s:
