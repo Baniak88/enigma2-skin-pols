@@ -123,3 +123,12 @@ class Packages(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
+
+
+class OnlineInstaller(unittest.TestCase):
+    def test_online_installer_points_at_committed_package(self):
+        import re
+        script=(ROOT/'online-install.sh').read_text()
+        self.assertEqual(re.search(r'^VERSION=(\S+)$',script,re.M).group(1),VERSION)
+        self.assertIn('Baniak88/enigma2-skin-pols',script)
+        self.assertTrue((ROOT/'packages'/PACKAGE).is_file())
