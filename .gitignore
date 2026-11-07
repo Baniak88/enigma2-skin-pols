@@ -14,3 +14,5 @@ PolsQLarge/icons/
 PolsQLarge/mainmenu/
 PolsQLarge/picon_default.png
 docs/tv-demo.png
+# Build-generated preview PNGs; only the ones shown in README are tracked.
+docs/*.png
