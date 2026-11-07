@@ -45,6 +45,24 @@ Pełna [galeria 38 podglądów](docs/GALLERY.md) obejmuje m.in. oba rozmiary, bu
 
 ## Instalacja OpenATV 8
 
+### Szybko: jedna komenda w terminalu
+
+Zaloguj się na dekoder przez SSH lub telnet jako `root` i wklej:
+
+```sh
+wget -qO- https://raw.githubusercontent.com/Baniak88/enigma2-skin-pols/main/online-install.sh | sh
+```
+
+Z automatycznym restartem GUI po instalacji:
+
+```sh
+wget -qO- https://raw.githubusercontent.com/Baniak88/enigma2-skin-pols/main/online-install.sh | sh -s -- --restart
+```
+
+Skrypt [online-install.sh](online-install.sh) pobiera pakiet IPK z tego repozytorium do `/tmp`, sprawdza, czy to prawidłowy pakiet, i instaluje go przez `opkg`. Ponowne uruchomienie aktualizuje albo reinstaluje skórkę. Jeśli `wget` zgłasza błąd certyfikatu, sprawdź datę i godzinę dekodera.
+
+### Ręcznie
+
 Pobierz [enigma2-plugin-skins-polsq_0.4.0_all.ipk](packages/enigma2-plugin-skins-polsq_0.4.0_all.ipk), prześlij do `/tmp` dekodera i uruchom:
 
 ```sh
