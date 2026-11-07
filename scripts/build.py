@@ -7,7 +7,7 @@ import tarfile
 from validate import validate
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.3.0'
+VERSION='0.4.0'
 PACKAGE=f'enigma2-plugin-skins-polsq_{VERSION}_all.ipk'
 
 

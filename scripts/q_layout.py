@@ -16,6 +16,28 @@ def src(s,name,x,y,w,h,size=28,converts=(),render='Label',**kw):
  for kind,arg in converts:node(n,'convert',type=kind).text=arg
  return n
 
+# Soft text shadow (#AARRGGBB, 00 = opaque) lifts headlines off glass cards
+# and keeps InfoBar titles legible over bright video.
+SHADOW=dict(shadowColor='#00030814',shadowOffset='2,2')
+def lift(n):
+ for k,v in SHADOW.items():n.set(k,v)
+ return n
+
+VIDEO_PAD=40
+FADE_FRAMES=14
+def video_effects(s):
+ # Native Pig is a hole in the OSD; decorations around and above it are PNGs.
+ for pig in s.findall("widget[@render='Pig']"):
+  x,y=map(int,pig.get('position').split(','));w,h=map(int,pig.get('size').split(','))
+  image(s,f'q-video-shadow-{w}x{h}.png',x-VIDEO_PAD,y-VIDEO_PAD,w+2*VIDEO_PAD,h+2*VIDEO_PAD,-5)
+  frames=','.join(f'PolsQ/assets/q-video-fade-{i:02d}.png' for i in range(FADE_FRAMES))
+  node(s,'widget',source='session.CurrentService',render='PolsQVideoFade',position=f'{x},{y}',size=f'{w},{h}',pixmaps=frames,interval=40,scale=1,alphatest='blend',zPosition=3)
+  image(s,f'q-video-frame-{w}x{h}.png',x,y,w,h,4)
+  if s.get('name').startswith('ChannelSelection'):
+   image(s,'q-live-badge.png',x+20,y+20,172,44,5)
+   lift(text(s,'NA ŻYWO',x+54,y+27,130,30,20,bold=True)).set('valign','center')
+   s[-1].set('zPosition','6')
+
 def place(n,x,y,w,h):n.set('position',f'{x},{y}');n.set('size',f'{w},{h}');return n
 
 def shell(s,section):
@@ -24,7 +46,7 @@ def shell(s,section):
  text(s,'Q',34,40,60,68,48,bold=True)
  for i,path in enumerate(['line-tv.png','line-bouquet.png','line-history.png']):image(s,path,38,234+i*112,36,36,0)
  text(s,'POLS',28,960,80,44,20)
- text(s,section,152,48,1350,68,40,bold=True)
+ lift(text(s,section,152,48,1350,68,40,bold=True))
  src(s,'global.CurrentTime',1616,52,240,54,32,converts=[('ClockToText','Default')],halign='right')
 
 def menu(s,large):
@@ -33,7 +55,7 @@ def menu(s,large):
  image(s,'q-hero.png',144,164,1712,384,-10)
  text(s,'NA ŻYWO',192,202,800,40,21,'green')
  src(s,'session.CurrentService',192,252,850,46,28,converts=[('ServiceName','Name')])
- src(s,'session.Event_Now',192,310,896,114,46,render='PolsQSummary',converts=[('EventName','Name')])
+ lift(src(s,'session.Event_Now',192,310,896,114,46,render='PolsQSummary',converts=[('EventName','Name')]))
  src(s,'session.Event_Now',192,444,850,70,25,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
  src(s,'session.VideoPicture',1200,194,576,324,render='Pig',backgroundColor='transparent',zPosition='2')
  n=saved['menu'];place(n,144,584,1712,352)
@@ -65,7 +87,7 @@ def channels(s,large):
   src(s,'ServiceEvent',392,260,304,172,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
   text(s,'TWÓJ KANAŁ',192,470,680,50,32,'green')
  src(s,'ServiceEvent',192,660,704,44,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
- src(s,'ServiceEvent',192,714,704,84,34,render='PolsQSummary',converts=[('EventName','Name')])
+ lift(src(s,'ServiceEvent',192,714,704,84,34,render='PolsQSummary',converts=[('EventName','Name')]))
  src(s,'ServiceEvent',192,808,128,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
  src(s,'ServiceEvent',340,808,168,38,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')],foregroundColor='muted')
  src(s,'ServiceEvent',544,808,352,38,23,converts=[('PolsQEventRemaining','')],halign='right',foregroundColor='muted')
@@ -85,10 +107,10 @@ def infobar(s,large):
  image(s,'q-logo-card.png',0,0,280,256,-10);image(s,'q-info-card.png',300,0,1492,256,-10)
  src(s,'session.CurrentService',32,50,216,130,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
  src(s,'session.RecordState',36,204,208,36,24,render='FixedLabel',text='● REC',foregroundColor='red',converts=[('ConditionalShowHide',None)])
- src(s,'session.CurrentService',340,24,1096,48,34,converts=[('ServiceName','Name')],wrap='ellipsis')
+ lift(src(s,'session.CurrentService',340,24,1096,48,34,converts=[('ServiceName','Name')],wrap='ellipsis'))
  src(s,'global.CurrentTime',1540,24,208,48,30,converts=[('ClockToText','Default')],halign='right')
  text(s,'TERAZ',340,86,880,32,20,'green')
- src(s,'session.Event_Now',340,124,880,52,32,converts=[('EventName','Name')],wrap='ellipsis')
+ lift(src(s,'session.Event_Now',340,124,880,52,32,converts=[('EventName','Name')],wrap='ellipsis'))
  src(s,'session.Event_Now',340,188,164,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')],foregroundColor='muted')
  src(s,'session.Event_Now',530,188,690,38,24,converts=[('PolsQEventRemaining','')],foregroundColor='muted')
  text(s,'NASTĘPNIE',1296,86,444,32,20,'green')
@@ -126,6 +148,7 @@ def apply(skin,large=False):
   elif name.startswith('Graphical'):graph(s,large)
   elif s.get('size')=='1920,1080' and s.get('backgroundColor')!='transparent':
    image(s,'q-wallpaper.png',0,0,1920,1080,-30)
+  video_effects(s)
   if large and (name in ('Menu','InfoBar') or name.startswith('ChannelSelection')):
    for n in s:
     if n.get('font'):
