@@ -1,6 +1,6 @@
 # Pols Q 0.4.2 — Enigma2 / OpenATV 8
 
-Skóra Full HD 1920×1080 inspirowana kolorystyką i czytelnością interfejsu SKY DE: granatowe powierzchnie, niebieskie zaznaczenie i jasnoniebieskie akcenty. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
+Skóra Full HD 1920×1080 z granatowo-niebieską kolorystyką, żółtym akcentem i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
 
 ## Zakres
 
@@ -9,22 +9,21 @@ Skóra Full HD 1920×1080 inspirowana kolorystyką i czytelnością interfejsu S
 - Menu i QuickMenu, telewizja/radio, bukiety, historia kanałów w bocznym panelu.
 - Lista 8 kanałów z osobnymi liniami nazwy i audycji, pikonami i podglądem TV 16:9; także wariant bez TV.
 - EPG pojedyncze, multi, graficzne, pionowe i PIG; opisy audycji, timery i konflikty nagrań.
-- InfoBar w stylu paska wiadomości (żółty tytuł, czerwony przewijany pasek), SecondInfoBar, nagrania, odtwarzacz, pauza/przewijanie i stan timeshiftu.
+- InfoBar w stylu paska TV (żółty tytuł, czerwony pasek z następną audycją), SecondInfoBar, nagrania, odtwarzacz, pauza/przewijanie i stan timeshiftu.
 - Ustawienia, wybór skóry, dźwięk/napisy, wtyczki lista/siatka i dialogi.
 - Instalator IPK, postęp, błędy, pakiety i logi; dwupanelowy FileCommander.
 - Wtyczka **PolsQ — wygląd** do jawnego zapisania profilu listy i rozmiaru interfejsu.
 
-## Nowości 0.4.2 — pasek informacyjny jak w TV i szybsze działanie
+## Nowości 0.4.2 — pasek informacyjny w stylu TV i nowe kolory
 
-![Nowy pasek informacyjny](docs/infobar.png)
+![Pasek informacyjny](docs/infobar.png)
 
-- **InfoBar w stylu paska wiadomości**: biała karta z logo kanału i zegarem pod nią, granatowo-niebieski pasek z **żółtym tytułem audycji WIELKIMI LITERAMI**, nazwa kanału nad tytułem, godziny, postęp i „Do końca”. Po prawej panel **POTEM** z następną audycją.
-- **Czerwony pasek „W SKRÓCIE”** na dole z przewijanym opisem audycji (wielkie litery). Tekst przewija się tylko wtedy, gdy nie mieści się w pasku, i tylko gdy InfoBar jest widoczny — po jego zamknięciu animacja się zatrzymuje. Krótki opis jest rysowany raz, bez animacji.
-- **Szybciej**: cały granatowy pasek, karta logo i panel POTEM to jeden obraz w natywnym rozmiarze (jedno kopiowanie zamiast kilku warstw). Czerwony pasek to jednolite wypełnienia bez przezroczystości. Pikony w InfoBarze mają natywny rozmiar 220×132 — bez skalowania.
-- **Bez skalowania grafik z przezroczystością** w całej skórze: linie akcentu, ikonki boczne i tło opisu audycji (EventView) mają osobne pliki w dokładnym rozmiarze ekranowym. Skalowanie z kanałem alfa dekoder wykonuje programowo, co spowalniało otwieranie ekranów.
-- **Lżejsze skracanie opisów**: ten sam tekst nie jest ponownie mierzony, a bardzo długie opisy EPG są przycinane przed dopasowaniem — przewijanie listy kanałów nie przelicza kilobajtów tekstu.
-- Nowe moduły `PolsQTicker` (przewijany pasek) i `PolsQUpper` (wielkie litery z polskimi znakami) są instalowane razem ze skórą i sprawdzane przez instalator; testy uruchamiają je na atrapach Enigma2.
-- Logo na białej karcie: najlepiej wyglądają kolorowe pikony (przeznaczone na jasne tło). Białe, przezroczyste pikony mogą być na karcie mało widoczne.
+- **InfoBar w układzie „paska telewizyjnego”**: biała karta z logo kanału i zegarem pod nią, granatowo-niebieski pasek z nazwą kanału i **żółtym tytułem audycji WIELKIMI LITERAMI** (do dwóch linii), godziny, żółty pasek postępu. Panel po prawej: data, „Do końca: X min” i „● NAGRYWANIE”.
+- **Czerwony pasek „POTEM”** na dole: godzina i tytuł następnej audycji z EPG. Wszystko jest statyczne — bez przewijania i bez timerów, więc pasek nie obciąża dekodera.
+- **Kolory całej skóry dopasowane do paska**: granat i królewski błękit w tle, kartach i zaznaczeniu, **żółty akcent** (linie, zaznaczenie kafli i kanałów, paski postępu, linia „teraz” w EPG, ikony), jasnoniebieskie opisy. Kolorowe przyciski pilota pozostają w swoich kolorach.
+- **Szybciej**: pasek, karta logo i panel to jeden obraz w natywnym rozmiarze, czerwony pasek to jednolite wypełnienia, pikona 220×132 bez skalowania. W całej skórze nie ma już skalowanych grafik z przezroczystością (dekoder robi to programowo). Skracanie opisów nie mierzy ponownie tego samego tekstu.
+- Nowy moduł `PolsQUpper` (wielkie litery z polskimi znakami) instaluje się razem ze skórą.
+- Logo na białej karcie: najlepiej wyglądają kolorowe pikony (na jasne tło). Białe, przezroczyste pikony będą na karcie słabo widoczne.
 
 ## Poprawki 0.4.1 — po teście na dekoderze
 
@@ -91,7 +90,7 @@ Alternatywa: [PolsQ-0.4.2.tar.gz](packages/PolsQ-0.4.2.tar.gz). Rozpakuj do osob
 
 ## Kontrole i ograniczenia
 
-Przeszło 57 testów: geometria obu wariantów, zapisane kontrakty widgetów OpenATV 7.5/7.6/8.0, struktura IPK, powtarzalność archiwów, instalator i wycofanie, pikony, kontrast oraz przezroczystość. Kontrakty ekranów przejęto z projektu referencyjnego. Dla nowego menu dodatkowo sprawdzono kod OpenATV 8.0: skin.py, Listbox, TemplatedMultiContent i Screens/Menu.py (obsługa listOrientation=grid, wymiarów kafli i stylów menu). **Nie wykonano testu GUI na dekoderze.** Docelowy obraz to OpenATV 8; model urządzenia nie został jeszcze podany. PIG zależy od sterownika odbiornika, a zewnętrzne dodatki mogą korzystać z wyglądu systemowego. [Lista ekranów i testów sprzętowych](docs/COMPATIBILITY.md).
+Przeszło 54 testy: geometria obu wariantów, zapisane kontrakty widgetów OpenATV 7.5/7.6/8.0, struktura IPK, powtarzalność archiwów, instalator i wycofanie, pikony, kontrast oraz przezroczystość. Kontrakty ekranów przejęto z projektu referencyjnego. Dla nowego menu dodatkowo sprawdzono kod OpenATV 8.0: skin.py, Listbox, TemplatedMultiContent i Screens/Menu.py (obsługa listOrientation=grid, wymiarów kafli i stylów menu). **Nie wykonano testu GUI na dekoderze.** Docelowy obraz to OpenATV 8; model urządzenia nie został jeszcze podany. PIG zależy od sterownika odbiornika, a zewnętrzne dodatki mogą korzystać z wyglądu systemowego. [Lista ekranów i testów sprzętowych](docs/COMPATIBILITY.md).
 
 ## Budowanie ze źródeł
 

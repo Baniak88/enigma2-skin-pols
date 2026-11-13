@@ -32,15 +32,15 @@ class SettingsUI(unittest.TestCase):
             self.assertIsNotNone(mask)
             self.assertLess(int(mask.get('zPosition')),0)
             with Image.open(ROOT/mask.get('pixmap')) as image:
-                self.assertEqual(image.getpixel((0,64)),(16,25,56,217))
+                self.assertEqual(image.getpixel((0,64)),(10,23,71,217))
             surface=colors['overlay'].lstrip('#')
             transparency=int(surface[:2],16)/255
             self.assertAlmostEqual(transparency,38/255)
             rgb=[int(surface[i:i+2],16) for i in (2,4,6)]
             background=colors['bg'].lstrip('#')
-            self.assertEqual(rgb,[16,25,56])
+            self.assertEqual(rgb,[10,23,71])
             self.assertEqual(surface[2:],background[2:])
-            self.assertEqual(colors['panel'],'#0018284e')
+            self.assertEqual(colors['panel'],'#0013286b')
             def luminance(value):
                 channels=[int(value[-6:][i:i+2],16)/255 for i in (0,2,4)]
                 linear=[x/12.92 if x<=0.04045 else ((x+0.055)/1.055)**2.4 for x in channels]

@@ -9,8 +9,8 @@ from build import VERSION
 from skin_effects import FADE_TOP, BODY_ALPHA, BODY_RGB, BAR_HEIGHTS, fade_alpha, event_fade_alpha
 
 ROOT=Path(__file__).resolve().parents[1]/'PolsQ'
-BG=(16,25,56,255); PANEL=(24,40,78,255); GREEN=(70,186,255,255)
-SELECTED=(7,89,173,255)
+BG=(10,23,71,255); PANEL=(19,40,107,255); GREEN=(255,214,10,255)
+SELECTED=(24,66,190,255)
 WHITE=(245,245,245,255); RED=(255,98,98,255); BLUE=(94,172,255,255)
 
 
@@ -64,18 +64,18 @@ def build():
         vertical=max(0,1-abs(y-9)/9)**2
         for x in range(width):
             envelope=min(1,x/160,(width-1-x)/160)
-            glow.extend((70,186,255,round(42*max(0,envelope)*vertical)))
+            glow.extend((255,214,10,round(42*max(0,envelope)*vertical)))
     for y in range(2):
         for x in range(width):
             envelope=min(1,x/160,(width-1-x)/160)
-            accent.extend((70,186,255,round(230*max(0,envelope))))
+            accent.extend((255,214,10,round(230*max(0,envelope))))
     png(Path('assets/accent-fade.png'),width,2,(0,0,0,0),pixels=accent)
     png(Path('assets/accent-glow.png'),width,18,(0,0,0,0),pixels=glow)
     badge=bytearray()
     for y in range(48):
         for x in range(128):
             dx=max(8-x,0,x-119);dy=max(8-y,0,y-39)
-            badge.extend((70,186,255,26 if dx*dx+dy*dy<=64 else 0))
+            badge.extend((255,214,10,26 if dx*dx+dy*dy<=64 else 0))
     png(Path('assets/now-badge.png'),128,48,(0,0,0,0),pixels=badge)
     # Checkbox graphics used by the native SelectionList in the IPK installer.
     edge=[(2,2,28,2,WHITE),(2,28,28,2,WHITE),(2,2,2,28,WHITE),(28,2,2,28,WHITE)]

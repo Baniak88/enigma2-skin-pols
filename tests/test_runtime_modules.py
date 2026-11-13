@@ -79,7 +79,6 @@ class RuntimeModules(unittest.TestCase):
     def setUpClass(cls):
         cls.saved={k:sys.modules.get(k) for k in ('enigma','skin','Components','Components.Renderer','Components.Converter','Components.Renderer.Renderer','Components.Renderer.Label','Components.Converter.Converter','Components.Element')}
         install_stubs()
-        cls.ticker=load(ROOT/'runtime/Components/Renderer/PolsQTicker.py')
         cls.upper=load(ROOT/'runtime/Components/Converter/PolsQUpper.py')
         cls.summary=load(ROOT/'runtime/Components/Renderer/PolsQSummary.py')
 
@@ -88,38 +87,6 @@ class RuntimeModules(unittest.TestCase):
         for k,v in cls.saved.items():
             if v is None:sys.modules.pop(k,None)
             else:sys.modules[k]=v
-
-    def make_ticker(self,text):
-        t=self.ticker.PolsQTicker();t.source=types.SimpleNamespace(text=text)
-        t.skinAttributes=[('font','PolsQStrong;30'),('foregroundColor','white'),('backgroundColor','newsRed'),('position','308,228')]
-        t.changed((t.CHANGED_DEFAULT,))
-        t.instance=Widget();t.postWidgetCreate(t.instance);t.applySkin(None,None)
-        return t
-
-    def test_short_text_is_static_without_timer(self):
-        t=self.make_ticker('KRÓTKO')
-        self.assertIsNone(t.timer.running)
-        self.assertEqual(t.label.pos,(0,0))
-        self.assertNotIn(('font','PolsQStrong;30'),t.skinAttributes,'own attributes must not reach eWidget')
-
-    def test_long_text_scrolls_and_stops_when_hidden(self):
-        t=self.make_ticker('SŁOWO '*200)
-        self.assertEqual(t.timer.running,t.pause)
-        self.assertLessEqual(len(t.text),self.ticker.MAX_CHARS+1)
-        for _ in range(3):t.tick()
-        self.assertEqual(t.label.pos[0],-3*t.step)
-        t.onHide();self.assertIsNone(t.timer.running)
-        t.tick();self.assertIsNone(t.timer.running,'no ticking while InfoBar is hidden')
-        t.onShow();self.assertEqual(t.timer.running,t.pause)
-        t.offset=-t.textWidth-self.ticker.GAP-1;t.tick()
-        self.assertEqual(t.label.pos[0],t.instance.size().width())
-        t.preWidgetRemove(t.instance);self.assertIsNone(t.timer.running)
-
-    def test_same_text_does_not_relayout(self):
-        t=self.make_ticker('SŁOWO '*200);t.timer.running=None
-        t.changed((t.CHANGED_DEFAULT,))
-        self.assertIsNone(t.timer.running)
-        t.changed((t.CHANGED_CLEAR,));self.assertEqual(t.text,'')
 
     def test_upper_handles_polish_and_empty(self):
         c=self.upper.PolsQUpper('');c.source=types.SimpleNamespace(text='zażółć gęślą jaźń')

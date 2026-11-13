@@ -3,7 +3,7 @@ import xml.etree.ElementTree as E
 
 FADE_TOP=64
 BODY_ALPHA=217  # ~85% opacity, retaining the requested ~15% transparency.
-BODY_RGB=(16,25,56)
+BODY_RGB=(10,23,71)
 BAR_HEIGHTS={'InfoBar':354,'SecondInfoBar':504,'MoviePlayer':294}
 EVENT_MARGIN=128
 EVENT_FADE_END=1824

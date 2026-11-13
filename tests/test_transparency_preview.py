@@ -59,18 +59,19 @@ class TransparencyPreview(unittest.TestCase):
             self.assertTrue(title[0].get('font').startswith('PolsQStrong;'))
             self.assertTrue(title[0].get('shadowColor'))
             r,g,b,_=rgba(colors['newsYellow']);self.assertTrue(r>240 and g>200 and b<40)
-            # Red ticker bar along the bottom, opaque (no blending while scrolling).
-            ticker=scene.find("widget[@render='PolsQTicker']")
-            self.assertEqual(ticker.get('backgroundColor'),'newsRed');self.assertEqual(ticker.get('transparent'),'0')
+            # Red bar along the bottom with the next programme, static and opaque.
+            self.assertIsNone(scene.find("widget[@render='PolsQTicker']"),'no scrolling on the receiver')
+            nxt=[n for n in scene.findall("widget[@source='session.Event_Next']") if n.find("convert[@type='EventName']") is not None]
+            self.assertEqual(len(nxt),1);ticker=nxt[0]
+            self.assertEqual(ticker.get('wrap'),'ellipsis')
             self.assertEqual([c.get('type') for c in ticker.findall('convert')],['EventName','PolsQUpper'])
-            self.assertIsNone(ticker.get('wrap'))
             bar=[n for n in scene.findall('eLabel') if n.get('backgroundColor')=='newsRed']
             self.assertEqual(len(bar),1);self.assertEqual(bar[0].get('size').split(',')[0],'1920')
             r,g,b,a=rgba(colors['newsRed']);self.assertTrue(r>200 and g<40 and b<40 and a==255)
             tx,ty=map(int,ticker.get('position').split(','));bx,by=map(int,bar[0].get('position').split(','))
             self.assertGreaterEqual(ty,by);self.assertLessEqual(ty+int(ticker.get('size').split(',')[1]),by+int(bar[0].get('size').split(',')[1]))
-            self.assertIsNotNone(scene.find("eLabel[@text='W SKRÓCIE']"))
-            self.assertIsNotNone(scene.find("widget[@source='session.Event_Next']"))
+            self.assertIsNotNone(scene.find("eLabel[@text='POTEM']"))
+            self.assertIsNotNone(scene.find("widget[@render='Label'][@source='session.Event_Now']/convert[@type='PolsQEventRemaining']/.."))
             self.assertIsNotNone(scene.find("widget[@source='session.RecordState']"))
             progress=scene.find("widget[@render='Progress']")
             self.assertGreaterEqual(int(progress.get('position').split(',')[1]),int(title[0].get('position').split(',')[1])+int(title[0].get('size').split(',')[1]))
@@ -104,7 +105,7 @@ class TransparencyPreview(unittest.TestCase):
                         channels=[v/255 for v in rgb]
                         linear=[v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in channels]
                         return sum(v*w for v,w in zip(linear,(.2126,.7152,.0722)))
-                    backdrop=tuple(round(c*217/255+255*38/255) for c in (16,25,56))
+                    backdrop=tuple(round(c*217/255+255*38/255) for c in (10,23,71))
                     for color_name in ('white','muted','green'):
                         foreground=rgba(colors[color_name])[:3]
                         self.assertGreaterEqual((luminance(foreground)+.05)/(luminance(backdrop)+.05),4.5)

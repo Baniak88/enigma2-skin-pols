@@ -4,16 +4,16 @@
     <resolution xres="1920" yres="1080" bpp="32" />
   </output>
   <colors>
-    <color name="bg" value="#00101938" />
-    <color name="panel" value="#0018284e" />
-    <color name="selected" value="#000759ad" />
-    <color name="now" value="#00123b68" />
+    <color name="bg" value="#000a1747" />
+    <color name="panel" value="#0013286b" />
+    <color name="selected" value="#001842be" />
+    <color name="now" value="#00163a8c" />
     <color name="white" value="#00f3f6fa" />
-    <color name="muted" value="#00b1c4e5" />
-    <color name="green" value="#0046baff" />
+    <color name="muted" value="#00a8ccff" />
+    <color name="green" value="#00ffd60a" />
     <color name="nativeGreen" value="#0000e676" />
-    <color name="line" value="#00304a72" />
-    <color name="track" value="#00647181" />
+    <color name="line" value="#002a4590" />
+    <color name="track" value="#003a4f86" />
     <color name="red" value="#00ff6262" />
     <color name="yellow" value="#00f5ce55" />
     <color name="blue" value="#005eacff" />
@@ -22,7 +22,7 @@
     <color name="newsRedDark" value="#00a30d13" />
     <color name="newsRedLight" value="#00f04a50" />
     <color name="newsSky" value="#00a8ccff" />
-    <color name="overlay" value="#26101938" />
+    <color name="overlay" value="#260a1747" />
     <color name="transparent" value="#ff000000" />
   </colors>
   <windowstyle type="skinned" id="0">
@@ -162,10 +162,10 @@
     <eLabel text="DOSTĘPNE DZIAŁANIA  ·  OK wybierz" position="736,214" size="1120,34" font="PolsQText;24" foregroundColor="muted" transparent="1" />
     <eLabel position="704,260" size="2,608" backgroundColor="line" />
     <widget source="mainlist" render="Listbox" position="64,260" size="608,576" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 26)], 'itemHeight': 96, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 17), size=(52, 64), png=2, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(88, 5), size=(496, 48), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=0), MultiContentEntryText(pos=(88, 53), size=(496, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=1, color=11650277, color_sel=15988474)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 26)], 'itemHeight': 96, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 17), size=(52, 64), png=2, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(88, 5), size=(496, 48), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=0), MultiContentEntryText(pos=(88, 53), size=(496, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=1, color=11062527, color_sel=15988474)]}</convert>
     </widget>
     <widget source="sublist" render="Listbox" position="736,260" size="1120,576" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 27)], 'itemHeight': 96, 'template': [MultiContentEntryText(pos=(20, 5), size=(1080, 48), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=0), MultiContentEntryText(pos=(20, 53), size=(1080, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=1, color=11650277, color_sel=15988474)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 27)], 'itemHeight': 96, 'template': [MultiContentEntryText(pos=(20, 5), size=(1080, 48), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=0), MultiContentEntryText(pos=(20, 53), size=(1080, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=1, color=11062527, color_sel=15988474)]}</convert>
     </widget>
     <widget name="description" position="64,888" size="1792,72" font="PolsQText;29" foregroundColor="muted" transparent="1" />
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
@@ -452,7 +452,7 @@
     <eLabel position="20,84" size="664,2" backgroundColor="green" />
     <eLabel text="» Oglądany kanał" position="24,100" size="656,28" font="PolsQText;22" foregroundColor="muted" transparent="1" />
     <widget source="menu" render="Listbox" position="20,144" size="664,672" selectionPixmap="PolsQ/assets/history-selected.png" selectionZoom="0" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{"fonts":[gFont("PolsQStrong",32),gFont("PolsQText",25),gFont("PolsQText",22)],"itemHeight":112,"itemWidth":664,"template":[MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x00101938,backgroundColorSelected=0x0046baff),MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x00304a72,backgroundColorSelected=0x000759ad),MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x0046baff,color_sel=0x0046baff),MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00b1c4e5,color_sel=0x00b1c4e5),MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00b1c4e5,color_sel=0x00b1c4e5)]}</convert>
+      <convert type="TemplatedMultiContent">{"fonts":[gFont("PolsQStrong",32),gFont("PolsQText",25),gFont("PolsQText",22)],"itemHeight":112,"itemWidth":664,"template":[MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x000a1747,backgroundColorSelected=0x00ffd60a),MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x002a4590,backgroundColorSelected=0x001842be),MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x00ffd60a,color_sel=0x00ffd60a),MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00a8ccff,color_sel=0x00a8ccff),MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00a8ccff,color_sel=0x00a8ccff)]}</convert>
     </widget>
     <widget source="key_red" render="FixedLabel" position="24,836" size="4,36" font="PolsQText;30" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
       <convert type="ConditionalShowHide" />
@@ -474,7 +474,7 @@
     <eLabel position="20,84" size="664,2" backgroundColor="green" />
     <eLabel text="» Oglądany kanał" position="24,100" size="656,28" font="PolsQText;22" foregroundColor="muted" transparent="1" />
     <widget source="menu" render="Listbox" position="20,144" size="664,672" selectionPixmap="PolsQ/assets/history-selected.png" selectionZoom="0" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{"fonts":[gFont("PolsQStrong",32),gFont("PolsQText",25),gFont("PolsQText",22)],"itemHeight":112,"itemWidth":664,"template":[MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x00101938,backgroundColorSelected=0x0046baff),MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x00304a72,backgroundColorSelected=0x000759ad),MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x0046baff,color_sel=0x0046baff),MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00b1c4e5,color_sel=0x00b1c4e5),MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00b1c4e5,color_sel=0x00b1c4e5)]}</convert>
+      <convert type="TemplatedMultiContent">{"fonts":[gFont("PolsQStrong",32),gFont("PolsQText",25),gFont("PolsQText",22)],"itemHeight":112,"itemWidth":664,"template":[MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x000a1747,backgroundColorSelected=0x00ffd60a),MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x002a4590,backgroundColorSelected=0x001842be),MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x00ffd60a,color_sel=0x00ffd60a),MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00a8ccff,color_sel=0x00a8ccff),MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00a8ccff,color_sel=0x00a8ccff)]}</convert>
     </widget>
     <widget source="key_red" render="FixedLabel" position="24,836" size="4,36" font="PolsQText;30" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
       <convert type="ConditionalShowHide" />
@@ -866,7 +866,7 @@
     <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
     <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;34" itemHeight="88" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;34" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Niebieska linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
     <widget source="Event" render="PolsQSummary" position="600,342" size="1120,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
@@ -933,7 +933,7 @@
     <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
     <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;34" itemHeight="88" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;34" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Niebieska linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
     <widget source="Event" render="PolsQSummary" position="600,342" size="660,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
@@ -1001,7 +1001,7 @@
     <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
     <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;34" itemHeight="88" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;34" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Niebieska linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;26" foregroundColor="muted" transparent="1" />
     <widget source="Event" render="PolsQSummary" position="600,342" size="1120,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
@@ -1866,7 +1866,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="pluginGrid" render="Listbox" position="64,232" size="1792,560" listOrientation="grid" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'template': [MultiContentEntryRectangle(pos=(8, 10), size=(432, 256), backgroundColor=1583182, backgroundColorSelected=481709, borderWidth=2, borderColor=3164786, borderColorSelected=4635391), MultiContentEntryPixmapAlphaBlend(pos=(148, 29), size=(152, 104), png=3, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(24, 156), size=(400, 96), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text=1)], 'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 280, 'itemWidth': 448}</convert>
+      <convert type="TemplatedMultiContent">{'template': [MultiContentEntryRectangle(pos=(8, 10), size=(432, 256), backgroundColor=1255531, backgroundColorSelected=1589950, borderWidth=2, borderColor=2770320, borderColorSelected=16766474), MultiContentEntryPixmapAlphaBlend(pos=(148, 29), size=(152, 104), png=3, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(24, 156), size=(400, 96), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text=1)], 'fonts': [gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 280, 'itemWidth': 448}</convert>
     </widget>
     <widget name="quickselect" position="64,232" size="1792,684" font="PolsQText;84" halign="center" valign="center" transparent="1" foregroundColor="green" zPosition="5" />
     <widget name="description" position="64,928" size="1792,36" font="PolsQText;28" foregroundColor="muted" transparent="1" wrap="ellipsis" />
@@ -1952,13 +1952,13 @@
     <eLabel position="960,216" size="2,700" backgroundColor="line" />
     <eLabel text="LEWY PANEL" position="64,216" size="864,32" font="PolsQText;26" foregroundColor="muted" transparent="1" />
     <widget source="headleft" render="Listbox" position="64,252" size="864,96" selection="0" backgroundColor="panel" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 32), gFont('PolsQText', 26)], 'itemHeight': 120, 'selectionEnabled': False, 'template': [MultiContentEntryText(pos=(16, 0), size=(832, 56), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=17), MultiContentEntryText(pos=(16, 72), size=(176, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=1, color=11650277), MultiContentEntryText(pos=(212, 72), size=(156, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=11, color=11650277), MultiContentEntryText(pos=(396, 72), size=(452, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=13, color=11650277)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 32), gFont('PolsQText', 26)], 'itemHeight': 120, 'selectionEnabled': False, 'template': [MultiContentEntryText(pos=(16, 0), size=(832, 56), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=17), MultiContentEntryText(pos=(16, 72), size=(176, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=1, color=11062527), MultiContentEntryText(pos=(212, 72), size=(156, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=11, color=11062527), MultiContentEntryText(pos=(396, 72), size=(452, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=13, color=11062527)]}</convert>
     </widget>
     <widget name="listleft" position="64,368" size="864,480" font="PolsQText;32" itemHeight="80" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="sortleft" position="64,888" size="864,30" font="PolsQText;25" foregroundColor="muted" transparent="1" wrap="ellipsis" />
     <eLabel text="PRAWY PANEL" position="992,216" size="864,32" font="PolsQText;26" foregroundColor="muted" transparent="1" />
     <widget source="headright" render="Listbox" position="992,252" size="864,96" selection="0" backgroundColor="panel" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 32), gFont('PolsQText', 26)], 'itemHeight': 120, 'selectionEnabled': False, 'template': [MultiContentEntryText(pos=(16, 0), size=(832, 56), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=17), MultiContentEntryText(pos=(16, 72), size=(176, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=1, color=11650277), MultiContentEntryText(pos=(212, 72), size=(156, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=11, color=11650277), MultiContentEntryText(pos=(396, 72), size=(452, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=13, color=11650277)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 32), gFont('PolsQText', 26)], 'itemHeight': 120, 'selectionEnabled': False, 'template': [MultiContentEntryText(pos=(16, 0), size=(832, 56), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=17), MultiContentEntryText(pos=(16, 72), size=(176, 40), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=1, color=11062527), MultiContentEntryText(pos=(212, 72), size=(156, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=11, color=11062527), MultiContentEntryText(pos=(396, 72), size=(452, 40), font=1, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=13, color=11062527)]}</convert>
     </widget>
     <widget name="listright" position="992,368" size="864,480" font="PolsQText;32" itemHeight="80" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="sortright" position="992,888" size="864,30" font="PolsQText;25" foregroundColor="muted" transparent="1" wrap="ellipsis" />
@@ -2213,7 +2213,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="plugins" render="Listbox" position="64,236" size="1792,560" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 36), gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 112, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 24), size=(56, 64), png=6, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(92, 0), size=(1608, 112), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=2), MultiContentEntryText(pos=(92, 7), size=(1232, 48), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=3), MultiContentEntryText(pos=(1360, 10), size=(312, 48), font=2, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=5), MultiContentEntryText(pos=(92, 58), size=(1580, 40), font=2, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=4, color=11650277, color_sel=15988474), MultiContentEntryPixmapAlphaBlend(pos=(1720, 24), size=(48, 64), png=7, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 36), gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 112, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 24), size=(56, 64), png=6, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(92, 0), size=(1608, 112), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=2), MultiContentEntryText(pos=(92, 7), size=(1232, 48), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=3), MultiContentEntryText(pos=(1360, 10), size=(312, 48), font=2, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=5), MultiContentEntryText(pos=(92, 58), size=(1580, 40), font=2, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=4, color=11062527, color_sel=15988474), MultiContentEntryPixmapAlphaBlend(pos=(1720, 24), size=(48, 64), png=7, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO)]}</convert>
     </widget>
     <widget name="description" position="64,880" size="1792,72" font="PolsQText;31" foregroundColor="muted" transparent="1" />
     <widget name="quickselect" position="64,236" size="1792,616" font="PolsQText;74" halign="center" valign="center" transparent="1" foregroundColor="green" zPosition="5" />
@@ -2254,7 +2254,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="plugins" render="Listbox" position="64,236" size="1792,560" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line">
-      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 36), gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 112, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 24), size=(56, 64), png=6, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(92, 0), size=(1608, 112), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=2), MultiContentEntryText(pos=(92, 7), size=(1232, 48), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=3), MultiContentEntryText(pos=(1360, 10), size=(312, 48), font=2, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=5), MultiContentEntryText(pos=(92, 58), size=(1580, 40), font=2, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=4, color=11650277, color_sel=15988474), MultiContentEntryPixmapAlphaBlend(pos=(1720, 24), size=(48, 64), png=7, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO)]}</convert>
+      <convert type="TemplatedMultiContent">{'fonts': [gFont('PolsQText', 36), gFont('PolsQText', 34), gFont('PolsQText', 28)], 'itemHeight': 112, 'template': [MultiContentEntryPixmapAlphaBlend(pos=(12, 24), size=(56, 64), png=6, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO), MultiContentEntryText(pos=(92, 0), size=(1608, 112), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=2), MultiContentEntryText(pos=(92, 7), size=(1232, 48), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=3), MultiContentEntryText(pos=(1360, 10), size=(312, 48), font=2, flags=RT_HALIGN_RIGHT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=5), MultiContentEntryText(pos=(92, 58), size=(1580, 40), font=2, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_ELLIPSIS, text=4, color=11062527, color_sel=15988474), MultiContentEntryPixmapAlphaBlend(pos=(1720, 24), size=(48, 64), png=7, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO)]}</convert>
     </widget>
     <widget name="description" position="64,880" size="1792,72" font="PolsQText;31" foregroundColor="muted" transparent="1" />
     <widget name="quickselect" position="64,236" size="1792,616" font="PolsQText;74" halign="center" valign="center" transparent="1" foregroundColor="green" zPosition="5" />
@@ -2347,7 +2347,7 @@
     <widget source="global.CurrentTime" render="Label" position="48,190" size="236,41" foregroundColor="white" transparent="1" font="PolsQStrong;34" halign="center" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="310,46" size="1178,36" foregroundColor="newsSky" transparent="1" font="PolsQStrong;30" wrap="ellipsis">
+    <widget source="session.CurrentService" render="Label" position="310,46" size="1178,36" foregroundColor="muted" transparent="1" font="PolsQStrong;30" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
     <widget source="session.Event_Now" render="PolsQSummary" position="310,84" size="1178,104" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;44" shadowColor="#00030814" shadowOffset="2,2">
@@ -2362,29 +2362,28 @@
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="session.Event_Now" render="Progress" position="530,205" size="600,6" foregroundColor="newsYellow" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="session.Event_Now" render="Progress" position="530,205" size="958,6" foregroundColor="newsYellow" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="session.Event_Now" render="Label" position="1148,192" size="340,34" foregroundColor="newsSky" transparent="1" font="PolsQText;28" halign="right">
+    <widget source="global.CurrentTime" render="Label" position="1544,58" size="296,31" foregroundColor="muted" transparent="1" font="PolsQStrong;26">
+      <convert type="ClockToText">Format:%d.%m.%Y</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="1544,96" size="296,36" foregroundColor="white" transparent="1" font="PolsQStrong;30">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <eLabel text="POTEM" position="1544,56" size="150,31" font="PolsQStrong;26" foregroundColor="newsSky" transparent="1" />
-    <widget source="session.Event_Next" render="Label" position="1700,56" size="140,34" foregroundColor="white" transparent="1" font="PolsQText;28" halign="right">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Default</convert>
-    </widget>
-    <widget source="session.Event_Next" render="PolsQSummary" position="1544,92" size="296,84" foregroundColor="white" transparent="1" font="PolsQStrong;32">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="session.RecordState" render="FixedLabel" position="1520,188" size="344,34" foregroundColor="red" transparent="1" font="PolsQText;28" text="● NAGRYWANIE" halign="right">
+    <widget source="session.RecordState" render="FixedLabel" position="1544,140" size="296,34" foregroundColor="red" transparent="1" font="PolsQText;28" text="● NAGRYWANIE">
       <convert type="ConditionalShowHide" />
     </widget>
     <eLabel position="0,226" size="1920,60" backgroundColor="newsRed" />
     <eLabel position="0,226" size="1920,2" backgroundColor="newsRedLight" zPosition="1" />
     <eLabel position="0,228" size="292,58" backgroundColor="newsRedDark" zPosition="1" />
-    <eLabel text="W SKRÓCIE" position="40,228" size="232,58" font="PolsQStrong;30" foregroundColor="white" transparent="1" halign="center" valign="center" zPosition="2" />
-    <widget source="session.Event_Now" render="PolsQTicker" position="308,228" size="1572,58" foregroundColor="white" transparent="0" font="PolsQStrong;34" backgroundColor="newsRed" zPosition="2">
-      <convert type="EventName">ExtendedDescription</convert>
+    <eLabel text="POTEM" position="40,228" size="232,58" font="PolsQStrong;32" foregroundColor="white" transparent="1" halign="center" valign="center" zPosition="2" />
+    <widget source="session.Event_Next" render="Label" position="316,228" size="110,58" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;34" valign="center" zPosition="2">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="436,228" size="1428,58" foregroundColor="white" transparent="1" font="PolsQStrong;34" valign="center" wrap="ellipsis" zPosition="2">
+      <convert type="EventName">Name</convert>
       <convert type="PolsQUpper" />
     </widget>
   </screen>

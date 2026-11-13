@@ -24,7 +24,7 @@ def panel(name,w,h,top,bottom,radius=24,shine=True,glow=None):
   halo=Image.new('RGBA',(w,h));ImageDraw.Draw(halo).rounded_rectangle((6,2,w-7,h-11),radius=radius+2,outline=glow,width=4);halo=halo.filter(ImageFilter.GaussianBlur(3))
   shadow.alpha_composite(halo)
  im.putalpha(Image.composite(im.getchannel('A'),Image.new('L',(w,h)),mask));shadow.alpha_composite(im)
- d=ImageDraw.Draw(shadow);d.rounded_rectangle((8,4,w-9,h-13),radius=radius,outline=(141,200,255,42) if not glow else (190,228,255,120),width=1)
+ d=ImageDraw.Draw(shadow);d.rounded_rectangle((8,4,w-9,h-13),radius=radius,outline=(150,195,255,46) if not glow else (255,226,90,170),width=1)
  # Glass highlight along the upper edge.
  d.line((8+radius,5,w-9-radius,5),fill=(255,255,255,46 if glow else 22),width=1)
  shadow.save(ROOT/name)
@@ -35,16 +35,14 @@ def build():
  for y in range(h):
   for x in range(w):
    a=math.exp(-(((x-780)/460)**2+((y-80)/300)**2));b=math.exp(-(((x-250)/600)**2+((y-490)/250)**2))
-   p[x,y]=(round(7+10*a+12*b),round(12+27*a+7*b),round(29+65*a+39*b),255)
+   p[x,y]=(round(6+16*a+6*b),round(15+42*a+12*b),round(50+118*a+40*b),255)
  # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
  im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
- for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(24,47,88,248),(11,22,47,246),26)
- panel('q-tile.png',570,176,(25,47,80,245),(15,29,53,250),20)
- panel('q-tile-focus.png',570,176,(23,139,229,255),(12,67,143,255),20,glow=(110,200,255,150))
- panel('q-channel-focus.png',864,96,(19,115,201,255),(13,67,125,255),16,glow=(110,200,255,130))
- panel('q-logo-card.png',280,256,(37,78,126,241),(13,28,53,238),24)
- panel('q-info-card.png',1492,256,(22,43,78,241),(10,21,45,238),24)
- rail=Image.new('RGBA',(112,1080),(7,13,30,230));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(96,153,220,45),width=1);rail.save(ROOT/'q-rail.png')
+ for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(24,52,138,248),(10,24,74,246),26)
+ panel('q-tile.png',570,176,(24,50,128,245),(12,28,82,250),20)
+ panel('q-tile-focus.png',570,176,(40,96,232,255),(20,54,172,255),20,glow=(255,214,10,170))
+ panel('q-channel-focus.png',864,96,(36,90,224,255),(20,54,168,255),16,glow=(255,214,10,150))
+ rail=Image.new('RGBA',(112,1080),(6,16,56,235));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,214,10,60),width=1);rail.save(ROOT/'q-rail.png')
  build_video_effects()
  live_badge()
  news_band()
@@ -52,7 +50,7 @@ def build():
 
 
 HERO_SIZES=((1712,384),(800,760),(1712,230))
-BEZEL=(6,12,30,255)
+BEZEL=(5,14,48,255)
 VIDEO_PAD=40
 VIDEO_RADIUS=14
 
@@ -69,9 +67,9 @@ def video_shadow(w,h):
  im=Image.new('RGBA',(W,H))
  shadow=Image.new('RGBA',(W,H));ImageDraw.Draw(shadow).rounded_rectangle((p-4,p+10,p+w+3,p+h+18),radius=VIDEO_RADIUS+8,fill=(0,0,0,190))
  im.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(14)))
- glow=Image.new('RGBA',(W,H));ImageDraw.Draw(glow).rounded_rectangle((p-10,p-10,p+w+9,p+h+9),radius=VIDEO_RADIUS+10,outline=(70,170,255,70),width=6)
+ glow=Image.new('RGBA',(W,H));ImageDraw.Draw(glow).rounded_rectangle((p-10,p-10,p+w+9,p+h+9),radius=VIDEO_RADIUS+10,outline=(80,140,255,80),width=6)
  im.alpha_composite(glow.filter(ImageFilter.GaussianBlur(9)))
- ImageDraw.Draw(im).rounded_rectangle((p-6,p-6,p+w+5,p+h+5),radius=VIDEO_RADIUS+6,fill=BEZEL,outline=(120,190,255,70),width=1)
+ ImageDraw.Draw(im).rounded_rectangle((p-6,p-6,p+w+5,p+h+5),radius=VIDEO_RADIUS+6,fill=BEZEL,outline=(150,195,255,80),width=1)
  # The video rectangle itself stays fully transparent: the picture shows
  # through the OSD there, so nothing may be painted on top of it.
  ImageDraw.Draw(im).rectangle((p,p,p+w-1,p+h-1),fill=(0,0,0,0))
@@ -87,7 +85,7 @@ def live_badge():
  # Pill for the NA ŻYWO label under the preview.
  w,h=172,40;s=4
  im=Image.new('RGBA',(w*s,h*s));d=ImageDraw.Draw(im)
- d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(6,12,30,200),outline=(255,255,255,40),width=s)
+ d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(5,14,48,210),outline=(255,255,255,40),width=s)
  cx,cy,r=22*s,h*s//2,7*s
  d.ellipse((cx-r-3*s,cy-r-3*s,cx+r+3*s,cy+r+3*s),fill=(255,98,98,70));d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=(255,98,98,255))
  im.resize((w,h),Image.Resampling.LANCZOS).save(ROOT/'q-live-badge.png')

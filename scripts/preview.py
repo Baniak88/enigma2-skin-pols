@@ -93,7 +93,7 @@ def raw_value(node,screen):
     kind=conv.get('type') if conv is not None else '';arg=conv.text if conv is not None else ''
     if src=='Title' and screen.startswith('ChannelSelection') and STATE=='bouquets':return 'TV — Użytkownik — Listy kanałów'
     if src=='Title':return {'Menu':'Menu główne','EventView':'Zapaleńcy. Historia polskiego filmu animowanego','InfoBarEventView':'Zapaleńcy. Historia polskiego filmu animowanego','QuickMenu':'Szybki dostęp do ustawień','ChoiceBox':'Wybór nośnika','ChannelSelection':'Ulubione — telewizja','BouquetSelector':'Wybierz bukiet','GraphicalEPG':'Ulubione — wtorek, 3 listopada','Setup':'Ustawienia listy kanałów','SkinSelection':'Ustawienia skórki','PolsQSettings':'Wybierz rozmiar interfejsu','ConflictTimerOverview':'Konflikt zaplanowanych nagrań','IpkgInstaller':'Instalacja rozszerzeń z /tmp','Opkg':'Instalacja pakietów','PackageAction':'Pobierz wtyczki','Processing':'Trwa operacja','Console':'Wynik polecenia','PackageActionLog':'Dziennik instalacji','FileCommander':'File Commander','FileCommanderContextMenu':'Operacje na plikach','FileCommanderData':'Informacje o pliku','FileCommanderTextEditor':'Edytor tekstu','PluginBrowserGrid':'Wtyczki','PluginBrowserList':'Wtyczki'}.get(screen,'')
-    if src=='global.CurrentTime':return '20:45'
+    if src=='global.CurrentTime':return '13.11.2026' if arg.startswith('Format:%d') else '20:45'
     if src=='description':return 'Informacje o dekoderze, obrazie OpenATV, tunerach, pamięci i połączeniu sieciowym.'
     key=src or key
     if screen in ('EventView','InfoBarEventView'):
@@ -168,9 +168,8 @@ def raw_value(node,screen):
         return {'key_red':'Wyszukaj','key_green':'Dodaj timer','key_yellow':'Szukaj w EPG','key_blue':'AutoTimer'}.get(key,'')
     if src=='session.RecordState':return node.get('text','● REC') if STATE=='recording' else ''
     if screen=='InfoBar' and kind=='EventName':
-        if arg=='ExtendedDescription':return 'Jeszcze dziś wyjdą zaproszenia na rozmowy przy jednym stole. Do zdarzenia doszło w okolicach ulicy Marszałkowskiej, na miejscu pracują służby. Więcej w kolejnym wydaniu.'
-        return 'Wieczór filmowy' if src.endswith('Next') else 'Jeszcze dziś wyjdą zaproszenia na rozmowy przy jednym stole'
-    if screen=='InfoBar' and kind=='ServiceName':return 'Polsat News HD'
+        return 'Wieczór filmowy: Na dobre i na złe' if src.endswith('Next') else 'Wydarzenia — wydanie główne i prognoza pogody'
+    if screen=='InfoBar' and kind=='ServiceName':return 'Polsat HD'
     if screen.startswith('ChannelSelection') and STATE=='bouquets' and kind in ('EventTime','PolsQEventRemaining'):return ''
     if kind=='PolsQEventRemaining':return 'Do końca: 15 min'
     if kind=='ServiceName':return (BOUQUETS[0] if STATE=='bouquets' else CHANNEL_ROWS[0][0]) if screen.startswith('ChannelSelection') else CHANNELS[0]
@@ -368,7 +367,7 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
         if n.get('render')=='FixedLabel' and n.get('text')==' ':continue
         if n.get('render')=='Pig':
             png(DEMO,x,y,w,h)
-        elif n.get('render')=='Picon':fake_picon(0,x,y,w,h,'NEWS' if name=='InfoBar' else None,'#0b3d91' if name=='InfoBar' else 'white')
+        elif n.get('render')=='Picon':fake_picon(0,x,y,w,h,'POLSAT' if name=='InfoBar' else None,'#0b3d91' if name=='InfoBar' else 'white')
         elif n.tag=='ePixmap':png(ROOT/n.get('pixmap'),x,y,w,h)
         elif key=='menuimage':png(ROOT/'PolsQ/mainmenu/information.png',x,y,w,h)
         elif key=='preview':png(ROOT/PROFILE/'prev.png',x,y,w,h)
@@ -382,8 +381,8 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
         else:
             size=int(n.get('font','Regular;28').split(';')[-1])
             display=n.get('text') if n.get('render')=='FixedLabel' and key.startswith('key_') else value(n,name)
-            if n.get('valign')=='center' or n.get('render')=='PolsQTicker':y+=max(0,(h-size*1.25)/2)
-            text(x,y,w,h,display,size,n.get('foregroundColor','white'),n.get('halign','left'),n.get('noWrap')=='1' or n.get('wrap')=='ellipsis' or n.get('render')=='PolsQTicker',n.get('font','').startswith('PolsQStrong;'),n.get('font','').startswith('PolsQMono;'))
+            if n.get('valign')=='center':y+=max(0,(h-size*1.25)/2)
+            text(x,y,w,h,display,size,n.get('foregroundColor','white'),n.get('halign','left'),n.get('noWrap')=='1' or n.get('wrap')=='ellipsis',n.get('font','').startswith('PolsQStrong;'),n.get('font','').startswith('PolsQMono;'))
     if name=='GraphicalEPG':
         guide=s.find("widget[@name='list']");gx,gy=map(int,guide.get('position').split(','));gw,gh=map(int,guide.get('size').split(','))
         rect(gx+320+360,gy,3,gh,'green')
