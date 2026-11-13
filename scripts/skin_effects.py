@@ -3,7 +3,7 @@ import xml.etree.ElementTree as E
 
 FADE_TOP=64
 BODY_ALPHA=217  # ~85% opacity, retaining the requested ~15% transparency.
-BODY_RGB=(16,25,56)
+BODY_RGB=(13,19,34)
 BAR_HEIGHTS={'InfoBar':354,'SecondInfoBar':504,'MoviePlayer':294}
 EVENT_MARGIN=128
 EVENT_FADE_END=1824
@@ -65,5 +65,6 @@ def modernize_bars(skin):
         scene.set('backgroundColor','transparent')
         # Fade gradually across 95% of the screen. The opacity floor protects
         # text contrast even when the video behind a paragraph turns white.
-        pixmap(scene,'eventview-fade.png',0,0,1920,1080,-10,scale=True)
+        # Full-size PNG: blitted 1:1, never stretched from a single row.
+        pixmap(scene,'eventview-fade.png',0,0,1920,1080,-10)
 

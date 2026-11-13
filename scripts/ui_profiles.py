@@ -18,33 +18,33 @@ def service_templates(large=False):
     def item(mode,tag,**attrs):
         return E.SubElement(mode,tag,{k:str(v) for k,v in attrs.items()})
     for kind in ('services','bouquets','other'):
-        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='864',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
+        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='824',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
         item(mode,'rectangle',position='0,0',size=f'4,{height}',foregroundColor='bg',foregroundColorSelected='green')
-        item(mode,'rectangle',position=f'8,{height-1}',size='856,1',foregroundColor='line',foregroundColorSelected='selected')
+        item(mode,'rectangle',position=f'0,{height-1}',size='824,1',foregroundColor='line',foregroundColorSelected='selected')
         if kind=='other':
             for index in ('FolderImage','MarkerImage'):
                 item(mode,'pixmap',index=index,position='16,22',size='32,32',alpha='blend',scale='scaleCenter')
-            item(mode,'text',index='EntryName',position='64,0',size=f'784,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
+            item(mode,'text',index='EntryName',position='64,0',size=f'744,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
             continue
         item(mode,'text',index='Number',position='4,0',size=f'52,{height}',font='2',horizontalAlignment='right',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='white')
         item(mode,'pixmap',index='Picon',position='60,20',size='80,46',alpha='blend',scale='scaleCenter')
         # Both sizes use two distinct text lines. Channel names can use the full
         # upper line; programme titles end before the separate progress slot.
-        item(mode,'text',index='ServiceName',position='160,6',size='680,40',font='0',verticalAlignment='center',wrap='ellipsis')
-        item(mode,'text',index='Title1',position='160,50',size='576,38',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
-        item(mode,'progress',index='Progress',position='768,68',size='64,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
+        item(mode,'text',index='ServiceName',position='160,6',size='648,40',font='0',verticalAlignment='center',wrap='ellipsis')
+        item(mode,'text',index='Title1',position='160,50',size='560,38',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
+        item(mode,'progress',index='Progress',position='744,68',size='64,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
     return root
 
 
 def history_template(large=False):
     return ('{"fonts":[gFont("PolsQStrong",%d),gFont("PolsQText",%d),gFont("PolsQText",%d)],"itemHeight":112,"itemWidth":664,"template":[' % ((32,25,22) if large else (30,24,21))+
-        'MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x00101938,backgroundColorSelected=0x0046baff),'
-        'MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x00304a72,backgroundColorSelected=0x000759ad),'
-        'MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x0046baff,color_sel=0x0046baff),'
+        'MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x000d1322,backgroundColorSelected=0x00f5c842),'
+        'MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x0026304a,backgroundColorSelected=0x0026407f),'
+        'MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x00f5c842,color_sel=0x00f5c842),'
         'MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),'
         'MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),'
-        'MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00b1c4e5,color_sel=0x00b1c4e5),'
-        'MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00b1c4e5,color_sel=0x00b1c4e5)]}')
+        'MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00a9b4c9,color_sel=0x00a9b4c9),'
+        'MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00a9b4c9,color_sel=0x00a9b4c9)]}')
 
 
 def bigger_height(value):

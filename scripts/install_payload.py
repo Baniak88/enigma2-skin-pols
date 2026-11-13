@@ -15,6 +15,8 @@ def install(source, destination):
     units=[(source/'PolsQ',share/'PolsQ'),(source/'PolsQLarge',share/'PolsQLarge'),
            (source/'runtime/Plugins/Extensions/PolsQSettings',python/'Plugins/Extensions/PolsQSettings'),
            (source/'runtime/Components/Converter/PolsQEventRemaining.py',python/'Components/Converter/PolsQEventRemaining.py'),
+           (source/'runtime/Components/Converter/PolsQUpper.py',python/'Components/Converter/PolsQUpper.py'),
+           (source/'runtime/Components/Converter/PolsQChannelNumber.py',python/'Components/Converter/PolsQChannelNumber.py'),
            (source/'runtime/Components/Renderer/PolsQSummary.py',python/'Components/Renderer/PolsQSummary.py')]
     for src,target in units:
         if not src.exists():raise RuntimeError('Niekompletna paczka: '+str(src))

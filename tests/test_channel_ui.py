@@ -59,14 +59,14 @@ class ChannelUI(unittest.TestCase):
             other=template.find("mode[@name='other']")
             self.assertEqual(height//int(other.get('itemHeight')),8)
             self.assertIsNotNone(other.find("pixmap[@index='FolderImage']"))
-            self.assertEqual(screen.find("widget[@name='list']").get('position'),'992,192')
+            self.assertEqual(screen.find("widget[@name='list']").get('position'),'1032,140')
 
     def test_selection_is_an_explicit_dark_surface_instead_of_system_gradient(self):
         from PIL import Image
         for name in ('ChannelSelection','ChannelSelection_PIG','ChannelSelection_NoPIG','ChannelSelectionRadio'):
             node=self.skin.find(f"screen[@name='{name}']/widget[@name='list']")
             with Image.open(ROOT/node.get('selectionPixmap')) as image:
-                self.assertEqual(image.size,(864,96))
+                self.assertEqual(image.size,(824,96))
                 self.assertEqual(image.getpixel((0,0))[3],0)
                 self.assertEqual(image.getpixel((100,40))[3],255)
                 self.assertNotEqual(image.getpixel((100,20)),image.getpixel((100,70)))
@@ -120,7 +120,7 @@ class ChannelUI(unittest.TestCase):
                 visible=[p for p in pixels if p[3]]
                 self.assertGreater(len(visible),20)
                 self.assertLess(len(visible),512)
-                self.assertTrue(set(visible)<={(194,204,215,255),(70,186,255,255)})
+                self.assertTrue(set(visible)<={(194,204,215,255),(245,200,66,255)})
                 images.append(image.tobytes())
         self.assertEqual(len(set(images)),4)  # Folder matches the bouquet icon.
 
