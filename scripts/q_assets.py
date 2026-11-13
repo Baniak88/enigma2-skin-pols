@@ -45,12 +45,7 @@ def build():
  # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
  im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
  for w,h in skin_sizes('q-hero'):panel(f'q-hero-{w}x{h}.png',w,h,(23,32,54,248),(19,27,46,248),26)
- panel('q-tile.png',568,176,(23,32,54,248),(19,27,46,250),20)
- panel('q-tile-focus.png',568,176,(41,68,134,255),(35,59,118,255),20,edge=(255,255,255,60))
- # List rows touch each other: the focus spans the full list width (aligned
- # with the grid edges) and keeps a small vertical inset to cover the row text.
- panel('q-channel-focus.png',824,96,(41,68,134,255),(35,59,118,255),16,edge=(255,255,255,50),inset=(0,4,0,13))
- rail=Image.new('RGBA',(112,1080),(10,15,27,240));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,255,255,16),width=1);rail.save(ROOT/'q-rail.png')
+ row_focus()
  build_video_effects()
  live_badge()
  news_band()
@@ -92,6 +87,18 @@ def video_shadow(w,h):
  # through the OSD there, so nothing may be painted on top of it.
  ImageDraw.Draw(im).rectangle((p,p,p+w-1,p+h-1),fill=(0,0,0,0))
  im.save(ROOT/f'q-video-shadow-{w}x{h}.png')
+
+
+ROW_W,ROW_H=936,96
+def row_focus():
+ # Selected list row (menu and channel lists): a full, opaque row. No rounded
+ # transparent corners, so the native selection colour never shows around it.
+ im=Image.new('RGBA',(ROW_W,ROW_H));p=im.load()
+ for y in range(ROW_H):
+  t=y/(ROW_H-1)
+  c=(round(41-6*t),round(68-9*t),round(134-16*t),255)
+  for x in range(ROW_W):p[x,y]=c
+ im.save(ROOT/'q-row-focus.png')
 
 
 def build_video_effects():

@@ -1,4 +1,4 @@
-# Pols Q 0.4.2 — Enigma2 / OpenATV 8
+# Pols Q 0.4.3 — Enigma2 / OpenATV 8
 
 Skóra Full HD 1920×1080 w stonowanej, minimalistycznej kolorystyce (grafitowy granat, jeden żółty akcent) i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
 
@@ -13,6 +13,13 @@ Skóra Full HD 1920×1080 w stonowanej, minimalistycznej kolorystyce (grafitowy 
 - Ustawienia, wybór skóry, dźwięk/napisy, wtyczki lista/siatka i dialogi.
 - Instalator IPK, postęp, błędy, pakiety i logi; dwupanelowy FileCommander.
 - Wtyczka **PolsQ — wygląd** do jawnego zapisania profilu listy i rozmiaru interfejsu.
+
+## Poprawki 0.4.3 — po teście na dekoderze
+
+- **Wtyczki znowu dostępne z menu**: zwykłe menu OpenATV obsługuje tylko strzałki góra/dół, więc w siatce 3×2 nie dało się przejść do pozycji w innych kolumnach (np. „Wtyczki”). Menu jest teraz pionową listą po prawej — każdą pozycję wybiera się strzałkami góra/dół, a lista przewija się, gdy pozycji jest więcej.
+- **Bez paska bocznego**: menu, lista kanałów i EPG mają marginesy 64 px z obu stron, jak pozostałe ekrany.
+- **Menu i lista kanałów wyglądają tak samo**: po lewej karta z obrazem TV i bieżącą audycją, po prawej lista; nagłówek menu pokazuje nazwę menu lub podmenu.
+- **Zaznaczenie bez kwadratowej poświaty**: zaznaczony wiersz to pełny pas z żółtym znacznikiem po lewej; nie ma już prostokątnego tła systemowego wokół zaokrąglonego kafla ani pustego, szóstego kafla.
 
 ## Nowości 0.4.2 — pasek informacyjny w stylu TV i nowe kolory
 
@@ -77,15 +84,15 @@ Skrypt [online-install.sh](online-install.sh) pobiera pakiet IPK z tego repozyto
 
 ### Ręcznie
 
-Pobierz [enigma2-plugin-skins-polsq_0.4.2_all.ipk](packages/enigma2-plugin-skins-polsq_0.4.2_all.ipk), prześlij do `/tmp` dekodera i uruchom:
+Pobierz [enigma2-plugin-skins-polsq_0.4.3_all.ipk](packages/enigma2-plugin-skins-polsq_0.4.3_all.ipk), prześlij do `/tmp` dekodera i uruchom:
 
 ```sh
-opkg install /tmp/enigma2-plugin-skins-polsq_0.4.2_all.ipk
+opkg install /tmp/enigma2-plugin-skins-polsq_0.4.3_all.ipk
 ```
 
 Zrestartuj GUI, a następnie otwórz **Wtyczki → PolsQ — wygląd**, wybierz Standard lub Duże napisy i naciśnij zielony Zapisz. Wtyczka zaproponuje restart GUI. Zapis ustawia profil listy oraz pikony w natywnych ustawieniach OpenATV. Instalacja i Anuluj nie zmieniają ustawień. Skóra nie zmienia bukietów ani timerów i nie instaluje paczki logotypów kanałów.
 
-Alternatywa: [PolsQ-0.4.2.tar.gz](packages/PolsQ-0.4.2.tar.gz). Rozpakuj do osobnego katalogu na dekoderze i wykonaj `sh install.sh`. Instalator ręczny tworzy kopie poprzednich plików i wycofuje częściową operację przy błędzie. Nie mieszaj instalacji ręcznej z opkg.
+Alternatywa: [PolsQ-0.4.3.tar.gz](packages/PolsQ-0.4.3.tar.gz). Rozpakuj do osobnego katalogu na dekoderze i wykonaj `sh install.sh`. Instalator ręczny tworzy kopie poprzednich plików i wycofuje częściową operację przy błędzie. Nie mieszaj instalacji ręcznej z opkg.
 
 **Aktualizacja z prototypu 0.1:** zainstaluj pełną paczkę — sama podmiana skin.xml już nie wystarcza. Nowa wersja używa grafik, szablonów i własnych modułów z runtime.
 

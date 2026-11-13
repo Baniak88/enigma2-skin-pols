@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates>
   <template name="PolsQLarge" component="serviceList" fonts="PolsQStrong;30,PolsQText;25,PolsQText;26">
-    <mode name="services" itemHeight="96" itemWidth="824" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
+    <mode name="services" itemHeight="96" itemWidth="936" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
       <rectangle position="0,0" size="4,96" foregroundColor="bg" foregroundColorSelected="green" />
-      <rectangle position="0,95" size="824,1" foregroundColor="line" foregroundColorSelected="selected" />
+      <rectangle position="0,95" size="936,1" foregroundColor="line" foregroundColorSelected="selected" />
       <text index="Number" position="4,0" size="52,96" font="2" horizontalAlignment="right" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="white" />
       <pixmap index="Picon" position="60,20" size="80,46" alpha="blend" scale="scaleCenter" />
-      <text index="ServiceName" position="160,6" size="648,40" font="0" verticalAlignment="center" wrap="ellipsis" />
-      <text index="Title1" position="160,50" size="560,38" font="1" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="muted" wrap="ellipsis" />
-      <progress index="Progress" position="744,68" size="64,6" foregroundColor="green" foregroundColorSelected="green" backgroundColor="line" backgroundColorSelected="line" borderWidth="0" />
+      <text index="ServiceName" position="160,6" size="760,40" font="0" verticalAlignment="center" wrap="ellipsis" />
+      <text index="Title1" position="160,50" size="672,38" font="1" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="muted" wrap="ellipsis" />
+      <progress index="Progress" position="856,68" size="64,6" foregroundColor="green" foregroundColorSelected="green" backgroundColor="line" backgroundColorSelected="line" borderWidth="0" />
     </mode>
-    <mode name="bouquets" itemHeight="96" itemWidth="824" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
+    <mode name="bouquets" itemHeight="96" itemWidth="936" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
       <rectangle position="0,0" size="4,96" foregroundColor="bg" foregroundColorSelected="green" />
-      <rectangle position="0,95" size="824,1" foregroundColor="line" foregroundColorSelected="selected" />
+      <rectangle position="0,95" size="936,1" foregroundColor="line" foregroundColorSelected="selected" />
       <text index="Number" position="4,0" size="52,96" font="2" horizontalAlignment="right" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="white" />
       <pixmap index="Picon" position="60,20" size="80,46" alpha="blend" scale="scaleCenter" />
-      <text index="ServiceName" position="160,6" size="648,40" font="0" verticalAlignment="center" wrap="ellipsis" />
-      <text index="Title1" position="160,50" size="560,38" font="1" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="muted" wrap="ellipsis" />
-      <progress index="Progress" position="744,68" size="64,6" foregroundColor="green" foregroundColorSelected="green" backgroundColor="line" backgroundColorSelected="line" borderWidth="0" />
+      <text index="ServiceName" position="160,6" size="760,40" font="0" verticalAlignment="center" wrap="ellipsis" />
+      <text index="Title1" position="160,50" size="672,38" font="1" verticalAlignment="center" foregroundColor="muted" foregroundColorSelected="muted" wrap="ellipsis" />
+      <progress index="Progress" position="856,68" size="64,6" foregroundColor="green" foregroundColorSelected="green" backgroundColor="line" backgroundColorSelected="line" borderWidth="0" />
     </mode>
-    <mode name="other" itemHeight="96" itemWidth="824" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
+    <mode name="other" itemHeight="96" itemWidth="936" foregroundColor="white" foregroundColorSelected="white" backgroundColor="bg" backgroundColorSelected="selected">
       <rectangle position="0,0" size="4,96" foregroundColor="bg" foregroundColorSelected="green" />
-      <rectangle position="0,95" size="824,1" foregroundColor="line" foregroundColorSelected="selected" />
+      <rectangle position="0,95" size="936,1" foregroundColor="line" foregroundColorSelected="selected" />
       <pixmap index="FolderImage" position="16,22" size="32,32" alpha="blend" scale="scaleCenter" />
       <pixmap index="MarkerImage" position="16,22" size="32,32" alpha="blend" scale="scaleCenter" />
-      <text index="EntryName" position="64,0" size="744,96" font="0" verticalAlignment="center" wrap="ellipsis" />
+      <text index="EntryName" position="64,0" size="856,96" font="0" verticalAlignment="center" wrap="ellipsis" />
     </mode>
   </template>
 </templates>

@@ -297,13 +297,15 @@ def draw_list(name,key,x,y,w,h):
     elif name=='Menu':
         rows=['Informacje','Timery','Nagrania','Wtyczki','Ustawienia','Czuwanie / restart']
         icons=['information','timermenu','movie_selection','plugin_selection','setup','shutdown']
-        widget=SKIN.find("screen[@name='Menu']/widget[@source='menu']")
-        iw,ih=int(widget.get('itemWidth')),int(widget.get('itemHeight'))
-        for i,row in enumerate(rows):
-            xx=x+(i%3)*iw;yy=y+(i//3)*ih
-            if i==0:png(ROOT/'PolsQ/assets/q-tile-focus.png',xx,yy,iw,ih)
-            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),xx+44,yy+32,64,64)
-            text(xx+44,yy+102,iw-88,54,row,32 if PROFILE=='PolsQLarge' else 28,'white',nowrap=True,bold=True)
+        rh=int(SKIN.find("screen[@name='Menu']/widget[@source='menu']").get('itemHeight'))
+        rows=rows+['Odtwarzacz multimediów','Zadania w tle']
+        icons=icons+['video_menu','setup']
+        for i,row in enumerate(rows[:int(h//rh)]):
+            yy=y+i*rh
+            if i==0:png(ROOT/'PolsQ/assets/q-row-focus.png',x,yy,w,rh);rect(x,yy,4,rh,'green')
+            rect(x,yy+rh-1,w,1,'selected' if i==0 else 'line')
+            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),x+32,yy+24,48,48)
+            text(x+104,yy+(rh-(32 if PROFILE=='PolsQLarge' else 28)*1.25)/2,w-136,rh,row,32 if PROFILE=='PolsQLarge' else 28,'white',nowrap=True,bold=True)
     elif name=='BouquetSelector':
         widget=SKIN.find("screen[@name='BouquetSelector']/widget[@name='menu']")
         rh=int(widget.get('itemHeight'));font=int(widget.get('font').split(';')[1])
@@ -317,7 +319,7 @@ def draw_list(name,key,x,y,w,h):
         sample=[(name,'','') for name in BOUQUETS] if STATE=='bouquets' else CHANNEL_ROWS
         for i,(channel,show,logo) in enumerate(sample[:int(h//rh)]):
             yy=y+i*rh
-            if i==0:png(ROOT/'PolsQ/assets/q-channel-focus.png',x,yy,w,rh)
+            if i==0:png(ROOT/'PolsQ/assets/q-row-focus.png',x,yy,w,rh)
             for node in mode:
                 xx,dy=map(int,node.get('position').split(','));nw,nh=map(int,node.get('size').split(','))
                 nx,ny=x+xx,yy+dy
