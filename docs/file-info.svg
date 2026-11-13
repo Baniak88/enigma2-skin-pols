@@ -12,7 +12,7 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Informacje o pliku</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
 <text x="64" y="264.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Ścieżka: /tmp/PolsQ.ipk</text>
 <text x="64" y="299.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Typ: pakiet instalacyjny</text>
 <text x="64" y="334.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Rozmiar: 58 kB</text>

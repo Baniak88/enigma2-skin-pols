@@ -10,7 +10,9 @@ from skin_effects import EVENT_MARGIN
 ROOT = Path(__file__).resolve().parents[1]
 # Pols Q: navy surfaces and blue/cyan accents inspired by SKY DE.
 PALETTE = dict(bg='101938', panel='18284e', selected='0759ad', now='123b68', white='f3f6fa', muted='b1c4e5',
-               green='46baff', nativeGreen='00e676', line='304a72', track='647181', red='ff6262', yellow='f5ce55', blue='5eacff')
+               green='46baff', nativeGreen='00e676', line='304a72', track='647181', red='ff6262', yellow='f5ce55', blue='5eacff',
+               # News-style InfoBar: yellow headline, red ticker bar, light-blue captions.
+               newsYellow='ffd60a', newsRed='d7141c', newsRedDark='a30d13', newsRedLight='f04a50', newsSky='a8ccff')
 skin = E.Element('skin')
 
 

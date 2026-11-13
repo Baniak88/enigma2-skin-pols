@@ -12,13 +12,13 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Wtyczki</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Usuń wtyczki</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Usuń wtyczki</text>
 <rect x="512" y="1012" width="6" height="24" fill="#00e676" fill-opacity="1.000000"/>
-<text x="534" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zainstaluj wtyczki</text>
+<text x="534" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zainstaluj wtyczki</text>
 <rect x="960" y="1012" width="6" height="24" fill="#f5ce55" fill-opacity="1.000000"/>
-<text x="982" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Aktualizuj wtyczki</text>
+<text x="982" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Aktualizuj wtyczki</text>
 <rect x="1408" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
-<text x="1430" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Edytuj</text>
+<text x="1430" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Edytuj</text>
 <rect x="64" y="236" width="1792" height="600" fill="#101938" fill-opacity="1.000000"/>
 <rect x="64" y="236" width="1792" height="100" fill="#0759ad" fill-opacity="1.000000"/>
 <image x="88" y="248" width="100" height="60" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAABfElEQVR4nO3aMY7CQBSDYQdtT8/9z0bPCaBAT9pFUGzeoBk7/3cAlNhxAigSAAAAAAAAAAAAAAD4im3Eh1xv9/uIz3F0OW+tDE/dAzhy+FL//FsFHD380slhdwGE/9fePH5GHUD3XuhoxEXYfgaghwImo4DJKGAyCpiMAiZbvoD03xvLFyBll2BRgPQsIbEImwJKWgl2BUhZa7AsoCSUYFXA5bxtr3/6ua/BqoDy7p9X1xIsC5By1mBbQHFfg30BkvcaIgoojmuIKkDyW0NcAcVlDbEFSB5riC6grLyGYa+lrOpd0Cu9QhO9gNXDl0IX4BB8iVuAU/hS0ALcgi/2BXz6NuMQvmRegOtV/5tlAQnBF7uHcFL4ktkCXsN3Dr7YLaAkhC+ZLUDKCb5YLSAtfMlkAYnBl+UXkBy+ZFBAOgqYjAImo4DJKGAyCphs2O+AVd4ycLN7Aenfz/9rbx6tWxAlPHVyaD8Djl7C0c8fAAAAAAAAAAAAAAAAS3oAH66n0rlh/VMAAAAASUVORK5CYII="/>

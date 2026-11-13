@@ -12,16 +12,16 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Instalacja rozszerzeń z /tmp</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
 <rect x="512" y="1012" width="6" height="24" fill="#00e676" fill-opacity="1.000000"/>
-<text x="534" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Instaluj</text>
+<text x="534" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Instaluj</text>
 <rect x="1408" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
-<text x="1430" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zaznacz / odznacz</text>
+<text x="1430" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zaznacz / odznacz</text>
 <text x="64" y="238.0" font-size="22" font-weight="normal" fill="#b1c4e5" text-anchor="start">WYBIERZ PAKIETY DO INSTALACJI</text>
 <rect x="64" y="276" width="1792" height="576" fill="#101938" fill-opacity="1.000000"/>
 <rect x="64" y="276" width="1792" height="72" fill="#0759ad" fill-opacity="1.000000"/>
 <image x="76" y="296" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAARklEQVR42mNgGAVQ8PXr1//0xIPXAfQK6VEHECXhtuv/f2rgUQeMOmDUAaMOGHXAqANGHTDqgKHrgNE24YA4YOT2jEYsAABcoe4zOvWCBQAAAABJRU5ErkJggg=="/>
-<text x="128" y="322.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="start">enigma2-plugin-skins-polsq_0.4.1_all.ipk</text>
+<text x="128" y="322.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="start">enigma2-plugin-skins-polsq_0.4.2_all.ipk</text>
 <image x="76" y="368" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAOElEQVR42u3XsQkAQAgEQfvv9+I3+RpEcBbMh8us0i/Jm7y9gKmlAQAAAAAAAAAAAAD2Au5+Rmdrxfokjmt9xV8AAAAASUVORK5CYII="/>
 <text x="128" y="394.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="start">enigma2-plugin-extensions-example_1.0_all.ipk</text>
 <text x="64" y="911.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">OK — zaznacz pakiet. Zielony — zainstaluj zaznaczone pakiety.</text>

@@ -12,11 +12,11 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Konflikt zaplanowanych nagrań</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Usuń</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Usuń</text>
 <rect x="960" y="1012" width="6" height="24" fill="#f5ce55" fill-opacity="1.000000"/>
-<text x="982" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wyłącz</text>
+<text x="982" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Wyłącz</text>
 <rect x="1408" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
-<text x="1430" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Ignoruj</text>
+<text x="1430" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Ignoruj</text>
 <text x="64" y="242.0" font-size="28" font-weight="normal" fill="#f5ce55" text-anchor="start">Nagrania nakładają się. Wybierz timer, aby zmienić czas lub go wyłączyć.</text>
 <rect x="64" y="292" width="1792" height="384" fill="#101938" fill-opacity="1.000000"/>
 <rect x="64" y="292" width="1792" height="104" fill="#0759ad" fill-opacity="1.000000"/>

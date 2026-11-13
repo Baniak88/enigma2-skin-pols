@@ -15,7 +15,9 @@ def install(source, destination):
     units=[(source/'PolsQ',share/'PolsQ'),(source/'PolsQLarge',share/'PolsQLarge'),
            (source/'runtime/Plugins/Extensions/PolsQSettings',python/'Plugins/Extensions/PolsQSettings'),
            (source/'runtime/Components/Converter/PolsQEventRemaining.py',python/'Components/Converter/PolsQEventRemaining.py'),
-           (source/'runtime/Components/Renderer/PolsQSummary.py',python/'Components/Renderer/PolsQSummary.py')]
+           (source/'runtime/Components/Converter/PolsQUpper.py',python/'Components/Converter/PolsQUpper.py'),
+           (source/'runtime/Components/Renderer/PolsQSummary.py',python/'Components/Renderer/PolsQSummary.py'),
+           (source/'runtime/Components/Renderer/PolsQTicker.py',python/'Components/Renderer/PolsQTicker.py')]
     for src,target in units:
         if not src.exists():raise RuntimeError('Niekompletna paczka: '+str(src))
         if target.is_symlink():raise RuntimeError('Katalog docelowy jest dowiązaniem: '+str(target))

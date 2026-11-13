@@ -110,21 +110,35 @@ def channels(s,large):
    n=saved[key];place(n,184+i*424,1010,374,42);s.append(n)
    src(s,key,160+i*424,1020,6,20,render='FixedLabel',text=' ',backgroundColor='nativeGreen' if key=='key_green' else key[4:],transparent='0',conditional=key,converts=[('ConditionalShowHide',None)])
 
+# News-style InfoBar (lower third): white logo card with the clock under it,
+# a yellow upper-case headline on a navy-blue band and a red ticker bar.
+NEWS_TOP=754
+NEWS_BAND=226
+NEWS_BAR=60
 def infobar(s,large):
- # A detached logo card, main programme and a separate Next column.
- s[:]=[];s.set('position','64,772');s.set('size','1792,256');s.set('backgroundColor','transparent')
- image(s,'q-logo-card.png',0,0,280,256,-10);image(s,'q-info-card.png',300,0,1492,256,-10)
- src(s,'session.CurrentService',32,50,216,130,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
- src(s,'session.RecordState',36,204,208,36,24,render='FixedLabel',text='● REC',foregroundColor='red',converts=[('ConditionalShowHide',None)])
- lift(src(s,'session.CurrentService',340,24,1096,48,34,converts=[('ServiceName','Name')],wrap='ellipsis'))
- src(s,'global.CurrentTime',1540,24,208,48,30,converts=[('ClockToText','Default')],halign='right')
- text(s,'TERAZ',340,86,880,32,20,'green')
- lift(src(s,'session.Event_Now',340,124,880,52,32,converts=[('EventName','Name')],wrap='ellipsis'))
- src(s,'session.Event_Now',340,188,164,38,24,converts=[('EventTime','StartTime'),('ClockToText','Default')],foregroundColor='muted')
- src(s,'session.Event_Now',530,188,690,38,24,converts=[('PolsQEventRemaining','')],foregroundColor='muted')
- text(s,'NASTĘPNIE',1296,86,444,32,20,'green')
- src(s,'session.Event_Next',1296,126,444,96,26,render='PolsQSummary',converts=[('EventName','Name')])
- src(s,'session.Event_Now',340,236,1400,4,render='Progress',foregroundColor='green',backgroundColor='line',borderWidth='0',converts=[('EventTime','Progress')])
+ s[:]=[];s.set('position',f'0,{NEWS_TOP}');s.set('size',f'1920,{NEWS_BAND+NEWS_BAR+4}');s.set('backgroundColor','transparent')
+ # One native-size PNG holds the band, the logo card and the Next panel:
+ # a single 1:1 blit instead of several blended layers.
+ image(s,'q-news-band.png',0,0,1920,NEWS_BAND,-10)
+ # Picons are 220x132: drawn at native size, no scaling on the receiver.
+ src(s,'session.CurrentService',56,51,220,132,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
+ lift(src(s,'global.CurrentTime',48,190,236,36,30,converts=[('ClockToText','Default')],halign='center',font='PolsQStrong;30'))
+ src(s,'session.CurrentService',310,46,1178,36,26,converts=[('ServiceName','Name')],foregroundColor='newsSky',wrap='ellipsis',font='PolsQStrong;26')
+ lift(src(s,'session.Event_Now',310,84,1178,104,40,render='PolsQSummary',converts=[('EventName','Name'),('PolsQUpper','')],foregroundColor='newsYellow',font='PolsQStrong;40'))
+ src(s,'session.Event_Now',310,192,92,32,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
+ src(s,'session.Event_Now',402,192,112,32,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')])
+ src(s,'session.Event_Now',530,205,600,6,render='Progress',foregroundColor='newsYellow',backgroundColor='line',borderWidth='0',converts=[('EventTime','Progress')])
+ src(s,'session.Event_Now',1148,192,340,32,24,converts=[('PolsQEventRemaining','')],foregroundColor='newsSky',halign='right')
+ text(s,'POTEM',1544,56,150,30,22,'newsSky',bold=True)
+ src(s,'session.Event_Next',1700,56,140,30,24,converts=[('EventTime','StartTime'),('ClockToText','Default')],halign='right')
+ src(s,'session.Event_Next',1544,92,296,84,28,render='PolsQSummary',converts=[('EventName','Name')],font='PolsQStrong;28')
+ src(s,'session.RecordState',1520,188,344,34,24,render='FixedLabel',text='● NAGRYWANIE',foregroundColor='red',halign='right',converts=[('ConditionalShowHide',None)])
+ # Opaque red bar: plain fills, no alpha blending, cheap while the text scrolls.
+ node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'1920,{NEWS_BAR}',backgroundColor='newsRed')
+ node(s,'eLabel',position=f'0,{NEWS_BAND}',size='1920,2',backgroundColor='newsRedLight',zPosition=1)
+ node(s,'eLabel',position=f'0,{NEWS_BAND+2}',size=f'292,{NEWS_BAR-2}',backgroundColor='newsRedDark',zPosition=1)
+ node(s,'eLabel',text='W SKRÓCIE',position=f'40,{NEWS_BAND+2}',size=f'232,{NEWS_BAR-2}',font='PolsQStrong;26',foregroundColor='white',transparent='1',halign='center',valign='center',zPosition=2)
+ src(s,'session.Event_Now',308,NEWS_BAND+2,1572,NEWS_BAR-2,render='PolsQTicker',converts=[('EventName','ExtendedDescription'),('PolsQUpper','')],font='PolsQStrong;30',backgroundColor='newsRed',transparent='0',zPosition='2')
 
 def graph(s,large):
  # Details form a wide top feature; the guide occupies the lower half.
@@ -148,6 +162,18 @@ def graph(s,large):
  for n in s.findall('eLabel'):
   if 'Zielona linia' in n.get('text',''):n.set('text','Niebieska linia — teraz   •   Zegar — timer');place(n,144,966,1712,30)
 
+# Small shared PNGs were stretched with scale="1" on many screens. Scaled
+# alpha blits are done in software on most receivers, so every such use gets
+# its own native-size file (generated by q_assets.native_variants).
+NATIVE={'accent-fade':(1792,2),'line-tv':(32,32),'line-bouquet':(32,32),'line-history':(32,32)}
+def native_pixmaps(s):
+ for n in s.iter('ePixmap'):
+  path=n.get('pixmap','');stem=path.rsplit('/',1)[-1][:-4]
+  if n.get('scale')!='1' or not path.startswith('PolsQ/assets/') or stem not in NATIVE:continue
+  w,h=map(int,n.get('size').split(','))
+  if (w,h)!=NATIVE[stem]:n.set('pixmap',f'PolsQ/assets/{stem}-{w}x{h}.png')
+  del n.attrib['scale']
+
 def apply(skin,large=False):
  for s in skin.findall('screen'):
   name=s.get('name')
@@ -164,4 +190,5 @@ def apply(skin,large=False):
      family,size=n.get('font').split(';');n.set('font',family+';'+str(int(size)+4))
      w,h=map(int,n.get('size').split(','));minimum=round((int(size)+4)*1.2)
      if h<minimum:n.set('size',f'{w},{minimum}')
+  native_pixmaps(s)
  return skin

@@ -56,7 +56,7 @@ def build():
         pixels=bytearray(c for y in range(total) for c in (*BODY_RGB,fade_alpha(y))*1920)
         png(Path('assets')/(name.lower()+'-fade.png'),1920,total,(0,0,0,0),pixels=pixels)
     event_pixels=bytearray(c for x in range(1920) for c in (*BODY_RGB,event_fade_alpha(x)))
-    png(Path('assets/eventview-fade.png'),1920,1,(0,0,0,0),pixels=event_pixels)
+    png(Path('assets/eventview-fade.png'),1920,1080,(0,0,0,0),pixels=event_pixels*1080)
     width=1792
     accent=bytearray()
     glow=bytearray()

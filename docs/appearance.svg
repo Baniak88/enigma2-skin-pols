@@ -12,9 +12,9 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Wybierz rozmiar interfejsu</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Anuluj</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Anuluj</text>
 <rect x="512" y="1012" width="6" height="24" fill="#00e676" fill-opacity="1.000000"/>
-<text x="534" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zapisz</text>
+<text x="534" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zapisz</text>
 <rect x="64" y="236" width="1120" height="560" fill="#101938" fill-opacity="1.000000"/>
 <rect x="64" y="236" width="1120" height="80" fill="#0759ad" fill-opacity="1.000000"/>
 <text x="84" y="290.0" font-size="30" font-weight="normal" fill="#f3f6fa" text-anchor="start">Rozmiar interfejsu</text>

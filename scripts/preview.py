@@ -59,7 +59,7 @@ def rect(x,y,w,h,fill):
 def text(x,y,w,h,value,size=28,fill='white',align='left',nowrap=False,bold=False,mono=False):
     lines=[]
     for paragraph in value.replace('\\n','\n').splitlines():
-        capacity=max(1,int(w/(size*.57)))
+        capacity=max(1,int(w/(size*(.68 if bold and paragraph.isupper() else .57))))
         lines.extend([paragraph[:capacity-1]+'…' if len(paragraph)>capacity else paragraph] if nowrap else textwrap.wrap(paragraph,capacity))
         if not paragraph:lines.append('')
     anchor={'left':'start','center':'middle','right':'end'}.get(align,'start')
@@ -76,13 +76,19 @@ def png(path,x,y,w,h):
     out.append(f'<image x="{x}" y="{y}" width="{w}" height="{h}" href="data:image/png;base64,{encoded}"/>')
 
 
-def fake_picon(index,x,y,w,h,title=None):
+def fake_picon(index,x,y,w,h,title=None,fill='white'):
     # Celowo tekstowa próbka, bez kopiowania prawdziwych logo.
     # Przezroczysta próbka logo dziedziczy tło listy albo paska.
-    text(x+4,y+h*.25,w-8,h*.7,title or SHORT[index],max(15,min(30,int(w/8))),'white','center')
+    text(x+4,y+h*.25,w-8,h*.7,title or SHORT[index],max(15,min(30,int(w/8))),fill,'center',bold=fill!='white')
 
 
 def value(node,screen):
+    result=raw_value(node,screen)
+    if node.find("convert[@type='PolsQUpper']") is not None:result=result.upper()
+    return result
+
+
+def raw_value(node,screen):
     src=node.get('source','');key=node.get('name','');conv=node.find('convert')
     kind=conv.get('type') if conv is not None else '';arg=conv.text if conv is not None else ''
     if src=='Title' and screen.startswith('ChannelSelection') and STATE=='bouquets':return 'TV — Użytkownik — Listy kanałów'
@@ -131,7 +137,7 @@ def value(node,screen):
         if key.startswith('key_'):return {'key_red':'Zamknij'}.get(key,'')
     if key.startswith('key_') and node.get('render')=='FixedLabel' and node.get('text')==' ':
         # Determine visibility from the source, but the marker itself has no text.
-        return value(E.Element('widget',source=key),screen)
+        return raw_value(E.Element('widget',source=key),screen)
     if screen=='IpkgInstaller':
         if key=='introduction':return 'OK — zaznacz pakiet. Zielony — zainstaluj zaznaczone pakiety.'
         if key.startswith('key_'):return {'key_red':'Zamknij','key_green':'Instaluj','key_blue':'Zaznacz / odznacz'}.get(key,'')
@@ -160,7 +166,11 @@ def value(node,screen):
         if screen=='BouquetSelector':return {'key_red':'Anuluj','key_green':'Wybierz'}.get(key,'')
         if screen=='Menu':return {'key_red':'Wyjdź','key_blue':'Tryb edycji'}.get(key,'')
         return {'key_red':'Wyszukaj','key_green':'Dodaj timer','key_yellow':'Szukaj w EPG','key_blue':'AutoTimer'}.get(key,'')
-    if src=='session.RecordState':return '● REC' if STATE=='recording' else ''
+    if src=='session.RecordState':return node.get('text','● REC') if STATE=='recording' else ''
+    if screen=='InfoBar' and kind=='EventName':
+        if arg=='ExtendedDescription':return 'Jeszcze dziś wyjdą zaproszenia na rozmowy przy jednym stole. Do zdarzenia doszło w okolicach ulicy Marszałkowskiej, na miejscu pracują służby. Więcej w kolejnym wydaniu.'
+        return 'Wieczór filmowy' if src.endswith('Next') else 'Jeszcze dziś wyjdą zaproszenia na rozmowy przy jednym stole'
+    if screen=='InfoBar' and kind=='ServiceName':return 'Polsat News HD'
     if screen.startswith('ChannelSelection') and STATE=='bouquets' and kind in ('EventTime','PolsQEventRemaining'):return ''
     if kind=='PolsQEventRemaining':return 'Do końca: 15 min'
     if kind=='ServiceName':return (BOUQUETS[0] if STATE=='bouquets' else CHANNEL_ROWS[0][0]) if screen.startswith('ChannelSelection') else CHANNELS[0]
@@ -358,7 +368,7 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
         if n.get('render')=='FixedLabel' and n.get('text')==' ':continue
         if n.get('render')=='Pig':
             png(DEMO,x,y,w,h)
-        elif n.get('render')=='Picon':fake_picon(0,x,y,w,h)
+        elif n.get('render')=='Picon':fake_picon(0,x,y,w,h,'NEWS' if name=='InfoBar' else None,'#0b3d91' if name=='InfoBar' else 'white')
         elif n.tag=='ePixmap':png(ROOT/n.get('pixmap'),x,y,w,h)
         elif key=='menuimage':png(ROOT/'PolsQ/mainmenu/information.png',x,y,w,h)
         elif key=='preview':png(ROOT/PROFILE/'prev.png',x,y,w,h)
@@ -366,13 +376,14 @@ def render(name,target,make_png=False,profile='PolsQ',state='success'):
             for i,t in enumerate(['20:00','20:30','21:00','21:30','22:00','22:30']):text(x+320+i*(w-320)/6,y,(w-320)/6,h,t,26,'muted')
         elif n.get('render')=='Progress' or key in ('progress','slider','activityslider'):
             rect(x,y,w,h,n.get('backgroundColor','line'))
-            rect(x,y,int(w*(0 if name.startswith('ChannelSelection') and STATE=='bouquets' else 1 if name=='Opkg' and key=='slider' else 0 if name=='Opkg' else .5)),h,'green')
+            rect(x,y,int(w*(0 if name.startswith('ChannelSelection') and STATE=='bouquets' else 1 if name=='Opkg' and key=='slider' else 0 if name=='Opkg' else .5)),h,n.get('foregroundColor','green'))
         elif key in ('menu','list','config','timerlist','mainlist','sublist','plugins','pluginGrid','pluginList','listleft','listright','headleft','headright') or (name=='FileCommanderTextEditor' and key=='data'):
             draw_list(name,key,x,y,w,h)
         else:
             size=int(n.get('font','Regular;28').split(';')[-1])
             display=n.get('text') if n.get('render')=='FixedLabel' and key.startswith('key_') else value(n,name)
-            text(x,y,w,h,display,size,n.get('foregroundColor','white'),n.get('halign','left'),n.get('noWrap')=='1' or n.get('wrap')=='ellipsis',n.get('font','').startswith('PolsQStrong;'),n.get('font','').startswith('PolsQMono;'))
+            if n.get('valign')=='center' or n.get('render')=='PolsQTicker':y+=max(0,(h-size*1.25)/2)
+            text(x,y,w,h,display,size,n.get('foregroundColor','white'),n.get('halign','left'),n.get('noWrap')=='1' or n.get('wrap')=='ellipsis' or n.get('render')=='PolsQTicker',n.get('font','').startswith('PolsQStrong;'),n.get('font','').startswith('PolsQMono;'))
     if name=='GraphicalEPG':
         guide=s.find("widget[@name='list']");gx,gy=map(int,guide.get('position').split(','));gw,gh=map(int,guide.get('size').split(','))
         rect(gx+320+360,gy,3,gh,'green')

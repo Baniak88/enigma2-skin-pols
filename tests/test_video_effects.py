@@ -50,6 +50,17 @@ class VideoEffects(unittest.TestCase):
             wall=E.parse(ROOT/folder/'skin.xml').getroot().find(".//ePixmap[@pixmap='PolsQ/assets/q-wallpaper.png']")
             self.assertIsNone(wall.get('alphatest'),'opaque wallpaper needs no blending')
 
+    def test_no_scaled_alpha_blits_except_picon_fallback(self):
+        for folder in ('PolsQ','PolsQLarge'):
+            for n in E.parse(ROOT/folder/'skin.xml').getroot().iter('ePixmap'):
+                if n.get('scale')=='1':
+                    self.assertEqual(n.get('pixmap'),'PolsQ/picon_default.png',n.attrib)
+                    continue
+                if n.get('pixmap','').endswith('picon_default.png'):continue
+                _,_,w,h=box(n)
+                with Image.open(ROOT/n.get('pixmap')) as im:
+                    self.assertEqual(im.size,(w,h),n.attrib)
+
     def test_headlines_have_text_shadow(self):
         skin=E.parse(ROOT/'PolsQ/skin.xml').getroot()
         for name in ('Menu','ChannelSelection','InfoBar'):

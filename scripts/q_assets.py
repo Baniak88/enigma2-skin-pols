@@ -47,6 +47,8 @@ def build():
  rail=Image.new('RGBA',(112,1080),(7,13,30,230));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(96,153,220,45),width=1);rail.save(ROOT/'q-rail.png')
  build_video_effects()
  live_badge()
+ news_band()
+ native_variants()
 
 
 HERO_SIZES=((1712,384),(800,760),(1712,230))
@@ -89,6 +91,65 @@ def live_badge():
  cx,cy,r=22*s,h*s//2,7*s
  d.ellipse((cx-r-3*s,cy-r-3*s,cx+r+3*s,cy+r+3*s),fill=(255,98,98,70));d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=(255,98,98,255))
  im.resize((w,h),Image.Resampling.LANCZOS).save(ROOT/'q-live-badge.png')
+
+NEWS_W,NEWS_H=1920,226
+NEWS_FADE=40
+NEWS_ALPHA=238
+LOGO_CARD=(48,44,284,190)
+NEXT_BOX=(1520,44,1864,184)
+
+
+def news_band():
+ # Navy-to-royal-blue lower third: soft fade on top so the band melts into
+ # the picture, nearly opaque body for contrast behind the yellow headline.
+ w,h=NEWS_W,NEWS_H
+ im=Image.new('RGBA',(w,h));p=im.load()
+ for y in range(h):
+  t=min(1,y/NEWS_FADE);alpha=round(NEWS_ALPHA*t*t*(3-2*t))
+  v=y/(h-1)
+  for x in range(w):
+   u=x/(w-1)
+   glow=math.exp(-(((x-1690)/420)**2+((y-110)/150)**2))
+   r=8+16*u+10*glow-6*v;g=22+40*u+38*glow-8*v;b=78+92*u+60*glow-14*v
+   p[x,y]=(max(0,min(255,round(r))),max(0,min(255,round(g))),max(0,min(255,round(b))),alpha)
+ # Diagonal light streaks on the right, like a studio graphic.
+ streaks=Image.new('RGBA',(w,h));d=ImageDraw.Draw(streaks)
+ for i,x0 in enumerate((1380,1450,1560,1690,1790)):
+  d.line((x0,h,x0+150,0),fill=(150,200,255,28 if i%2 else 18),width=3+i%3*2)
+ im.alpha_composite(streaks.filter(ImageFilter.GaussianBlur(1)))
+ # Logo card: white with a soft contact shadow; the picon is drawn on it.
+ shadow=Image.new('RGBA',(w,h));x0,y0,x1,y1=LOGO_CARD
+ ImageDraw.Draw(shadow).rounded_rectangle((x0+2,y0+6,x1+2,y1+6),radius=14,fill=(0,0,0,140))
+ im.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(6)))
+ k=4;cw,ch=x1-x0,y1-y0
+ card=Image.new('RGBA',(cw*k,ch*k));cd=ImageDraw.Draw(card)
+ cd.rounded_rectangle((0,0,cw*k-1,ch*k-1),radius=14*k,fill=(252,252,253,255))
+ card=card.resize((cw,ch),Image.Resampling.LANCZOS)
+ im.alpha_composite(card,dest=(x0,y0))
+ # Next panel: a lighter glass box with a thin bright edge.
+ x0,y0,x1,y1=NEXT_BOX;bw,bh=x1-x0,y1-y0
+ box=Image.new('RGBA',(bw*k,bh*k));bd=ImageDraw.Draw(box)
+ bd.rounded_rectangle((0,0,bw*k-1,bh*k-1),radius=16*k,fill=(255,255,255,26),outline=(170,210,255,80),width=2*k)
+ box=box.resize((bw,bh),Image.Resampling.LANCZOS)
+ im.alpha_composite(box,dest=(x0,y0))
+ im.save(ROOT/'q-news-band.png')
+
+
+def native_variants():
+ # Native-size copies for every shared PNG that the skin would otherwise stretch.
+ import re
+ import xml.etree.ElementTree as E
+ wanted=set()
+ for folder in ('PolsQ','PolsQLarge'):
+  path=ROOT.parent.parent/folder/'skin.xml'
+  if not path.exists():continue
+  for n in E.parse(path).getroot().iter('ePixmap'):
+   m=re.fullmatch(r'PolsQ/assets/(accent-fade|line-tv|line-bouquet|line-history)-(\d+)x(\d+)\.png',n.get('pixmap',''))
+   if m:wanted.add((m.group(1),int(m.group(2)),int(m.group(3))))
+ for stem,w,h in sorted(wanted):
+  with Image.open(ROOT/f'{stem}.png') as base:
+   base.convert('RGBA').resize((w,h),Image.Resampling.LANCZOS).save(ROOT/f'{stem}-{w}x{h}.png')
+
 
 if __name__=='__main__':build()
 

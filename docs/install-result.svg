@@ -12,9 +12,9 @@
 <text x="64" y="177.0" font-size="27" font-weight="normal" fill="#b1c4e5" text-anchor="start">Instalacja pakietów</text>
 <rect x="64" y="974" width="1792" height="2" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="1012" width="6" height="24" fill="#ff6262" fill-opacity="1.000000"/>
-<text x="86" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
+<text x="86" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zamknij</text>
 <rect x="1408" y="1012" width="6" height="24" fill="#5eacff" fill-opacity="1.000000"/>
-<text x="1430" y="1023.0" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Dziennik</text>
+<text x="1430" y="1032.375" font-size="25" font-weight="normal" fill="#f3f6fa" text-anchor="start">Dziennik</text>
 <text x="64" y="268.0" font-size="32" font-weight="normal" fill="#f3f6fa" text-anchor="start">Zakończono — zainstalowano 1 pakiet (0 błędów).</text>
 <rect x="64" y="506" width="1792" height="6" fill="#304a72" fill-opacity="1.000000"/>
 <rect x="64" y="506" width="1792" height="6" fill="#304a72" fill-opacity="1.000000"/>
