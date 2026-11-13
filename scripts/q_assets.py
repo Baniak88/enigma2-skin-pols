@@ -41,16 +41,11 @@ def build():
  for y in range(h):
   for x in range(w):
    a=math.exp(-(((x-780)/460)**2+((y-80)/300)**2));b=math.exp(-(((x-250)/600)**2+((y-490)/250)**2))
-   p[x,y]=(round(11+4*a),round(16+6*a),round(29+12*a),255)
+   p[x,y]=(round(13+4*a),round(18+10*a),round(21+11*a),255)
  # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
  im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
- for w,h in skin_sizes('q-hero'):panel(f'q-hero-{w}x{h}.png',w,h,(23,32,54,248),(19,27,46,248),26)
- panel('q-tile.png',568,176,(23,32,54,248),(19,27,46,250),20)
- panel('q-tile-focus.png',568,176,(41,68,134,255),(35,59,118,255),20,edge=(255,255,255,60))
- # List rows touch each other: the focus spans the full list width (aligned
- # with the grid edges) and keeps a small vertical inset to cover the row text.
- panel('q-channel-focus.png',824,96,(41,68,134,255),(35,59,118,255),16,edge=(255,255,255,50),inset=(0,4,0,13))
- rail=Image.new('RGBA',(112,1080),(10,15,27,240));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,255,255,16),width=1);rail.save(ROOT/'q-rail.png')
+ for w,h in skin_sizes('q-hero'):panel(f'q-hero-{w}x{h}.png',w,h,(27,37,43,248),(22,30,35,248),26)
+ row_focus()
  build_video_effects()
  live_badge()
  news_band()
@@ -68,7 +63,7 @@ def skin_sizes(prefix):
     m=re.fullmatch(r'PolsQ/assets/'+prefix+r'-(\d+)x(\d+)\.png',n.get('pixmap',''))
     if m:sizes.add((int(m.group(1)),int(m.group(2))))
  return sorted(sizes)
-BEZEL=(9,13,24,255)
+BEZEL=(10,14,16,255)
 VIDEO_PAD=40
 VIDEO_RADIUS=14
 
@@ -94,6 +89,18 @@ def video_shadow(w,h):
  im.save(ROOT/f'q-video-shadow-{w}x{h}.png')
 
 
+ROW_W,ROW_H=936,96
+def row_focus():
+ # Selected list row (menu and channel lists): a full, opaque row. No rounded
+ # transparent corners, so the native selection colour never shows around it.
+ im=Image.new('RGBA',(ROW_W,ROW_H));p=im.load()
+ for y in range(ROW_H):
+  t=y/(ROW_H-1)
+  c=(round(30-4*t),round(78-8*t),round(82-8*t),255)
+  for x in range(ROW_W):p[x,y]=c
+ im.save(ROOT/'q-row-focus.png')
+
+
 def build_video_effects():
  for w,h in video_sizes():
   video_shadow(w,h)
@@ -103,7 +110,7 @@ def live_badge():
  # Pill for the NA ŻYWO label under the preview.
  w,h=172,40;s=4
  im=Image.new('RGBA',(w*s,h*s));d=ImageDraw.Draw(im)
- d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(9,13,24,210),outline=(255,255,255,40),width=s)
+ d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(10,14,16,210),outline=(255,255,255,40),width=s)
  cx,cy,r=22*s,h*s//2,7*s
  d.ellipse((cx-r-3*s,cy-r-3*s,cx+r+3*s,cy+r+3*s),fill=(255,98,98,70));d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=(255,98,98,255))
  im.resize((w,h),Image.Resampling.LANCZOS).save(ROOT/'q-live-badge.png')
@@ -126,7 +133,7 @@ def news_band():
   v=y/(h-1)
   for x in range(w):
    u=x/(w-1)
-   r=23-4*v+2*u;g=32-5*v+2*u;b=54-8*v+4*u
+   r=27-5*v+2*u;g=37-7*v+3*u;b=43-8*v+3*u
    p[x,y]=(max(0,min(255,round(r))),max(0,min(255,round(g))),max(0,min(255,round(b))),alpha)
  # Logo card: white with a soft contact shadow; the picon is drawn on it.
  shadow=Image.new('RGBA',(w,h));x0,y0,x1,y1=LOGO_CARD

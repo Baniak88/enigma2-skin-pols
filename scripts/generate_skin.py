@@ -9,10 +9,10 @@ from skin_effects import EVENT_MARGIN
 
 ROOT = Path(__file__).resolve().parents[1]
 # Pols Q: navy surfaces and blue/cyan accents inspired by SKY DE.
-PALETTE = dict(bg='0d1322', panel='151d31', selected='26407f', now='1b2a4d', white='f3f6fa', muted='a9b4c9',
-               green='f5c842', nativeGreen='00e676', line='26304a', track='333d58', red='ff6262', yellow='f5ce55', blue='5eacff',
+PALETTE = dict(bg='0f1417', panel='182126', selected='184246', now='1a3236', white='f3f6fa', muted='a7b4b8',
+               green='f4b860', nativeGreen='00e676', line='263338', track='33434a', red='ff6262', yellow='f5ce55', blue='5eacff',
                # News-style InfoBar: yellow headline, red ticker bar, light-blue captions.
-               newsYellow='f5c842', newsRed='b8141c', newsRedDark='8f0f15', newsSky='a9b4c9')
+               newsYellow='f4b860', newsRed='b8482c', newsRedDark='8c3420', newsSky='a7b4b8')
 skin = E.Element('skin')
 
 
@@ -125,7 +125,7 @@ def build():
         add(colors, 'color', name=name, value='#00'+value)
     # Enigma2 ARGB uses inverse alpha: 00 is opaque, ff is transparent.
     # 26 = 38/255 (~15%) transparency, ~85% opacity.
-    add(colors, 'color', name='overlay', value='#260d1322')
+    add(colors, 'color', name='overlay', value='#260f1417')
     add(colors, 'color', name='transparent', value='#ff000000')
     style = add(skin, 'windowstyle', type='skinned', id='0')
     add(style, 'title', offset='24,12', font='PolsQText;30')
@@ -183,11 +183,11 @@ def build():
     templated(n,'{"fonts":[gFont("PolsQText",30),gFont("PolsQText",22)],"itemHeight":76,"template":['
         'MultiContentEntryPixmapAlphaBlend(pos=(12,14),size=(52,48),png=2,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),'
         'MultiContentEntryText(pos=(88,4),size=(496,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0),'
-        'MultiContentEntryText(pos=(88,44),size=(496,28),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=1,color=0x00a9b4c9,color_sel=0x00f3f6fa)]}')
+        'MultiContentEntryText(pos=(88,44),size=(496,28),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=1,color=0x00a7b4b8,color_sel=0x00f3f6fa)]}')
     n=source(s,'sublist',736,260,1120,608,render='Listbox',**LIST)
     templated(n,'{"fonts":[gFont("PolsQText",30),gFont("PolsQText",23)],"itemHeight":76,"template":['
         'MultiContentEntryText(pos=(20,4),size=(1080,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0),'
-        'MultiContentEntryText(pos=(20,44),size=(1080,28),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=1,color=0x00a9b4c9,color_sel=0x00f3f6fa)]}')
+        'MultiContentEntryText(pos=(20,44),size=(1080,28),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=1,color=0x00a7b4b8,color_sel=0x00f3f6fa)]}')
     widget(s,'description',64,888,1792,72,25,foregroundColor='muted',transparent='1')
 
     for name in ('ChannelSelection','ChannelSelection_PIG','ChannelSelection_NoPIG','ChannelSelectionRadio'):
@@ -402,7 +402,7 @@ def build():
         n=source(s,key,64,y,1792,height,render='Listbox',listOrientation='grid' if grid else 'vertical',**LIST)
         tpl='[MultiContentEntryPixmapAlphaBlend(pos=(24,12),size=(100,60),png=3,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(156,4),size=(1580,42),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER,text=1),MultiContentEntryText(pos=(156,48),size=(1580,40),font=1,text=2)]'
         if grid:
-            tpl='[MultiContentEntryRectangle(pos=(8,8),size=(432,212),backgroundColor=0x00151d31,backgroundColorSelected=0x0026407f,borderWidth=2,borderColor=0x0026304a,borderColorSelected=0x00f5c842),MultiContentEntryPixmapAlphaBlend(pos=(148,24),size=(152,84),png=3,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(24,130),size=(400,76),font=0,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP,text=1)]'
+            tpl='[MultiContentEntryRectangle(pos=(8,8),size=(432,212),backgroundColor=0x00182126,backgroundColorSelected=0x00184246,borderWidth=2,borderColor=0x00263338,borderColorSelected=0x00f4b860),MultiContentEntryPixmapAlphaBlend(pos=(148,24),size=(152,84),png=3,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(24,130),size=(400,76),font=0,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP,text=1)]'
         templated(n,'{"template":'+tpl+',"fonts":[gFont("PolsQText",30),gFont("PolsQText",24)],"itemHeight":'+('228,"itemWidth":448}' if grid else '100}'))
         widget(s,'quickselect',64,y,1792,height,80,halign='center',valign='center',transparent='1',foregroundColor='green',zPosition='5')
         if grid:
@@ -432,9 +432,9 @@ def build():
         n=source(s,'head'+side,x,252,864,96,render='Listbox',selection='0',**heading)
         templated(n,'{"fonts":[gFont("PolsQText",28),gFont("PolsQText",22)],"itemHeight":96,"selectionEnabled":False,"template":['
             'MultiContentEntryText(pos=(16,0),size=(832,44),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=17),'
-            'MultiContentEntryText(pos=(16,60),size=(176,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER,text=1,color=0x00a9b4c9),'
-            'MultiContentEntryText(pos=(212,60),size=(156,32),font=1,flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=11,color=0x00a9b4c9),'
-            'MultiContentEntryText(pos=(396,60),size=(452,32),font=1,flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=13,color=0x00a9b4c9)]}')
+            'MultiContentEntryText(pos=(16,60),size=(176,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER,text=1,color=0x00a7b4b8),'
+            'MultiContentEntryText(pos=(212,60),size=(156,32),font=1,flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=11,color=0x00a7b4b8),'
+            'MultiContentEntryText(pos=(396,60),size=(452,32),font=1,flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=13,color=0x00a7b4b8)]}')
         widget(s,'list'+side,x,368,864,512,28,itemHeight='64',**LIST)
         widget(s,'sort'+side,x,888,864,28,21,foregroundColor='muted',transparent='1',noWrap='1')
     widget(s,'quickselect',64,368,864,512,64,halign='center',valign='center',foregroundColor='green',transparent='1',zPosition='5')
@@ -487,7 +487,7 @@ def build():
             'MultiContentEntryText(pos=(92,0),size=(1608,88),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),'
             'MultiContentEntryText(pos=(92,6),size=(1232,40),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3),'
             'MultiContentEntryText(pos=(1360,8),size=(312,36),font=2,flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5),'
-            'MultiContentEntryText(pos=(92,48),size=(1580,32),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=4,color=0x00a9b4c9,color_sel=0x00f3f6fa),'
+            'MultiContentEntryText(pos=(92,48),size=(1580,32),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=4,color=0x00a7b4b8,color_sel=0x00f3f6fa),'
             'MultiContentEntryPixmapAlphaBlend(pos=(1720,20),size=(48,48),png=7,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)]}')
         widget(s,'description',64,880,1792,72,27,foregroundColor='muted',transparent='1')
         widget(s,'quickselect',64,236,1792,616,70,halign='center',valign='center',transparent='1',foregroundColor='green',zPosition='5')

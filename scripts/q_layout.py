@@ -49,10 +49,11 @@ def video_effects(s):
 
 def place(n,x,y,w,h):n.set('position',f'{x},{y}');n.set('size',f'{w},{h}');return n
 
-# One grid for every screen with the side rail. Margins and gaps are measured
-# on the visible card edges: each card PNG has the same transparent inset
+# One grid for every full-screen layout: the same 64 px margins as all other
+# screens, 24 px between cards, 32 px inside cards. Margins and gaps are
+# measured on visible card edges: each card PNG has the same transparent inset
 # (12 px left/right, 8 px top, 16 px bottom for the shadow).
-RAIL=112;M=64;L=RAIL+M;R=1920-M;W=R-L
+M=64;L=M;R=1920-M;W=R-L
 G=24;P=32
 TITLE_Y,TITLE_H=32,60
 TOP=140
@@ -62,85 +63,87 @@ def card(s,x,y,w,h,z=-10):
  # x,y,w,h: the visible card; the PNG includes the transparent inset.
  return hero(s,x-INSET[0],y-INSET[1],w+INSET[0]+INSET[2],h+INSET[1]+INSET[3],z)
 
+KEYS=('key_red','key_green','key_yellow','key_blue')
 def keys_row(s,saved=None):
- # Four equal columns across the content width, markers centred on the row.
+ # Four equal columns across the content width (as on all other screens).
  column=W//4
  nodes=saved if saved is not None else [n for n in s.findall('widget') if n.get('source','').startswith('key_')]
  for n in nodes:
-  key=n.get('source');i=('key_red','key_green','key_yellow','key_blue').index(key)
+  key=n.get('source');i=KEYS.index(key)
   if n.get('render')=='FixedLabel' and n.get('text')==' ':place(n,L+i*column,KEYS_Y+10,6,20)
   else:
    place(n,L+i*column+22,KEYS_Y,column-34,KEYS_H);n.set('valign','center')
    if n.get('font'):n.set('font','PolsQText;25')
   if saved is not None:s.append(n)
  if saved is not None:
-  for key in sorted({n.get('source') for n in saved},key=('key_red','key_green','key_yellow','key_blue').index):
-   i=('key_red','key_green','key_yellow','key_blue').index(key)
+  for key in sorted({n.get('source') for n in saved},key=KEYS.index):
+   i=KEYS.index(key)
    src(s,key,L+i*column,KEYS_Y+10,6,20,render='FixedLabel',text=' ',backgroundColor='nativeGreen' if key=='key_green' else key[4:],transparent='0',conditional=key,converts=[('ConditionalShowHide',None)])
 
 def shell(s,section):
  wallpaper(s)
- image(s,'q-rail.png',0,0,RAIL,1080,-20)
- text(s,'Q',0,TITLE_Y,RAIL,TITLE_H,48,bold=True).set('halign','center')
- s[-1].set('valign','center')
- for i,path in enumerate(['line-tv.png','line-bouquet.png','line-history.png']):image(s,path,(RAIL-36)//2,234+i*112,36,36,0,scale=True)
- n=text(s,'POLS',0,KEYS_Y,RAIL,KEYS_H,20,'muted');n.set('halign','center');n.set('valign','center')
- n=lift(text(s,section,L,TITLE_Y,1350,TITLE_H,40,bold=True));n.set('valign','center')
+ if section is None:
+  # Native screen title, e.g. "Menu główne" or the name of a submenu.
+  n=lift(src(s,'Title',L,TITLE_Y,1300,TITLE_H,40,font='PolsQStrong;40',wrap='ellipsis'))
+ else:n=lift(text(s,section,L,TITLE_Y,1300,TITLE_H,40,bold=True))
+ n.set('valign','center')
  src(s,'global.CurrentTime',R-240,TITLE_Y,240,TITLE_H,32,converts=[('ClockToText','Default')],halign='right',valign='center')
 
-TILE_W,TILE_H=(W+G)//3,176
+# Shared two-column body for Menu and channel lists: a card with the live
+# picture and the programme on the left, a full-height list on the right.
+CARD_W=832;CARD_H=768;LIST_W=W-G-CARD_W;ROW=96
+def live_card(s,source,name_source,video=True,channel_list=False):
+ card(s,L,TOP,CARD_W,CARD_H)
+ tx=L+P;tw=CARD_W-2*P;vh=round(tw*9/16)
+ if video:src(s,'session.VideoPicture',tx,TOP+P,tw,vh,render='Pig',backgroundColor='transparent',zPosition='2')
+ else:
+  src(s,source,L+(CARD_W-304)//2,TOP+P+(vh-172)//2-24,304,172,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
+  text(s,'TWÓJ KANAŁ',tx,TOP+P+vh-60,tw,50,32,'green').set('halign','center')
+ y=TOP+P+vh+20
+ src(s,name_source,tx,y+4,tw-196 if video else tw,40,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
+ lift(src(s,source,tx,y+48,tw,84,34,render='PolsQSummary',converts=[('EventName','Name')]))
+ src(s,source,tx,y+140,128,36,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
+ src(s,source,tx+132,y+140,168,36,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')],foregroundColor='muted')
+ src(s,source,tx+tw-352,y+140,352,36,23,converts=[('PolsQEventRemaining','')],halign='right',foregroundColor='muted')
+ src(s,source,tx,y+186,tw,6,render='Progress',backgroundColor='line',foregroundColor='green',borderWidth='0',converts=[('EventTime','Progress')])
+ src(s,source,tx,y+202,tw,TOP+CARD_H-P-(y+202),23,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
+ if video and not channel_list:
+  # Same badge as on the channel list, under the picture.
+  bx,by=tx+tw-172,TOP+P+vh+20
+  image(s,'q-live-badge.png',bx,by,172,40,5)
+  lift(text(s,'NA ŻYWO',bx+44,by+5,120,30,19,bold=True)).set('valign','center')
+  s[-1].set('zPosition','6')
+
 def menu(s,large):
+ # A vertical list: the standard OpenATV Menu only moves up/down, so a grid
+ # left items in other columns (e.g. Plugins) unreachable with the remote.
  saved={n.get('name') or n.get('source'):deepcopy(n) for n in s.findall('widget')}
- s[:]=[];shell(s,'Twój wieczór')
- vw,vh=576,324;hh=vh+2*P
- card(s,L,TOP,W,hh)
- vx,vy=R-P-vw,TOP+P;tx=L+P;tw=vx-P-tx
- text(s,'NA ŻYWO',tx,vy,800,32,21,'green')
- src(s,'session.CurrentService',tx,vy+36,tw-96,40,28,converts=[('ServiceName','Name')],wrap='ellipsis')
- lift(src(s,'session.Event_Now',tx,vy+80,tw,114,46,render='PolsQSummary',converts=[('EventName','Name')]))
- src(s,'session.Event_Now',tx,vy+vh-70,tw,70,25,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
- src(s,'session.VideoPicture',vx,vy,vw,vh,render='Pig',backgroundColor='transparent',zPosition='2')
- # Native grid: items touch, the inset inside each tile makes the 24 px gap.
- gy=TOP+hh+G
- n=saved['menu'];place(n,L-INSET[0],gy-INSET[1],3*TILE_W,2*TILE_H)
- n.set('listOrientation','grid');n.set('itemWidth',str(TILE_W));n.set('itemHeight',str(TILE_H));n.set('transparent','1');n.set('selectionPixmap','PolsQ/assets/q-tile-focus.png');n.set('selectionZoom','0');n.set('scrollbarMode','showOnDemand')
- ix=INSET[0]+P;iy=INSET[1]+24
- icon=f'MultiContentEntryPixmapAlphaBlend(pos=({ix},{iy}),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)'
- def title(index):return f'MultiContentEntryText(pos=({ix},{iy+70}),size=({TILE_W-2*ix},54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text={index})'
- styles={k:icon+','+title(0 if k=='default' else 3) for k in ('default','text','number','image','both')}
- n.find('convert').text='{"itemHeight":%d,"itemWidth":%d,"template":['%(TILE_H,TILE_W)+styles['default']+'],"fonts":[gFont("PolsQStrong",'+str(32 if large else 28)+')],"templates":{'+','.join('"'+k+'":((%d,%d),['%(TILE_W,TILE_H)+v+'])' for k,v in styles.items())+'}}'
- for i in range(6):image(s,'q-tile.png',L-INSET[0]+(i%3)*TILE_W,gy-INSET[1]+(i//3)*TILE_H,TILE_W,TILE_H,-10)
+ s[:]=[];shell(s,None)
+ live_card(s,'session.Event_Now','session.CurrentService')
+ n=saved['menu'];place(n,R-LIST_W,TOP,LIST_W,CARD_H)
+ for k in ('listOrientation','itemWidth','selectionZoom'):n.attrib.pop(k,None)
+ n.set('itemHeight',str(ROW));n.set('transparent','1');n.set('selectionPixmap','PolsQ/assets/q-row-focus.png');n.set('scrollbarMode','showOnDemand')
+ n.set('backgroundColorSelected','selected')
+ rows=('MultiContentEntryRectangle(pos=(0,0),size=(4,%d),backgroundColor=0x000f1417,backgroundColorSelected=0x00f4b860),'%ROW+
+  'MultiContentEntryRectangle(pos=(0,%d),size=(%d,1),backgroundColor=0x00263338,backgroundColorSelected=0x00184246),'%(ROW-1,LIST_W)+
+  'MultiContentEntryPixmapAlphaBlend(pos=(32,24),size=(48,48),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)')
+ def title(index):return f'MultiContentEntryText(pos=(104,0),size=({LIST_W-136},{ROW}),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text={index})'
+ styles={k:rows+','+title(0 if k=='default' else 3) for k in ('default','text','number','image','both')}
+ n.find('convert').text='{"itemHeight":%d,"template":['%ROW+styles['default']+'],"fonts":[gFont("PolsQStrong",'+str(32 if large else 28)+')],"templates":{'+','.join('"'+k+'":((%d,%d),['%(LIST_W,ROW)+v+'])' for k,v in styles.items())+'}}'
  s.append(n)
- # The native menu also expects a menuimage GUI component.
- m=saved['menuimage'];place(m,vx-P-64,vy,64,64);s.append(m)
- bottom=gy-INSET[1]+2*TILE_H-INSET[3]
- d=saved['description'];place(d,L,bottom+G,W,40);d.set('font','PolsQText;24');s.append(d)
+ # The native menu also expects a menuimage GUI component: shown in the header.
+ m=saved['menuimage'];place(m,R-240-G-48,TITLE_Y+6,48,48);s.append(m)
+ d=saved['description'];place(d,L,TOP+CARD_H+G,W,32);d.set('font','PolsQText;22');d.set('foregroundColor','muted');s.append(d)
  keys_row(s,[n for n in saved.values() if n.get('source','').startswith('key_') and n.get('render')=='Label'])
 
-LIST_W=824
 def channels(s,large):
  old=s.get('name');saved=[deepcopy(n) for n in s.findall('widget') if n.get('source','').startswith('key_') and n.get('render')=='Label']
  s[:]=[];shell(s,'Telewizja' if old!='ChannelSelectionRadio' else 'Radio')
  src(s,'Title',L,TITLE_Y+TITLE_H,1300,32,22,foregroundColor='muted',wrap='ellipsis')
- cw=W-G-LIST_W;ch=768;card(s,L,TOP,cw,ch)
- tx=L+P;tw=cw-2*P
- video=old in ('ChannelSelection','ChannelSelection_PIG')
- vh=round(tw*9/16)
- if video:src(s,'session.VideoPicture',tx,TOP+P,tw,vh,render='Pig',backgroundColor='transparent',zPosition='2')
- else:
-  src(s,'ServiceEvent',L+(cw-304)//2,TOP+P+(vh-172)//2-24,304,172,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
-  text(s,'TWÓJ KANAŁ',tx,TOP+P+vh-60,tw,50,32,'green').set('halign','center')
- y=TOP+P+vh+20
- src(s,'ServiceEvent',tx,y+4,tw-196 if video else tw,40,28,converts=[('ServiceName','Name')],foregroundColor='green',wrap='ellipsis')
- lift(src(s,'ServiceEvent',tx,y+48,tw,84,34,render='PolsQSummary',converts=[('EventName','Name')]))
- src(s,'ServiceEvent',tx,y+140,128,36,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
- src(s,'ServiceEvent',tx+132,y+140,168,36,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')],foregroundColor='muted')
- src(s,'ServiceEvent',tx+tw-352,y+140,352,36,23,converts=[('PolsQEventRemaining','')],halign='right',foregroundColor='muted')
- src(s,'ServiceEvent',tx,y+186,tw,6,render='Progress',backgroundColor='line',foregroundColor='green',borderWidth='0',converts=[('EventTime','Progress')])
- src(s,'ServiceEvent',tx,y+202,tw,TOP+ch-P-(y+202),23,render='PolsQSummary',converts=[('EventName','ExtendedDescription')],foregroundColor='muted')
- n=node(s,'widget',name='list',position=f'{R-LIST_W},{TOP}',size=f'{LIST_W},{ch}',serviceItemHeight='96',serviceNameFont='PolsQText;'+str(32 if large else 28),serviceInfoFont='PolsQText;'+str(28 if large else 24),serviceNumberFont='PolsQText;24',foregroundColor='white',backgroundColor='bg',foregroundColorSelected='white',backgroundColorSelected='selected',foregroundColorEvent='muted',foregroundColorEventSelected='muted',selectionPixmap='PolsQ/assets/q-channel-focus.png',scrollbarMode='showOnDemand',scrollbarWidth='4',progressBarWidth='64',colorEventProgressbar='green',colorEventProgressbarSelected='green')
+ live_card(s,'ServiceEvent','ServiceEvent',video=old in ('ChannelSelection','ChannelSelection_PIG'),channel_list=True)
+ n=node(s,'widget',name='list',position=f'{R-LIST_W},{TOP}',size=f'{LIST_W},{CARD_H}',serviceItemHeight=str(ROW),serviceNameFont='PolsQText;'+str(32 if large else 28),serviceInfoFont='PolsQText;'+str(28 if large else 24),serviceNumberFont='PolsQText;24',foregroundColor='white',backgroundColor='bg',foregroundColorSelected='white',backgroundColorSelected='selected',foregroundColorEvent='muted',foregroundColorEventSelected='muted',selectionPixmap='PolsQ/assets/q-row-focus.png',scrollbarMode='showOnDemand',scrollbarWidth='4',progressBarWidth='64',colorEventProgressbar='green',colorEventProgressbarSelected='green')
  if s.get('label'):s.set('label',s.get('label').replace('10 kanałów','8 kanałów'))
- text(s,'INFO — pełny opis',L,TOP+ch+G,750,32,22,'muted')
+ text(s,'INFO — pełny opis',L,TOP+CARD_H+G,750,32,22,'muted')
  keys_row(s,saved)
 
 # InfoBar in the style of a TV lower third: white logo card with the clock
@@ -180,7 +183,7 @@ def infobar(s,large):
  node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'1920,{NEWS_BAR}',backgroundColor='newsRed')
  node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'{cx1},{NEWS_BAR}',backgroundColor='newsRedDark',zPosition=1)
  node(s,'eLabel',text='POTEM',position=f'{cx0},{NEWS_BAND}',size=f'{cx1-cx0},{NEWS_BAR}',font='PolsQStrong;28',foregroundColor='white',transparent='1',halign='center',valign='center',zPosition=2)
- src(s,'session.Event_Next',tx,NEWS_BAND,110,NEWS_BAR,30,converts=[('EventTime','StartTime'),('ClockToText','Default')],font='PolsQStrong;30',foregroundColor='newsYellow',valign='center',zPosition='2')
+ src(s,'session.Event_Next',tx,NEWS_BAND,110,NEWS_BAR,30,converts=[('EventTime','StartTime'),('ClockToText','Default')],font='PolsQStrong;30',foregroundColor='white',valign='center',zPosition='2')
  src(s,'session.Event_Next',tx+120,NEWS_BAND,R-tx-120,NEWS_BAR,30,converts=[('EventName','Name'),('PolsQUpper','')],font='PolsQStrong;30',valign='center',wrap='ellipsis',zPosition='2')
 
 EPG_H=270
