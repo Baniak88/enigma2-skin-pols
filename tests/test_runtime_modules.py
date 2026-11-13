@@ -80,6 +80,7 @@ class RuntimeModules(unittest.TestCase):
         cls.saved={k:sys.modules.get(k) for k in ('enigma','skin','Components','Components.Renderer','Components.Converter','Components.Renderer.Renderer','Components.Renderer.Label','Components.Converter.Converter','Components.Element')}
         install_stubs()
         cls.upper=load(ROOT/'runtime/Components/Converter/PolsQUpper.py')
+        cls.number=load(ROOT/'runtime/Components/Converter/PolsQChannelNumber.py')
         cls.summary=load(ROOT/'runtime/Components/Renderer/PolsQSummary.py')
 
     @classmethod
@@ -92,6 +93,14 @@ class RuntimeModules(unittest.TestCase):
         c=self.upper.PolsQUpper('');c.source=types.SimpleNamespace(text='zażółć gęślą jaźń')
         self.assertEqual(c.text,'ZAŻÓŁĆ GĘŚLĄ JAŹŃ')
         c.source=types.SimpleNamespace(text=None);self.assertEqual(c.text,'')
+
+    def test_channel_number_from_service_reference(self):
+        c=self.number.PolsQChannelNumber('')
+        c.source=types.SimpleNamespace(serviceref=types.SimpleNamespace(getChannelNum=lambda:4))
+        self.assertEqual(c.text,'4')
+        c.source=types.SimpleNamespace(serviceref=types.SimpleNamespace(getChannelNum=lambda:0));self.assertEqual(c.text,'')
+        c.source=types.SimpleNamespace(serviceref=None);self.assertEqual(c.text,'')
+        c.source=types.SimpleNamespace();self.assertEqual(c.text,'')
 
     def test_summary_fits_and_skips_unchanged_text(self):
         r=self.summary.PolsQSummary();r.instance=Label();r.instance.resize(Size(400,80))

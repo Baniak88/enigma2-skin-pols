@@ -124,7 +124,10 @@ def infobar(s,large):
  # Picons are 220x132: drawn at native size, no scaling on the receiver.
  src(s,'session.CurrentService',56,51,220,132,render='Picon',converts=[('ServiceName','Reference')],alphatest='blend',zPosition='2')
  lift(src(s,'global.CurrentTime',48,190,236,36,30,converts=[('ClockToText','Default')],halign='center',font='PolsQStrong;30'))
- src(s,'session.CurrentService',310,46,1178,36,26,converts=[('ServiceName','Name')],foregroundColor='muted',wrap='ellipsis',font='PolsQStrong;26')
+ # Channel number in yellow before the name; NameOnly avoids a second number
+ # when OpenATV's "channel number in InfoBar" option is on.
+ src(s,'session.CurrentService',310,46,72,36,26,converts=[('PolsQChannelNumber','')],foregroundColor='newsYellow',font='PolsQStrong;26',halign='right')
+ src(s,'session.CurrentService',396,46,1092,36,26,converts=[('ServiceName','NameOnly')],foregroundColor='muted',wrap='ellipsis',font='PolsQStrong;26')
  lift(src(s,'session.Event_Now',310,84,1178,104,40,render='PolsQSummary',converts=[('EventName','Name'),('PolsQUpper','')],foregroundColor='newsYellow',font='PolsQStrong;40'))
  src(s,'session.Event_Now',310,192,92,32,24,converts=[('EventTime','StartTime'),('ClockToText','Default')])
  src(s,'session.Event_Now',402,192,112,32,24,converts=[('EventTime','EndTime'),('ClockToText','Format:– %H:%M')])

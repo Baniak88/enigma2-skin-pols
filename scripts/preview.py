@@ -172,6 +172,7 @@ def raw_value(node,screen):
     if screen=='InfoBar' and kind=='ServiceName':return 'Polsat HD'
     if screen.startswith('ChannelSelection') and STATE=='bouquets' and kind in ('EventTime','PolsQEventRemaining'):return ''
     if kind=='PolsQEventRemaining':return 'Do końca: 15 min'
+    if kind=='PolsQChannelNumber':return '4'
     if kind=='ServiceName':return (BOUQUETS[0] if STATE=='bouquets' else CHANNEL_ROWS[0][0]) if screen.startswith('ChannelSelection') else CHANNELS[0]
     if kind=='EventName':
         if screen.startswith('ChannelSelection'):

@@ -2347,8 +2347,11 @@
     <widget source="global.CurrentTime" render="Label" position="48,190" size="236,36" foregroundColor="white" transparent="1" font="PolsQStrong;30" halign="center" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="310,46" size="1178,36" foregroundColor="muted" transparent="1" font="PolsQStrong;26" wrap="ellipsis">
-      <convert type="ServiceName">Name</convert>
+    <widget source="session.CurrentService" render="Label" position="310,46" size="72,36" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;26" halign="right">
+      <convert type="PolsQChannelNumber" />
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="396,46" size="1092,36" foregroundColor="muted" transparent="1" font="PolsQStrong;26" wrap="ellipsis">
+      <convert type="ServiceName">NameOnly</convert>
     </widget>
     <widget source="session.Event_Now" render="PolsQSummary" position="310,84" size="1178,104" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;40" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
