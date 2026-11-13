@@ -124,8 +124,8 @@ def menu(s,large):
  for k in ('listOrientation','itemWidth','selectionZoom'):n.attrib.pop(k,None)
  n.set('itemHeight',str(ROW));n.set('transparent','1');n.set('selectionPixmap','PolsQ/assets/q-row-focus.png');n.set('scrollbarMode','showOnDemand')
  n.set('backgroundColorSelected','selected')
- rows=('MultiContentEntryRectangle(pos=(0,0),size=(4,%d),backgroundColor=0x000d1322,backgroundColorSelected=0x00f5c842),'%ROW+
-  'MultiContentEntryRectangle(pos=(0,%d),size=(%d,1),backgroundColor=0x0026304a,backgroundColorSelected=0x0026407f),'%(ROW-1,LIST_W)+
+ rows=('MultiContentEntryRectangle(pos=(0,0),size=(4,%d),backgroundColor=0x000f1417,backgroundColorSelected=0x00f4b860),'%ROW+
+  'MultiContentEntryRectangle(pos=(0,%d),size=(%d,1),backgroundColor=0x00263338,backgroundColorSelected=0x00184246),'%(ROW-1,LIST_W)+
   'MultiContentEntryPixmapAlphaBlend(pos=(32,24),size=(48,48),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO)')
  def title(index):return f'MultiContentEntryText(pos=(104,0),size=({LIST_W-136},{ROW}),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text={index})'
  styles={k:rows+','+title(0 if k=='default' else 3) for k in ('default','text','number','image','both')}
@@ -183,7 +183,7 @@ def infobar(s,large):
  node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'1920,{NEWS_BAR}',backgroundColor='newsRed')
  node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'{cx1},{NEWS_BAR}',backgroundColor='newsRedDark',zPosition=1)
  node(s,'eLabel',text='POTEM',position=f'{cx0},{NEWS_BAND}',size=f'{cx1-cx0},{NEWS_BAR}',font='PolsQStrong;28',foregroundColor='white',transparent='1',halign='center',valign='center',zPosition=2)
- src(s,'session.Event_Next',tx,NEWS_BAND,110,NEWS_BAR,30,converts=[('EventTime','StartTime'),('ClockToText','Default')],font='PolsQStrong;30',foregroundColor='newsYellow',valign='center',zPosition='2')
+ src(s,'session.Event_Next',tx,NEWS_BAND,110,NEWS_BAR,30,converts=[('EventTime','StartTime'),('ClockToText','Default')],font='PolsQStrong;30',foregroundColor='white',valign='center',zPosition='2')
  src(s,'session.Event_Next',tx+120,NEWS_BAND,R-tx-120,NEWS_BAR,30,converts=[('EventName','Name'),('PolsQUpper','')],font='PolsQStrong;30',valign='center',wrap='ellipsis',zPosition='2')
 
 EPG_H=270

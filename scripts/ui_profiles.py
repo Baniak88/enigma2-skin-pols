@@ -38,13 +38,13 @@ def service_templates(large=False):
 
 def history_template(large=False):
     return ('{"fonts":[gFont("PolsQStrong",%d),gFont("PolsQText",%d),gFont("PolsQText",%d)],"itemHeight":112,"itemWidth":664,"template":[' % ((32,25,22) if large else (30,24,21))+
-        'MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x000d1322,backgroundColorSelected=0x00f5c842),'
-        'MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x0026304a,backgroundColorSelected=0x0026407f),'
-        'MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x00f5c842,color_sel=0x00f5c842),'
+        'MultiContentEntryRectangle(pos=(0,0),size=(3,112),backgroundColor=0x000f1417,backgroundColorSelected=0x00f4b860),'
+        'MultiContentEntryRectangle(pos=(8,111),size=(648,1),backgroundColor=0x00263338,backgroundColorSelected=0x00184246),'
+        'MultiContentEntryText(pos=(4,0),size=(16,112),font=2,flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER,text=1,color=0x00f4b860,color_sel=0x00f4b860),'
         'MultiContentEntryPixmapAlphaBlend(pos=(24,30),size=(88,50),png=6,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),'
         'MultiContentEntryText(pos=(128,4),size=(512,40),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=2),'
-        'MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00a9b4c9,color_sel=0x00a9b4c9),'
-        'MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00a9b4c9,color_sel=0x00a9b4c9)]}')
+        'MultiContentEntryText(pos=(128,46),size=(512,32),font=1,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3,color=0x00a7b4b8,color_sel=0x00a7b4b8),'
+        'MultiContentEntryText(pos=(128,80),size=(512,28),font=2,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=5,color=0x00a7b4b8,color_sel=0x00a7b4b8)]}')
 
 
 def bigger_height(value):

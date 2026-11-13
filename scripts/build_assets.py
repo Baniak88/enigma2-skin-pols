@@ -9,8 +9,8 @@ from build import VERSION
 from skin_effects import FADE_TOP, BODY_ALPHA, BODY_RGB, BAR_HEIGHTS, fade_alpha, event_fade_alpha
 
 ROOT=Path(__file__).resolve().parents[1]/'PolsQ'
-BG=(13,19,34,255); PANEL=(21,29,49,255); GREEN=(245,200,66,255)
-SELECTED=(38,64,127,255)
+BG=(15,20,23,255); PANEL=(24,33,38,255); GREEN=(244,184,96,255)
+SELECTED=(24,66,70,255)
 WHITE=(245,245,245,255); RED=(255,98,98,255); BLUE=(94,172,255,255)
 
 

@@ -1,6 +1,6 @@
 # Pols Q 0.4.3 — Enigma2 / OpenATV 8
 
-Skóra Full HD 1920×1080 w stonowanej, minimalistycznej kolorystyce (grafitowy granat, jeden żółty akcent) i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
+Skóra Full HD 1920×1080 w kolorystyce „atrament i bursztyn” (grafit z morskim odcieniem, turkusowe zaznaczenie, bursztynowy akcent) i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
 
 ## Zakres
 
@@ -19,6 +19,7 @@ Skóra Full HD 1920×1080 w stonowanej, minimalistycznej kolorystyce (grafitowy 
 - **Wtyczki znowu dostępne z menu**: zwykłe menu OpenATV obsługuje tylko strzałki góra/dół, więc w siatce 3×2 nie dało się przejść do pozycji w innych kolumnach (np. „Wtyczki”). Menu jest teraz pionową listą po prawej — każdą pozycję wybiera się strzałkami góra/dół, a lista przewija się, gdy pozycji jest więcej.
 - **Bez paska bocznego**: menu, lista kanałów i EPG mają marginesy 64 px z obu stron, jak pozostałe ekrany.
 - **Menu i lista kanałów wyglądają tak samo**: po lewej karta z obrazem TV i bieżącą audycją, po prawej lista; nagłówek menu pokazuje nazwę menu lub podmenu.
+- **Nowa kolorystyka „atrament i bursztyn”**: tło w prawie czarnym grafiticie z morskim odcieniem, karty w ciemnym łupku, zaznaczenie w głębokim morskim turkusie, jeden ciepły bursztynowy akcent (tytuł i numer kanału na pasku, paski postępu, znacznik zaznaczenia, linia „teraz” w EPG) i chłodnoszare opisy. Dolny pasek InfoBaru jest terakotowy z białym tekstem. Wszystkie pary tekst/tło mają kontrast co najmniej 4,5:1.
 - **Zaznaczenie bez kwadratowej poświaty**: zaznaczony wiersz to pełny pas z żółtym znacznikiem po lewej; nie ma już prostokątnego tła systemowego wokół zaokrąglonego kafla ani pustego, szóstego kafla.
 
 ## Nowości 0.4.2 — pasek informacyjny w stylu TV i nowe kolory

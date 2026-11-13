@@ -58,7 +58,7 @@ class TransparencyPreview(unittest.TestCase):
             self.assertEqual(title[0].get('foregroundColor'),'newsYellow')
             self.assertTrue(title[0].get('font').startswith('PolsQStrong;'))
             self.assertTrue(title[0].get('shadowColor'))
-            r,g,b,_=rgba(colors['newsYellow']);self.assertTrue(r>230 and g>180 and b<90)
+            r,g,b,_=rgba(colors['newsYellow']);self.assertTrue(r>220 and r>g>b,'warm accent')
             # Red bar along the bottom with the next programme, static and opaque.
             self.assertIsNone(scene.find("widget[@render='PolsQTicker']"),'no scrolling on the receiver')
             nxt=[n for n in scene.findall("widget[@source='session.Event_Next']") if n.find("convert[@type='EventName']") is not None]
@@ -67,7 +67,7 @@ class TransparencyPreview(unittest.TestCase):
             self.assertEqual([c.get('type') for c in ticker.findall('convert')],['EventName','PolsQUpper'])
             bar=[n for n in scene.findall('eLabel') if n.get('backgroundColor')=='newsRed']
             self.assertEqual(len(bar),1);self.assertEqual(bar[0].get('size').split(',')[0],'1920')
-            r,g,b,a=rgba(colors['newsRed']);self.assertTrue(r>170 and g<40 and b<40 and a==255)
+            r,g,b,a=rgba(colors['newsRed']);self.assertTrue(r>160 and r>g>b and a==255)
             tx,ty=map(int,ticker.get('position').split(','));bx,by=map(int,bar[0].get('position').split(','))
             self.assertGreaterEqual(ty,by);self.assertLessEqual(ty+int(ticker.get('size').split(',')[1]),by+int(bar[0].get('size').split(',')[1]))
             self.assertIsNotNone(scene.find("eLabel[@text='POTEM']"))
@@ -109,7 +109,7 @@ class TransparencyPreview(unittest.TestCase):
                         channels=[v/255 for v in rgb]
                         linear=[v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in channels]
                         return sum(v*w for v,w in zip(linear,(.2126,.7152,.0722)))
-                    backdrop=tuple(round(c*217/255+255*38/255) for c in (13,19,34))
+                    backdrop=tuple(round(c*217/255+255*38/255) for c in (15,20,23))
                     for color_name in ('white','muted','green'):
                         foreground=rgba(colors[color_name])[:3]
                         self.assertGreaterEqual((luminance(foreground)+.05)/(luminance(backdrop)+.05),4.5)

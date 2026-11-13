@@ -120,7 +120,7 @@ class ChannelUI(unittest.TestCase):
                 visible=[p for p in pixels if p[3]]
                 self.assertGreater(len(visible),20)
                 self.assertLess(len(visible),512)
-                self.assertTrue(set(visible)<={(194,204,215,255),(245,200,66,255)})
+                self.assertTrue(set(visible)<={(194,204,215,255),(244,184,96,255)})
                 images.append(image.tobytes())
         self.assertEqual(len(set(images)),4)  # Folder matches the bouquet icon.
 
