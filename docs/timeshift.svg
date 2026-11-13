@@ -2,9 +2,9 @@
 <title>PolsQ — TimeshiftState — dane przykładowe</title>
 <g font-family="DejaVu Sans, sans-serif">
 <rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
-<rect x="64" y="62" width="540" height="212" fill="#0a1747" fill-opacity="1.000000"/>
-<text x="88" y="140.0" font-size="34" font-weight="normal" fill="#ffd60a" text-anchor="start">Pauza</text>
-<text x="88" y="246.0" font-size="24" font-weight="normal" fill="#a8ccff" text-anchor="start">Fakty — oglądanie z opóźnieniem</text>
-<text x="88" y="94.0" font-size="22" font-weight="normal" fill="#a8ccff" text-anchor="start">TIMESHIFT</text>
+<rect x="64" y="62" width="540" height="212" fill="#0d1322" fill-opacity="1.000000"/>
+<text x="88" y="140.0" font-size="34" font-weight="normal" fill="#f5c842" text-anchor="start">Pauza</text>
+<text x="88" y="246.0" font-size="24" font-weight="normal" fill="#a9b4c9" text-anchor="start">Fakty — oglądanie z opóźnieniem</text>
+<text x="88" y="94.0" font-size="22" font-weight="normal" fill="#a9b4c9" text-anchor="start">TIMESHIFT</text>
 </g>
 </svg>

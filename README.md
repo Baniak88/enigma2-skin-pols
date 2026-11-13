@@ -1,6 +1,6 @@
 # Pols Q 0.4.2 — Enigma2 / OpenATV 8
 
-Skóra Full HD 1920×1080 z granatowo-niebieską kolorystyką, żółtym akcentem i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
+Skóra Full HD 1920×1080 w stonowanej, minimalistycznej kolorystyce (grafitowy granat, jeden żółty akcent) i paskiem informacyjnym w stylu telewizyjnego „paska”. Projekt niezależny, bez oficjalnych logotypów SKY. To rozbudowana baza do testów na dekoderze, nie wierna kopia wszystkich funkcji SKY Q.
 
 ## Zakres
 
@@ -20,7 +20,7 @@ Skóra Full HD 1920×1080 z granatowo-niebieską kolorystyką, żółtym akcente
 
 - **InfoBar w układzie „paska telewizyjnego”**: biała karta z logo kanału i zegarem pod nią, granatowo-niebieski pasek z **numerem kanału** (żółty) i nazwą kanału i **żółtym tytułem audycji WIELKIMI LITERAMI** (do dwóch linii), godziny, żółty pasek postępu. Panel po prawej: data, „Do końca: X min” i „● NAGRYWANIE”.
 - **Czerwony pasek „POTEM”** na dole: godzina i tytuł następnej audycji z EPG. Wszystko jest statyczne — bez przewijania i bez timerów, więc pasek nie obciąża dekodera.
-- **Kolory całej skóry dopasowane do paska**: granat i królewski błękit w tle, kartach i zaznaczeniu, **żółty akcent** (linie, zaznaczenie kafli i kanałów, paski postępu, linia „teraz” w EPG, ikony), jasnoniebieskie opisy. Kolorowe przyciski pilota pozostają w swoich kolorach.
+- **Minimalistyczne kolory całej skóry**: stonowany, prawie grafitowy granat w tle i na kartach, przygaszony niebieski dla zaznaczenia, jeden spokojny żółty akcent (tytuł w pasku, numer kanału, paski postępu, znacznik wybranego kanału, linia „teraz” w EPG) i szare opisy. Płaskie powierzchnie bez poświat, smug i świecących obramowań; ikony i linie są jednobarwne. Czerwony pasek jest ciemniejszy. Kolorowe przyciski pilota pozostają w swoich kolorach.
 - **Szybciej**: pasek, karta logo i panel to jeden obraz w natywnym rozmiarze, czerwony pasek to jednolite wypełnienia, pikona 220×132 bez skalowania. W całej skórze nie ma już skalowanych grafik z przezroczystością (dekoder robi to programowo). Skracanie opisów nie mierzy ponownie tego samego tekstu.
 - Nowe moduły `PolsQUpper` (wielkie litery z polskimi znakami) i `PolsQChannelNumber` (numer kanału — działa w OpenATV 7.5, 7.6 i 8.0) instalują się razem ze skórą.
 - Logo na białej karcie: najlepiej wyglądają kolorowe pikony (na jasne tło). Białe, przezroczyste pikony będą na karcie słabo widoczne.

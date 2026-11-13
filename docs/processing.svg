@@ -2,12 +2,12 @@
 <title>PolsQ — Processing — dane przykładowe</title>
 <g font-family="DejaVu Sans, sans-serif">
 <rect x="0" y="0" width="1920" height="1080" fill="#20282c" fill-opacity="1.000000"/>
-<rect x="464" y="438" width="992" height="204" fill="#13286b" fill-opacity="1.000000"/>
+<rect x="464" y="438" width="992" height="204" fill="#151d31" fill-opacity="1.000000"/>
 <text x="496" y="484.0" font-size="24" font-weight="bold" fill="#f3f6fa" text-anchor="start">POLS Q</text>
-<text x="694" y="483.0" font-size="23" font-weight="normal" fill="#a8ccff" text-anchor="start">Trwa operacja</text>
-<rect x="496" y="514" width="928" height="6" fill="#2a4590" fill-opacity="1.000000"/>
-<rect x="496" y="514" width="928" height="6" fill="#2a4590" fill-opacity="1.000000"/>
-<rect x="496" y="514" width="464" height="6" fill="#ffd60a" fill-opacity="1.000000"/>
+<text x="694" y="483.0" font-size="23" font-weight="normal" fill="#a9b4c9" text-anchor="start">Trwa operacja</text>
+<rect x="496" y="514" width="928" height="6" fill="#26304a" fill-opacity="1.000000"/>
+<rect x="496" y="514" width="928" height="6" fill="#26304a" fill-opacity="1.000000"/>
+<rect x="496" y="514" width="464" height="6" fill="#f5c842" fill-opacity="1.000000"/>
 <text x="496" y="576.0" font-size="28" font-weight="normal" fill="#f3f6fa" text-anchor="start">Instalowanie rozszerzeń. Proszę czekać…</text>
 </g>
 </svg>

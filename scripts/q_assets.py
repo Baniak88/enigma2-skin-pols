@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFilter
 import math
 ROOT=Path(__file__).resolve().parents[1]/'PolsQ/assets'
 
-def panel(name,w,h,top,bottom,radius=24,shine=True,glow=None):
+def panel(name,w,h,top,bottom,radius=24,shine=False,glow=None,edge=(255,255,255,20)):
  im=Image.new('RGBA',(w,h));pix=im.load()
  for y in range(h):
   t=y/max(1,h-1)
@@ -24,9 +24,9 @@ def panel(name,w,h,top,bottom,radius=24,shine=True,glow=None):
   halo=Image.new('RGBA',(w,h));ImageDraw.Draw(halo).rounded_rectangle((6,2,w-7,h-11),radius=radius+2,outline=glow,width=4);halo=halo.filter(ImageFilter.GaussianBlur(3))
   shadow.alpha_composite(halo)
  im.putalpha(Image.composite(im.getchannel('A'),Image.new('L',(w,h)),mask));shadow.alpha_composite(im)
- d=ImageDraw.Draw(shadow);d.rounded_rectangle((8,4,w-9,h-13),radius=radius,outline=(150,195,255,46) if not glow else (255,226,90,170),width=1)
+ d=ImageDraw.Draw(shadow);d.rounded_rectangle((8,4,w-9,h-13),radius=radius,outline=edge,width=1)
  # Glass highlight along the upper edge.
- d.line((8+radius,5,w-9-radius,5),fill=(255,255,255,46 if glow else 22),width=1)
+ d.line((8+radius,5,w-9-radius,5),fill=(255,255,255,14),width=1)
  shadow.save(ROOT/name)
 
 def build():
@@ -35,14 +35,14 @@ def build():
  for y in range(h):
   for x in range(w):
    a=math.exp(-(((x-780)/460)**2+((y-80)/300)**2));b=math.exp(-(((x-250)/600)**2+((y-490)/250)**2))
-   p[x,y]=(round(6+16*a+6*b),round(15+42*a+12*b),round(50+118*a+40*b),255)
+   p[x,y]=(round(11+4*a),round(16+6*a),round(29+12*a),255)
  # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
  im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
- for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(24,52,138,248),(10,24,74,246),26)
- panel('q-tile.png',570,176,(24,50,128,245),(12,28,82,250),20)
- panel('q-tile-focus.png',570,176,(40,96,232,255),(20,54,172,255),20,glow=(255,214,10,170))
- panel('q-channel-focus.png',864,96,(36,90,224,255),(20,54,168,255),16,glow=(255,214,10,150))
- rail=Image.new('RGBA',(112,1080),(6,16,56,235));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,214,10,60),width=1);rail.save(ROOT/'q-rail.png')
+ for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(23,32,54,248),(19,27,46,248),26)
+ panel('q-tile.png',570,176,(23,32,54,248),(19,27,46,250),20)
+ panel('q-tile-focus.png',570,176,(41,68,134,255),(35,59,118,255),20,edge=(255,255,255,60))
+ panel('q-channel-focus.png',864,96,(41,68,134,255),(35,59,118,255),16,edge=(255,255,255,50))
+ rail=Image.new('RGBA',(112,1080),(10,15,27,240));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,255,255,16),width=1);rail.save(ROOT/'q-rail.png')
  build_video_effects()
  live_badge()
  news_band()
@@ -50,7 +50,7 @@ def build():
 
 
 HERO_SIZES=((1712,384),(800,760),(1712,230))
-BEZEL=(5,14,48,255)
+BEZEL=(9,13,24,255)
 VIDEO_PAD=40
 VIDEO_RADIUS=14
 
@@ -67,9 +67,9 @@ def video_shadow(w,h):
  im=Image.new('RGBA',(W,H))
  shadow=Image.new('RGBA',(W,H));ImageDraw.Draw(shadow).rounded_rectangle((p-4,p+10,p+w+3,p+h+18),radius=VIDEO_RADIUS+8,fill=(0,0,0,190))
  im.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(14)))
- glow=Image.new('RGBA',(W,H));ImageDraw.Draw(glow).rounded_rectangle((p-10,p-10,p+w+9,p+h+9),radius=VIDEO_RADIUS+10,outline=(80,140,255,80),width=6)
+ glow=Image.new('RGBA',(W,H));ImageDraw.Draw(glow).rounded_rectangle((p-10,p-10,p+w+9,p+h+9),radius=VIDEO_RADIUS+10,outline=(255,255,255,0),width=6)
  im.alpha_composite(glow.filter(ImageFilter.GaussianBlur(9)))
- ImageDraw.Draw(im).rounded_rectangle((p-6,p-6,p+w+5,p+h+5),radius=VIDEO_RADIUS+6,fill=BEZEL,outline=(150,195,255,80),width=1)
+ ImageDraw.Draw(im).rounded_rectangle((p-6,p-6,p+w+5,p+h+5),radius=VIDEO_RADIUS+6,fill=BEZEL,outline=(255,255,255,30),width=1)
  # The video rectangle itself stays fully transparent: the picture shows
  # through the OSD there, so nothing may be painted on top of it.
  ImageDraw.Draw(im).rectangle((p,p,p+w-1,p+h-1),fill=(0,0,0,0))
@@ -85,7 +85,7 @@ def live_badge():
  # Pill for the NA ŻYWO label under the preview.
  w,h=172,40;s=4
  im=Image.new('RGBA',(w*s,h*s));d=ImageDraw.Draw(im)
- d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(5,14,48,210),outline=(255,255,255,40),width=s)
+ d.rounded_rectangle((0,0,w*s-1,h*s-1),radius=h*s//2,fill=(9,13,24,210),outline=(255,255,255,40),width=s)
  cx,cy,r=22*s,h*s//2,7*s
  d.ellipse((cx-r-3*s,cy-r-3*s,cx+r+3*s,cy+r+3*s),fill=(255,98,98,70));d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=(255,98,98,255))
  im.resize((w,h),Image.Resampling.LANCZOS).save(ROOT/'q-live-badge.png')
@@ -107,14 +107,8 @@ def news_band():
   v=y/(h-1)
   for x in range(w):
    u=x/(w-1)
-   glow=math.exp(-(((x-1690)/420)**2+((y-110)/150)**2))
-   r=8+16*u+10*glow-6*v;g=22+40*u+38*glow-8*v;b=78+92*u+60*glow-14*v
+   r=16+6*u-3*v;g=26+10*u-4*v;b=56+26*u-8*v
    p[x,y]=(max(0,min(255,round(r))),max(0,min(255,round(g))),max(0,min(255,round(b))),alpha)
- # Diagonal light streaks on the right, like a studio graphic.
- streaks=Image.new('RGBA',(w,h));d=ImageDraw.Draw(streaks)
- for i,x0 in enumerate((1380,1450,1560,1690,1790)):
-  d.line((x0,h,x0+150,0),fill=(150,200,255,28 if i%2 else 18),width=3+i%3*2)
- im.alpha_composite(streaks.filter(ImageFilter.GaussianBlur(1)))
  # Logo card: white with a soft contact shadow; the picon is drawn on it.
  shadow=Image.new('RGBA',(w,h));x0,y0,x1,y1=LOGO_CARD
  ImageDraw.Draw(shadow).rounded_rectangle((x0+2,y0+6,x1+2,y1+6),radius=14,fill=(0,0,0,140))
@@ -127,7 +121,7 @@ def news_band():
  # Next panel: a lighter glass box with a thin bright edge.
  x0,y0,x1,y1=NEXT_BOX;bw,bh=x1-x0,y1-y0
  box=Image.new('RGBA',(bw*k,bh*k));bd=ImageDraw.Draw(box)
- bd.rounded_rectangle((0,0,bw*k-1,bh*k-1),radius=16*k,fill=(255,255,255,26),outline=(170,210,255,80),width=2*k)
+ bd.rounded_rectangle((0,0,bw*k-1,bh*k-1),radius=16*k,fill=(255,255,255,12),outline=(255,255,255,28),width=2*k)
  box=box.resize((bw,bh),Image.Resampling.LANCZOS)
  im.alpha_composite(box,dest=(x0,y0))
  im.save(ROOT/'q-news-band.png')

@@ -138,7 +138,6 @@ def infobar(s,large):
  src(s,'session.RecordState',1544,140,296,32,24,render='FixedLabel',text='● NAGRYWANIE',foregroundColor='red',converts=[('ConditionalShowHide',None)])
  # Opaque red bar with the next programme: plain fills, no alpha blending.
  node(s,'eLabel',position=f'0,{NEWS_BAND}',size=f'1920,{NEWS_BAR}',backgroundColor='newsRed')
- node(s,'eLabel',position=f'0,{NEWS_BAND}',size='1920,2',backgroundColor='newsRedLight',zPosition=1)
  node(s,'eLabel',position=f'0,{NEWS_BAND+2}',size=f'292,{NEWS_BAR-2}',backgroundColor='newsRedDark',zPosition=1)
  node(s,'eLabel',text='POTEM',position=f'40,{NEWS_BAND+2}',size=f'232,{NEWS_BAR-2}',font='PolsQStrong;28',foregroundColor='white',transparent='1',halign='center',valign='center',zPosition=2)
  src(s,'session.Event_Next',316,NEWS_BAND+2,110,NEWS_BAR-2,30,converts=[('EventTime','StartTime'),('ClockToText','Default')],font='PolsQStrong;30',foregroundColor='newsYellow',valign='center',zPosition='2')

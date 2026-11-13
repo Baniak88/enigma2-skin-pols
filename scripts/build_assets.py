@@ -9,8 +9,8 @@ from build import VERSION
 from skin_effects import FADE_TOP, BODY_ALPHA, BODY_RGB, BAR_HEIGHTS, fade_alpha, event_fade_alpha
 
 ROOT=Path(__file__).resolve().parents[1]/'PolsQ'
-BG=(10,23,71,255); PANEL=(19,40,107,255); GREEN=(255,214,10,255)
-SELECTED=(24,66,190,255)
+BG=(13,19,34,255); PANEL=(21,29,49,255); GREEN=(245,200,66,255)
+SELECTED=(38,64,127,255)
 WHITE=(245,245,245,255); RED=(255,98,98,255); BLUE=(94,172,255,255)
 
 
@@ -29,7 +29,7 @@ def png(path,w,h,bg,rects=(),pixels=None):
 
 def line_icon(path,lines,accent=()):
     pixels=bytearray(32*32*4)
-    for segments,color in ((lines,(194,204,215,255)),(accent,GREEN)):
+    for segments,color in ((lines,(194,204,215,255)),(accent,(194,204,215,255))):
         for points in segments:
             for (ax,ay),(bx,by) in zip(points,points[1:]):
                 dx,dy=bx-ax,by-ay
@@ -64,11 +64,11 @@ def build():
         vertical=max(0,1-abs(y-9)/9)**2
         for x in range(width):
             envelope=min(1,x/160,(width-1-x)/160)
-            glow.extend((255,214,10,round(42*max(0,envelope)*vertical)))
+            glow.extend((255,255,255,0))
     for y in range(2):
         for x in range(width):
             envelope=min(1,x/160,(width-1-x)/160)
-            accent.extend((255,214,10,round(230*max(0,envelope))))
+            accent.extend((255,255,255,round(56*max(0,envelope))))
     png(Path('assets/accent-fade.png'),width,2,(0,0,0,0),pixels=accent)
     png(Path('assets/accent-glow.png'),width,18,(0,0,0,0),pixels=glow)
     badge=bytearray()
