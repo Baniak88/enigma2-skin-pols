@@ -21,7 +21,7 @@ class TransparencyPreview(unittest.TestCase):
             ox,oy=map(int,scene.get('position').split(','))
             with Image.open(svg.with_suffix('.png')) as actual, Image.open(preview.DEMO) as video, Image.open(ROOT/'PolsQ/assets/q-news-band.png') as band:
                 # Points away from text: gap right of the logo card and the faded top edge.
-                for x,y in ((296,oy+120),(1000,oy+20),(1500,oy+30)):
+                for x,y in ((312,oy+120),(1000,oy+20),(1490,oy+30)):
                     rgba=band.getpixel((x-ox,y-oy));alpha=rgba[3]/255
                     base=video.getpixel((x,y));expected=tuple(round(f*alpha+b*(1-alpha)) for f,b in zip(rgba[:3],base))
                     pixel=actual.getpixel((round(x*2/3),round(y*2/3)))

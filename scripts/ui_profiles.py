@@ -18,21 +18,21 @@ def service_templates(large=False):
     def item(mode,tag,**attrs):
         return E.SubElement(mode,tag,{k:str(v) for k,v in attrs.items()})
     for kind in ('services','bouquets','other'):
-        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='864',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
+        mode=E.SubElement(template,'mode',name=kind,itemHeight=str(height),itemWidth='824',foregroundColor='white',foregroundColorSelected='white',backgroundColor='bg',backgroundColorSelected='selected')
         item(mode,'rectangle',position='0,0',size=f'4,{height}',foregroundColor='bg',foregroundColorSelected='green')
-        item(mode,'rectangle',position=f'8,{height-1}',size='856,1',foregroundColor='line',foregroundColorSelected='selected')
+        item(mode,'rectangle',position=f'0,{height-1}',size='824,1',foregroundColor='line',foregroundColorSelected='selected')
         if kind=='other':
             for index in ('FolderImage','MarkerImage'):
                 item(mode,'pixmap',index=index,position='16,22',size='32,32',alpha='blend',scale='scaleCenter')
-            item(mode,'text',index='EntryName',position='64,0',size=f'784,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
+            item(mode,'text',index='EntryName',position='64,0',size=f'744,{height}',font='0',verticalAlignment='center',wrap='ellipsis')
             continue
         item(mode,'text',index='Number',position='4,0',size=f'52,{height}',font='2',horizontalAlignment='right',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='white')
         item(mode,'pixmap',index='Picon',position='60,20',size='80,46',alpha='blend',scale='scaleCenter')
         # Both sizes use two distinct text lines. Channel names can use the full
         # upper line; programme titles end before the separate progress slot.
-        item(mode,'text',index='ServiceName',position='160,6',size='680,40',font='0',verticalAlignment='center',wrap='ellipsis')
-        item(mode,'text',index='Title1',position='160,50',size='576,38',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
-        item(mode,'progress',index='Progress',position='768,68',size='64,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
+        item(mode,'text',index='ServiceName',position='160,6',size='648,40',font='0',verticalAlignment='center',wrap='ellipsis')
+        item(mode,'text',index='Title1',position='160,50',size='560,38',font='1',verticalAlignment='center',foregroundColor='muted',foregroundColorSelected='muted',wrap='ellipsis')
+        item(mode,'progress',index='Progress',position='744,68',size='64,6',foregroundColor='green',foregroundColorSelected='green',backgroundColor='line',backgroundColorSelected='line',borderWidth='0')
     return root
 
 

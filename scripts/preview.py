@@ -297,11 +297,13 @@ def draw_list(name,key,x,y,w,h):
     elif name=='Menu':
         rows=['Informacje','Timery','Nagrania','Wtyczki','Ustawienia','Czuwanie / restart']
         icons=['information','timermenu','movie_selection','plugin_selection','setup','shutdown']
+        widget=SKIN.find("screen[@name='Menu']/widget[@source='menu']")
+        iw,ih=int(widget.get('itemWidth')),int(widget.get('itemHeight'))
         for i,row in enumerate(rows):
-            xx=x+(i%3)*570;yy=y+(i//3)*176
-            if i==0:png(ROOT/'PolsQ/assets/q-tile-focus.png',xx,yy,570,176)
-            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),xx+32,yy+28,64,64)
-            text(xx+32,yy+108,498,54,row,32 if PROFILE=='PolsQLarge' else 28,'white',nowrap=True,bold=True)
+            xx=x+(i%3)*iw;yy=y+(i//3)*ih
+            if i==0:png(ROOT/'PolsQ/assets/q-tile-focus.png',xx,yy,iw,ih)
+            png(ROOT/'PolsQ/mainmenu'/(icons[i]+'.png'),xx+44,yy+32,64,64)
+            text(xx+44,yy+102,iw-88,54,row,32 if PROFILE=='PolsQLarge' else 28,'white',nowrap=True,bold=True)
     elif name=='BouquetSelector':
         widget=SKIN.find("screen[@name='BouquetSelector']/widget[@name='menu']")
         rh=int(widget.get('itemHeight'));font=int(widget.get('font').split(';')[1])

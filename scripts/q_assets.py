@@ -7,26 +7,32 @@ from PIL import Image, ImageDraw, ImageFilter
 import math
 ROOT=Path(__file__).resolve().parents[1]/'PolsQ/assets'
 
-def panel(name,w,h,top,bottom,radius=24,shine=False,glow=None,edge=(255,255,255,20)):
+def panel(name,w,h,top,bottom,radius=24,shine=False,glow=None,edge=(255,255,255,20),inset=(12,8,12,16)):
+ # inset: transparent margin (left, top, right, bottom); the bottom one holds
+ # the shadow. Every card uses the same inset, so equal layout gaps give
+ # equal visible gaps.
  im=Image.new('RGBA',(w,h));pix=im.load()
  for y in range(h):
   t=y/max(1,h-1)
   for x in range(w):
    lift=max(0,1-math.hypot((x-w*.15)/w,(y-h*.05)/h))*14 if shine else 0
    pix[x,y]=tuple(min(255,round(a*(1-t)+b*t+lift)) for a,b in zip(top[:3],bottom[:3]))+(round(top[3]*(1-t)+bottom[3]*t),)
- mask=Image.new('L',(w,h));ImageDraw.Draw(mask).rounded_rectangle((8,4,w-9,h-13),radius=radius,fill=255)
+ mask=Image.new('L',(w,h));l,t,r,b=inset;box=(l,t,w-1-r,h-1-b)
+ ImageDraw.Draw(mask).rounded_rectangle(box,radius=radius,fill=255)
  # Two shadow layers: a tight contact shadow and a wider ambient one.
- shadow=Image.new('RGBA',(w,h));sd=ImageDraw.Draw(shadow);sd.rounded_rectangle((8,12,w-9,h-5),radius=radius,fill=(0,0,0,150));shadow=shadow.filter(ImageFilter.GaussianBlur(7))
- ambient=Image.new('RGBA',(w,h));ImageDraw.Draw(ambient).rounded_rectangle((10,10,w-11,h-3),radius=radius,fill=(0,4,16,90));ambient=ambient.filter(ImageFilter.GaussianBlur(4))
+ shadow=Image.new('RGBA',(w,h));sd=ImageDraw.Draw(shadow);sd.rounded_rectangle((l,t+8,w-1-r,h-1-b+8),radius=radius,fill=(0,0,0,150));shadow=shadow.filter(ImageFilter.GaussianBlur(7))
+ ambient=Image.new('RGBA',(w,h));ImageDraw.Draw(ambient).rounded_rectangle((l+2,t+6,w-3-r,h+1-b),radius=radius,fill=(0,4,16,90));ambient=ambient.filter(ImageFilter.GaussianBlur(4))
  ambient.alpha_composite(shadow);shadow=ambient
  if glow:
   # Focus halo inside the item rectangle (native lists clip outside it).
-  halo=Image.new('RGBA',(w,h));ImageDraw.Draw(halo).rounded_rectangle((6,2,w-7,h-11),radius=radius+2,outline=glow,width=4);halo=halo.filter(ImageFilter.GaussianBlur(3))
+  halo=Image.new('RGBA',(w,h));ImageDraw.Draw(halo).rounded_rectangle((l-2,t-2,w+1-r,h+1-b),radius=radius+2,outline=glow,width=4);halo=halo.filter(ImageFilter.GaussianBlur(3))
   shadow.alpha_composite(halo)
  im.putalpha(Image.composite(im.getchannel('A'),Image.new('L',(w,h)),mask));shadow.alpha_composite(im)
- d=ImageDraw.Draw(shadow);d.rounded_rectangle((8,4,w-9,h-13),radius=radius,outline=edge,width=1)
+ d=ImageDraw.Draw(shadow);d.rounded_rectangle(box,radius=radius,outline=edge,width=1)
  # Glass highlight along the upper edge.
- d.line((8+radius,5,w-9-radius,5),fill=(255,255,255,14),width=1)
+ d.line((l+radius,t+1,w-1-r-radius,t+1),fill=(255,255,255,14),width=1)
+ # The shadow falls downwards: keep the strip above the card fully clear.
+ if t:shadow.paste((0,0,0,0),(0,0,w,t))
  shadow.save(ROOT/name)
 
 def build():
@@ -38,10 +44,12 @@ def build():
    p[x,y]=(round(11+4*a),round(16+6*a),round(29+12*a),255)
  # Opaque full-HD wallpaper: drawn without scaling or alpha blending.
  im.resize((1920,1080),Image.Resampling.BICUBIC).save(ROOT/'q-wallpaper.png')
- for w,h in HERO_SIZES:panel(f'q-hero-{w}x{h}.png',w,h,(23,32,54,248),(19,27,46,248),26)
- panel('q-tile.png',570,176,(23,32,54,248),(19,27,46,250),20)
- panel('q-tile-focus.png',570,176,(41,68,134,255),(35,59,118,255),20,edge=(255,255,255,60))
- panel('q-channel-focus.png',864,96,(41,68,134,255),(35,59,118,255),16,edge=(255,255,255,50))
+ for w,h in skin_sizes('q-hero'):panel(f'q-hero-{w}x{h}.png',w,h,(23,32,54,248),(19,27,46,248),26)
+ panel('q-tile.png',568,176,(23,32,54,248),(19,27,46,250),20)
+ panel('q-tile-focus.png',568,176,(41,68,134,255),(35,59,118,255),20,edge=(255,255,255,60))
+ # List rows touch each other: the focus spans the full list width (aligned
+ # with the grid edges) and keeps a small vertical inset to cover the row text.
+ panel('q-channel-focus.png',824,96,(41,68,134,255),(35,59,118,255),16,edge=(255,255,255,50),inset=(0,4,0,13))
  rail=Image.new('RGBA',(112,1080),(10,15,27,240));d=ImageDraw.Draw(rail);d.line((111,0,111,1080),fill=(255,255,255,16),width=1);rail.save(ROOT/'q-rail.png')
  build_video_effects()
  live_badge()
@@ -49,7 +57,17 @@ def build():
  native_variants()
 
 
-HERO_SIZES=((1712,384),(800,760),(1712,230))
+def skin_sizes(prefix):
+ import re
+ import xml.etree.ElementTree as E
+ sizes=set()
+ for folder in ('PolsQ','PolsQLarge'):
+  path=ROOT.parent.parent/folder/'skin.xml'
+  if path.exists():
+   for n in E.parse(path).getroot().iter('ePixmap'):
+    m=re.fullmatch(r'PolsQ/assets/'+prefix+r'-(\d+)x(\d+)\.png',n.get('pixmap',''))
+    if m:sizes.add((int(m.group(1)),int(m.group(2))))
+ return sorted(sizes)
 BEZEL=(9,13,24,255)
 VIDEO_PAD=40
 VIDEO_RADIUS=14
@@ -93,8 +111,9 @@ def live_badge():
 NEWS_W,NEWS_H=1920,226
 NEWS_FADE=40
 NEWS_ALPHA=238
-LOGO_CARD=(48,44,284,190)
-NEXT_BOX=(1520,44,1864,184)
+LOGO_CARD=(64,44,300,190)
+NEXT_BOX=(1512,44,1856,190)
+NUMBER_BADGE=(324,46,388,82)
 
 
 def news_band():
@@ -107,7 +126,7 @@ def news_band():
   v=y/(h-1)
   for x in range(w):
    u=x/(w-1)
-   r=16+6*u-3*v;g=26+10*u-4*v;b=56+26*u-8*v
+   r=23-4*v+2*u;g=32-5*v+2*u;b=54-8*v+4*u
    p[x,y]=(max(0,min(255,round(r))),max(0,min(255,round(g))),max(0,min(255,round(b))),alpha)
  # Logo card: white with a soft contact shadow; the picon is drawn on it.
  shadow=Image.new('RGBA',(w,h));x0,y0,x1,y1=LOGO_CARD
@@ -124,6 +143,10 @@ def news_band():
  bd.rounded_rectangle((0,0,bw*k-1,bh*k-1),radius=16*k,fill=(255,255,255,12),outline=(255,255,255,28),width=2*k)
  box=box.resize((bw,bh),Image.Resampling.LANCZOS)
  im.alpha_composite(box,dest=(x0,y0))
+ # Fixed badge for the channel number, same glass style as the panel.
+ x0,y0,x1,y1=NUMBER_BADGE;bw,bh=x1-x0,y1-y0
+ badge=Image.new('RGBA',(bw*k,bh*k));ImageDraw.Draw(badge).rounded_rectangle((0,0,bw*k-1,bh*k-1),radius=8*k,fill=(255,255,255,12),outline=(255,255,255,28),width=2*k)
+ im.alpha_composite(badge.resize((bw,bh),Image.Resampling.LANCZOS),dest=(x0,y0))
  im.save(ROOT/'q-news-band.png')
 
 

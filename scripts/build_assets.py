@@ -42,6 +42,10 @@ def line_icon(path,lines,accent=()):
 
 
 def build():
+    # Start from empty asset folders: stale PNGs from older layouts must not
+    # end up in the packages.
+    for folder in (ROOT/'assets',ROOT.parent/'PolsQLarge/assets'):
+        shutil.rmtree(folder,ignore_errors=True)
     (ROOT/'VERSION').write_text(VERSION+'\n')
     # Przezroczyste pole dziedziczy kolor paska/ekranu, bez osobnej ramki i symbolu.
     png(Path('picon_default.png'),220,132,(0,0,0,0))

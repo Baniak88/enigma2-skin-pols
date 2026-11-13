@@ -70,64 +70,64 @@
   <screen name="Menu" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Twój wieczór" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Twój wieczór" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <ePixmap position="144,164" size="1712,384" pixmap="PolsQ/assets/q-hero-1712x384.png" zPosition="-10" alphatest="blend" />
-    <eLabel text="NA ŻYWO" position="192,202" size="800,40" font="PolsQText;21" foregroundColor="green" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="192,252" size="850,46" foregroundColor="white" transparent="1" font="PolsQText;28">
+    <ePixmap position="164,132" size="1704,412" pixmap="PolsQ/assets/q-hero-1704x412.png" zPosition="-10" alphatest="blend" />
+    <eLabel text="NA ŻYWO" position="208,172" size="800,32" font="PolsQText;21" foregroundColor="green" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="208,208" size="912,40" foregroundColor="white" transparent="1" font="PolsQText;28" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="session.Event_Now" render="PolsQSummary" position="192,310" size="896,114" foregroundColor="white" transparent="1" font="PolsQText;46" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="session.Event_Now" render="PolsQSummary" position="208,252" size="1008,114" foregroundColor="white" transparent="1" font="PolsQText;46" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="session.Event_Now" render="PolsQSummary" position="192,444" size="850,70" foregroundColor="muted" transparent="1" font="PolsQText;25">
+    <widget source="session.Event_Now" render="PolsQSummary" position="208,426" size="1008,70" foregroundColor="muted" transparent="1" font="PolsQText;25">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget source="session.VideoPicture" render="Pig" position="1200,194" size="576,324" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
-    <ePixmap position="144,584" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="714,584" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="1284,584" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="144,760" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="714,760" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="1284,760" size="570,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
-    <widget source="menu" render="Listbox" position="144,584" size="1712,352" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" listOrientation="grid" itemWidth="570" itemHeight="176" transparent="1" selectionPixmap="PolsQ/assets/q-tile-focus.png" selectionZoom="0">
-      <convert type="TemplatedMultiContent">{"itemHeight":176,"itemWidth":570,"template":[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0)],"fonts":[gFont("PolsQStrong",28)],"templates":{"default":((570,176),[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0)]),"text":((570,176),[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"number":((570,176),[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"image":((570,176),[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"both":((570,176),[MultiContentEntryPixmapAlphaBlend(pos=(32,28),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(32,108),size=(498,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)])}}</convert>
+    <widget source="session.VideoPicture" render="Pig" position="1248,172" size="576,324" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
+    <ePixmap position="164,544" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="732,544" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="1300,544" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="164,720" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="732,720" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="1300,720" size="568,176" pixmap="PolsQ/assets/q-tile.png" zPosition="-10" alphatest="blend" />
+    <widget source="menu" render="Listbox" position="164,544" size="1704,352" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" listOrientation="grid" itemWidth="568" itemHeight="176" transparent="1" selectionPixmap="PolsQ/assets/q-tile-focus.png" selectionZoom="0">
+      <convert type="TemplatedMultiContent">{"itemHeight":176,"itemWidth":568,"template":[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0)],"fonts":[gFont("PolsQStrong",28)],"templates":{"default":((568,176),[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=0)]),"text":((568,176),[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"number":((568,176),[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"image":((568,176),[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)]),"both":((568,176),[MultiContentEntryPixmapAlphaBlend(pos=(44,32),size=(64,64),png=1,flags=BT_SCALE|BT_KEEP_ASPECT_RATIO),MultiContentEntryText(pos=(44,102),size=(480,54),font=0,flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS,text=3)])}}</convert>
     </widget>
-    <widget name="menuimage" position="1080,212" size="64,64" alphatest="blend" scale="1" />
-    <widget source="description" render="Label" position="160,952" size="1650,44" font="PolsQText;24" foregroundColor="muted" transparent="1" />
-    <widget source="key_red" render="Label" position="184,1010" size="374,44" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget name="menuimage" position="1152,172" size="64,64" alphatest="blend" scale="1" />
+    <widget source="description" render="Label" position="176,904" size="1680,40" font="PolsQText;24" foregroundColor="muted" transparent="1" />
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="FixedLabel" position="160,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="608,1010" size="374,44" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="584,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1032,1010" size="374,44" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="1008,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1456,1010" size="374,44" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1432,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap position="1160,154" size="656,404" pixmap="PolsQ/assets/q-video-shadow-576x324.png" zPosition="-5" alphatest="blend" />
-    <eLabel position="1200,194" size="576,324" backgroundColor="transparent" zPosition="1" />
+    <ePixmap position="1208,132" size="656,404" pixmap="PolsQ/assets/q-video-shadow-576x324.png" zPosition="-5" alphatest="blend" />
+    <eLabel position="1248,172" size="576,324" backgroundColor="transparent" zPosition="1" />
   </screen>
   <screen name="QuickMenu" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
     <eLabel position="64,54" size="5,28" backgroundColor="green" />
@@ -172,276 +172,276 @@
   <screen name="ChannelSelection" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg" base="ChannelSelection" label="PolsQ — 8 kanałów z TV">
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Telewizja" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Telewizja" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Title" render="Label" position="152,128" size="1660,44" foregroundColor="muted" transparent="1" font="PolsQText;24" wrap="ellipsis" />
-    <ePixmap position="144,192" size="800,760" pixmap="PolsQ/assets/q-hero-800x760.png" zPosition="-10" alphatest="blend" />
-    <widget source="session.VideoPicture" render="Pig" position="160,208" size="768,432" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
-    <widget source="ServiceEvent" render="Label" position="192,660" size="500,44" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
+    <widget source="Title" render="Label" position="176,92" size="1300,32" foregroundColor="muted" transparent="1" font="PolsQText;22" wrap="ellipsis" />
+    <ePixmap position="164,132" size="856,792" pixmap="PolsQ/assets/q-hero-856x792.png" zPosition="-10" alphatest="blend" />
+    <widget source="session.VideoPicture" render="Pig" position="208,172" size="768,432" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
+    <widget source="ServiceEvent" render="Label" position="208,628" size="572,40" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,706" size="704,88" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,672" size="768,84" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="192,808" size="128,38" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="208,764" size="128,36" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="340,808" size="168,38" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="340,764" size="168,36" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="544,808" size="352,38" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
+    <widget source="ServiceEvent" render="Label" position="624,764" size="352,36" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <widget source="ServiceEvent" render="Progress" position="192,858" size="704,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="ServiceEvent" render="Progress" position="208,810" size="768,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,872" size="704,52" foregroundColor="muted" transparent="1" font="PolsQText;23">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,826" size="768,50" foregroundColor="muted" transparent="1" font="PolsQText;23">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="992,192" size="864,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
-    <eLabel text="INFO — pełny opis" position="160,966" size="750,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="key_red" render="Label" position="184,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget name="list" position="1032,140" size="824,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
+    <eLabel text="INFO — pełny opis" position="176,932" size="750,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="FixedLabel" position="160,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="608,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="584,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1032,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="1008,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1456,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1432,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap position="120,168" size="848,512" pixmap="PolsQ/assets/q-video-shadow-768x432.png" zPosition="-5" alphatest="blend" />
-    <eLabel position="160,208" size="768,432" backgroundColor="transparent" zPosition="1" />
-    <ePixmap position="756,660" size="172,40" pixmap="PolsQ/assets/q-live-badge.png" zPosition="5" alphatest="blend" />
-    <eLabel text="NA ŻYWO" position="800,665" size="120,30" font="PolsQStrong;19" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" zPosition="6" />
+    <ePixmap position="168,132" size="848,512" pixmap="PolsQ/assets/q-video-shadow-768x432.png" zPosition="-5" alphatest="blend" />
+    <eLabel position="208,172" size="768,432" backgroundColor="transparent" zPosition="1" />
+    <ePixmap position="804,624" size="172,40" pixmap="PolsQ/assets/q-live-badge.png" zPosition="5" alphatest="blend" />
+    <eLabel text="NA ŻYWO" position="848,629" size="120,30" font="PolsQStrong;19" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" zPosition="6" />
   </screen>
   <screen name="ChannelSelection_PIG" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg" base="ChannelSelection" label="PolsQ — podgląd TV">
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Telewizja" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Telewizja" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Title" render="Label" position="152,128" size="1660,44" foregroundColor="muted" transparent="1" font="PolsQText;24" wrap="ellipsis" />
-    <ePixmap position="144,192" size="800,760" pixmap="PolsQ/assets/q-hero-800x760.png" zPosition="-10" alphatest="blend" />
-    <widget source="session.VideoPicture" render="Pig" position="160,208" size="768,432" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
-    <widget source="ServiceEvent" render="Label" position="192,660" size="500,44" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
+    <widget source="Title" render="Label" position="176,92" size="1300,32" foregroundColor="muted" transparent="1" font="PolsQText;22" wrap="ellipsis" />
+    <ePixmap position="164,132" size="856,792" pixmap="PolsQ/assets/q-hero-856x792.png" zPosition="-10" alphatest="blend" />
+    <widget source="session.VideoPicture" render="Pig" position="208,172" size="768,432" foregroundColor="white" transparent="1" backgroundColor="transparent" zPosition="2" />
+    <widget source="ServiceEvent" render="Label" position="208,628" size="572,40" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,706" size="704,88" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,672" size="768,84" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="192,808" size="128,38" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="208,764" size="128,36" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="340,808" size="168,38" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="340,764" size="168,36" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="544,808" size="352,38" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
+    <widget source="ServiceEvent" render="Label" position="624,764" size="352,36" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <widget source="ServiceEvent" render="Progress" position="192,858" size="704,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="ServiceEvent" render="Progress" position="208,810" size="768,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,872" size="704,52" foregroundColor="muted" transparent="1" font="PolsQText;23">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,826" size="768,50" foregroundColor="muted" transparent="1" font="PolsQText;23">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="992,192" size="864,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
-    <eLabel text="INFO — pełny opis" position="160,966" size="750,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="key_red" render="Label" position="184,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget name="list" position="1032,140" size="824,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
+    <eLabel text="INFO — pełny opis" position="176,932" size="750,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="FixedLabel" position="160,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="608,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="584,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1032,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="1008,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1456,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1432,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap position="120,168" size="848,512" pixmap="PolsQ/assets/q-video-shadow-768x432.png" zPosition="-5" alphatest="blend" />
-    <eLabel position="160,208" size="768,432" backgroundColor="transparent" zPosition="1" />
-    <ePixmap position="756,660" size="172,40" pixmap="PolsQ/assets/q-live-badge.png" zPosition="5" alphatest="blend" />
-    <eLabel text="NA ŻYWO" position="800,665" size="120,30" font="PolsQStrong;19" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" zPosition="6" />
+    <ePixmap position="168,132" size="848,512" pixmap="PolsQ/assets/q-video-shadow-768x432.png" zPosition="-5" alphatest="blend" />
+    <eLabel position="208,172" size="768,432" backgroundColor="transparent" zPosition="1" />
+    <ePixmap position="804,624" size="172,40" pixmap="PolsQ/assets/q-live-badge.png" zPosition="5" alphatest="blend" />
+    <eLabel text="NA ŻYWO" position="848,629" size="120,30" font="PolsQStrong;19" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" zPosition="6" />
   </screen>
   <screen name="ChannelSelection_NoPIG" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg" base="ChannelSelection" label="PolsQ — bez podglądu">
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Telewizja" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Telewizja" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Title" render="Label" position="152,128" size="1660,44" foregroundColor="muted" transparent="1" font="PolsQText;24" wrap="ellipsis" />
-    <ePixmap position="144,192" size="800,760" pixmap="PolsQ/assets/q-hero-800x760.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="392,260" size="304,172" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
-    <widget source="ServiceEvent" render="Picon" position="392,260" size="304,172" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
+    <widget source="Title" render="Label" position="176,92" size="1300,32" foregroundColor="muted" transparent="1" font="PolsQText;22" wrap="ellipsis" />
+    <ePixmap position="164,132" size="856,792" pixmap="PolsQ/assets/q-hero-856x792.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="440,278" size="304,172" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
+    <widget source="ServiceEvent" render="Picon" position="440,278" size="304,172" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
       <convert type="ServiceName">Reference</convert>
     </widget>
-    <eLabel text="TWÓJ KANAŁ" position="192,470" size="680,50" font="PolsQText;32" foregroundColor="green" transparent="1" />
-    <widget source="ServiceEvent" render="Label" position="192,660" size="704,44" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
+    <eLabel text="TWÓJ KANAŁ" position="208,544" size="768,50" font="PolsQText;32" foregroundColor="green" transparent="1" halign="center" />
+    <widget source="ServiceEvent" render="Label" position="208,628" size="768,40" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,706" size="704,88" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,672" size="768,84" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="192,808" size="128,38" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="208,764" size="128,36" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="340,808" size="168,38" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="340,764" size="168,36" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="544,808" size="352,38" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
+    <widget source="ServiceEvent" render="Label" position="624,764" size="352,36" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <widget source="ServiceEvent" render="Progress" position="192,858" size="704,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="ServiceEvent" render="Progress" position="208,810" size="768,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,872" size="704,52" foregroundColor="muted" transparent="1" font="PolsQText;23">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,826" size="768,50" foregroundColor="muted" transparent="1" font="PolsQText;23">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="992,192" size="864,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
-    <eLabel text="INFO — pełny opis" position="160,966" size="750,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="key_red" render="Label" position="184,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget name="list" position="1032,140" size="824,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
+    <eLabel text="INFO — pełny opis" position="176,932" size="750,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="FixedLabel" position="160,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="608,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="584,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1032,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="1008,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1456,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1432,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
   <screen name="ChannelSelectionRadio" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Radio" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Radio" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Title" render="Label" position="152,128" size="1660,44" foregroundColor="muted" transparent="1" font="PolsQText;24" wrap="ellipsis" />
-    <ePixmap position="144,192" size="800,760" pixmap="PolsQ/assets/q-hero-800x760.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="392,260" size="304,172" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
-    <widget source="ServiceEvent" render="Picon" position="392,260" size="304,172" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
+    <widget source="Title" render="Label" position="176,92" size="1300,32" foregroundColor="muted" transparent="1" font="PolsQText;22" wrap="ellipsis" />
+    <ePixmap position="164,132" size="856,792" pixmap="PolsQ/assets/q-hero-856x792.png" zPosition="-10" alphatest="blend" />
+    <ePixmap position="440,278" size="304,172" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
+    <widget source="ServiceEvent" render="Picon" position="440,278" size="304,172" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
       <convert type="ServiceName">Reference</convert>
     </widget>
-    <eLabel text="TWÓJ KANAŁ" position="192,470" size="680,50" font="PolsQText;32" foregroundColor="green" transparent="1" />
-    <widget source="ServiceEvent" render="Label" position="192,660" size="704,44" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
+    <eLabel text="TWÓJ KANAŁ" position="208,544" size="768,50" font="PolsQText;32" foregroundColor="green" transparent="1" halign="center" />
+    <widget source="ServiceEvent" render="Label" position="208,628" size="768,40" foregroundColor="green" transparent="1" font="PolsQText;28" wrap="ellipsis">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,706" size="704,88" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,672" size="768,84" foregroundColor="white" transparent="1" font="PolsQText;34" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="192,808" size="128,38" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="208,764" size="128,36" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="340,808" size="168,38" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <widget source="ServiceEvent" render="Label" position="340,764" size="168,36" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="544,808" size="352,38" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
+    <widget source="ServiceEvent" render="Label" position="624,764" size="352,36" foregroundColor="muted" transparent="1" font="PolsQText;23" halign="right">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <widget source="ServiceEvent" render="Progress" position="192,858" size="704,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="ServiceEvent" render="Progress" position="208,810" size="768,6" foregroundColor="green" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="PolsQSummary" position="192,872" size="704,52" foregroundColor="muted" transparent="1" font="PolsQText;23">
+    <widget source="ServiceEvent" render="PolsQSummary" position="208,826" size="768,50" foregroundColor="muted" transparent="1" font="PolsQText;23">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="992,192" size="864,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
-    <eLabel text="INFO — pełny opis" position="160,966" size="750,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="key_red" render="Label" position="184,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget name="list" position="1032,140" size="824,768" serviceItemHeight="96" serviceNameFont="PolsQText;28" serviceInfoFont="PolsQText;24" serviceNumberFont="PolsQText;24" foregroundColor="white" backgroundColor="bg" foregroundColorSelected="white" backgroundColorSelected="selected" foregroundColorEvent="muted" foregroundColorEventSelected="muted" selectionPixmap="PolsQ/assets/q-channel-focus.png" scrollbarMode="showOnDemand" scrollbarWidth="4" progressBarWidth="64" colorEventProgressbar="green" colorEventProgressbarSelected="green" />
+    <eLabel text="INFO — pełny opis" position="176,932" size="750,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="FixedLabel" position="160,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="608,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="584,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1032,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="red" conditional="key_red">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="1008,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="nativeGreen" conditional="key_green">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1456,1010" size="374,42" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="yellow" conditional="key_yellow">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1432,1020" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" foregroundColor="white" transparent="0" font="PolsQText;28" text=" " backgroundColor="blue" conditional="key_blue">
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
@@ -817,203 +817,200 @@
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
   </screen>
   <screen name="GraphicalEPG" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
-    <eLabel position="64,974" size="1792,2" backgroundColor="line" />
-    <widget source="key_red" render="FixedLabel" position="64,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="Label" position="86,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="512,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="534,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="960,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="982,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1408,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1430,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="Event" render="Label" position="192,240" size="1100,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="Event" render="Label" position="208,172" size="1616,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="Label" position="192,352" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
+    <widget source="Event" render="Label" position="208,334" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Event" render="Label" position="350,352" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
+    <widget source="Event" render="Label" position="364,334" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget name="timeline_text" position="144,430" size="1712,46" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
-    <widget name="list" position="144,480" size="1712,480" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
-    <widget name="lab1" position="144,480" size="1712,480" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
-    <widget name="timeline0" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline1" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline2" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline3" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline4" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline5" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
-    <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget name="timeline_text" position="176,434" size="1680,40" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
+    <widget name="list" position="176,478" size="1680,456" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget name="lab1" position="176,478" size="1680,456" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
+    <widget name="timeline0" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline1" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline2" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline3" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline4" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline5" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline_now" position="176,478" size="4,456" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
+    <widget name="bouquetlist" position="176,478" size="720,456" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;30" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="Event" render="PolsQSummary" position="600,342" size="1120,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="176,946" size="1680,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="Event" render="PolsQSummary" position="592,290" size="1232,88" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <ePixmap position="144,188" size="1712,230" pixmap="PolsQ/assets/q-hero-1712x230.png" zPosition="-15" alphatest="blend" />
+    <ePixmap position="164,132" size="1704,294" pixmap="PolsQ/assets/q-hero-1704x294.png" zPosition="-15" alphatest="blend" />
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Program TV" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Program TV" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
   </screen>
   <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
-    <eLabel position="64,974" size="1792,2" backgroundColor="line" />
-    <widget source="key_red" render="FixedLabel" position="64,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="Label" position="86,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="512,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="534,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="960,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="982,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1408,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1430,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="Event" render="Label" position="192,240" size="1100,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="Event" render="Label" position="208,172" size="1112,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="Label" position="192,352" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
+    <widget source="Event" render="Label" position="208,334" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Event" render="Label" position="350,352" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
+    <widget source="Event" render="Label" position="364,334" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="session.VideoPicture" render="Pig" position="1376,160" size="480,270" backgroundColor="transparent" zPosition="2" foregroundColor="white" />
-    <widget name="timeline_text" position="144,430" size="1712,46" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
-    <widget name="list" position="144,480" size="1712,480" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
-    <widget name="lab1" position="144,480" size="1712,480" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
-    <widget name="timeline0" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline1" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline2" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline3" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline4" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline5" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
-    <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget source="session.VideoPicture" render="Pig" position="1376,140" size="480,270" backgroundColor="transparent" zPosition="2" foregroundColor="white" />
+    <widget name="timeline_text" position="176,434" size="1680,40" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
+    <widget name="list" position="176,478" size="1680,456" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget name="lab1" position="176,478" size="1680,456" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
+    <widget name="timeline0" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline1" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline2" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline3" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline4" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline5" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline_now" position="176,478" size="4,456" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
+    <widget name="bouquetlist" position="176,478" size="720,456" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;30" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="Event" render="PolsQSummary" position="600,342" size="660,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="176,946" size="1680,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="Event" render="PolsQSummary" position="592,290" size="728,88" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <ePixmap position="144,188" size="1712,230" pixmap="PolsQ/assets/q-hero-1712x230.png" zPosition="-15" alphatest="blend" />
+    <ePixmap position="164,132" size="1200,294" pixmap="PolsQ/assets/q-hero-1200x294.png" zPosition="-15" alphatest="blend" />
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Program TV" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Program TV" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <ePixmap position="1336,120" size="560,350" pixmap="PolsQ/assets/q-video-shadow-480x270.png" zPosition="-5" alphatest="blend" />
-    <eLabel position="1376,160" size="480,270" backgroundColor="transparent" zPosition="1" />
+    <ePixmap position="1336,100" size="560,350" pixmap="PolsQ/assets/q-video-shadow-480x270.png" zPosition="-5" alphatest="blend" />
+    <eLabel position="1376,140" size="480,270" backgroundColor="transparent" zPosition="1" />
   </screen>
   <screen name="GraphicalInfoBarEPG" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="bg">
-    <eLabel position="64,974" size="1792,2" backgroundColor="line" />
-    <widget source="key_red" render="FixedLabel" position="64,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
+    <widget source="key_red" render="FixedLabel" position="176,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="red" transparent="0" conditional="key_red" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="Label" position="86,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_red" render="Label" position="198,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_red" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="FixedLabel" position="512,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
+    <widget source="key_green" render="FixedLabel" position="596,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="nativeGreen" transparent="0" conditional="key_green" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="534,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_green" render="Label" position="618,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_green" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="FixedLabel" position="960,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
+    <widget source="key_yellow" render="FixedLabel" position="1016,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="yellow" transparent="0" conditional="key_yellow" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="982,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_yellow" render="Label" position="1038,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_yellow" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="FixedLabel" position="1408,1012" size="6,24" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
+    <widget source="key_blue" render="FixedLabel" position="1436,1010" size="6,20" font="PolsQText;28" text=" " backgroundColor="blue" transparent="0" conditional="key_blue" foregroundColor="white">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1430,998" size="414,50" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="key_blue" render="Label" position="1458,1000" size="386,40" font="PolsQText;25" valign="center" conditional="key_blue" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="Event" render="Label" position="192,240" size="1100,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
+    <widget source="Event" render="Label" position="208,172" size="1616,94" font="PolsQStrong;38" wrap="ellipsis" foregroundColor="white" transparent="1">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="Label" position="192,352" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
+    <widget source="Event" render="Label" position="208,334" size="140,44" font="PolsQText;26" foregroundColor="green" transparent="1">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="Event" render="Label" position="350,352" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
+    <widget source="Event" render="Label" position="364,334" size="180,44" font="PolsQText;26" foregroundColor="muted" transparent="1">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget name="timeline_text" position="144,430" size="1712,46" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
-    <widget name="list" position="144,480" size="1712,480" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
-    <widget name="lab1" position="144,480" size="1712,480" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
-    <widget name="timeline0" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline1" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline2" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline3" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline4" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline5" position="144,480" size="2,480" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
-    <widget name="timeline_now" position="144,480" size="4,480" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
-    <widget name="bouquetlist" position="144,480" size="720,480" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget name="timeline_text" position="176,434" size="1680,40" TimelineFont="PolsQText;26" itemHeight="46" foregroundColor="muted" backgroundColor="bg" />
+    <widget name="list" position="176,478" size="1680,456" NumberOfRows="6" ServiceFontGraphical="PolsQText;26" EntryFontGraphical="PolsQText;26" ServiceFontInfobar="PolsQText;26" EventFontInfobar="PolsQText;28" EventFontSingle="PolsQText;30" EventFontMulti="PolsQText;29" EventFontVertical="PolsQText;26" TimeFontVertical="PolsQText;23" ServiceForegroundColor="white" ServiceForegroundColorNow="green" ServiceBackgroundColor="panel" ServiceBackgroundColorNow="panel" EntryForegroundColor="white" EntryForegroundColorSelected="white" EntryBackgroundColor="panel" EntryBackgroundColorSelected="selected" EntryBackgroundColorNow="now" EntryBackgroundColorNowSelected="selected" EntryForegroundColorNow="white" EntryForegroundColorNowSelected="white" EntryBackgroundColorPast="bg" EntryBackgroundColorPastSelected="selected" EntryForegroundColorPast="muted" EntryForegroundColorPastSelected="white" EntryBorderColor="bg" ServiceBorderColor="bg" ServiceBorderWidth="2" EventBorderWidth="2" EventNamePadding="12" ServiceNamePadding="12" RecordForegroundColor="bg" RecordForegroundColorSelected="bg" RecordBackgroundColor="red" RecordBackgroundColorSelected="red" ZapForegroundColor="bg" ZapBackgroundColor="blue" ZapForegroundColorSelected="bg" ZapBackgroundColorSelected="green" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
+    <widget name="lab1" position="176,478" size="1680,456" font="PolsQText;32" halign="center" valign="center" backgroundColor="bg" zPosition="5" />
+    <widget name="timeline0" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline1" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline2" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline3" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline4" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline5" position="176,478" size="2,456" pixmap="PolsQ/assets/timeline.png" scale="1" zPosition="2" />
+    <widget name="timeline_now" position="176,478" size="4,456" pixmap="PolsQ/assets/timeline-now.png" scale="1" zPosition="3" />
+    <widget name="bouquetlist" position="176,478" size="720,456" font="PolsQText;30" itemHeight="70" zPosition="4" backgroundColor="bg" foregroundColor="white" backgroundColorSelected="selected" foregroundColorSelected="white" scrollbarMode="showOnDemand" scrollbarWidth="6" scrollbarBorderWidth="0" scrollbarOffset="8" scrollbarForegroundColor="muted" scrollbarBackgroundColor="line" />
     <widget name="number" position="1660,214" size="196,48" font="PolsQText;30" foregroundColor="green" halign="right" transparent="1" zPosition="6" conditional="number" />
-    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="144,966" size="1712,30" font="PolsQText;22" foregroundColor="muted" transparent="1" />
-    <widget source="Event" render="PolsQSummary" position="600,342" size="1120,66" foregroundColor="muted" transparent="1" font="PolsQText;24">
+    <eLabel text="Żółta linia — teraz   •   Zegar — timer" position="176,946" size="1680,32" font="PolsQText;22" foregroundColor="muted" transparent="1" />
+    <widget source="Event" render="PolsQSummary" position="592,290" size="1232,88" foregroundColor="muted" transparent="1" font="PolsQText;24">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <ePixmap position="144,188" size="1712,230" pixmap="PolsQ/assets/q-hero-1712x230.png" zPosition="-15" alphatest="blend" />
+    <ePixmap position="164,132" size="1704,294" pixmap="PolsQ/assets/q-hero-1704x294.png" zPosition="-15" alphatest="blend" />
     <ePixmap position="0,0" size="1920,1080" pixmap="PolsQ/assets/q-wallpaper.png" zPosition="-30" />
     <ePixmap position="0,0" size="112,1080" pixmap="PolsQ/assets/q-rail.png" zPosition="-20" alphatest="blend" />
-    <eLabel text="Q" position="34,40" size="60,68" font="PolsQStrong;48" foregroundColor="white" transparent="1" />
+    <eLabel text="Q" position="0,32" size="112,60" font="PolsQStrong;48" foregroundColor="white" transparent="1" halign="center" valign="center" />
     <ePixmap position="38,234" size="36,36" pixmap="PolsQ/assets/line-tv-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,346" size="36,36" pixmap="PolsQ/assets/line-bouquet-36x36.png" zPosition="0" alphatest="blend" />
     <ePixmap position="38,458" size="36,36" pixmap="PolsQ/assets/line-history-36x36.png" zPosition="0" alphatest="blend" />
-    <eLabel text="POLS" position="28,960" size="80,44" font="PolsQText;20" foregroundColor="white" transparent="1" />
-    <eLabel text="Program TV" position="152,48" size="1350,68" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" />
-    <widget source="global.CurrentTime" render="Label" position="1616,52" size="240,54" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right">
+    <eLabel text="POLS" position="0,1000" size="112,40" font="PolsQText;20" foregroundColor="muted" transparent="1" halign="center" valign="center" />
+    <eLabel text="Program TV" position="176,32" size="1350,60" font="PolsQStrong;40" foregroundColor="white" transparent="1" shadowColor="#00030814" shadowOffset="2,2" valign="center" />
+    <widget source="global.CurrentTime" render="Label" position="1616,32" size="240,60" foregroundColor="white" transparent="1" font="PolsQText;32" halign="right" valign="center">
       <convert type="ClockToText">Default</convert>
     </widget>
   </screen>
@@ -2339,51 +2336,51 @@
   </screen>
   <screen name="InfoBar" position="0,754" size="1920,290" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap position="0,0" size="1920,226" pixmap="PolsQ/assets/q-news-band.png" zPosition="-10" alphatest="blend" />
-    <ePixmap position="56,51" size="220,132" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
-    <widget source="session.CurrentService" render="Picon" position="56,51" size="220,132" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
+    <ePixmap position="72,51" size="220,132" pixmap="PolsQ/picon_default.png" scale="1" alphatest="blend" zPosition="0" />
+    <widget source="session.CurrentService" render="Picon" position="72,51" size="220,132" foregroundColor="white" transparent="1" backgroundColor="transparent" alphatest="blend" zPosition="2">
       <convert type="ServiceName">Reference</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="48,190" size="236,36" foregroundColor="white" transparent="1" font="PolsQStrong;30" halign="center" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="global.CurrentTime" render="Label" position="64,190" size="236,36" foregroundColor="white" transparent="1" font="PolsQStrong;30" halign="center" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="310,46" size="72,36" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;26" halign="right">
+    <widget source="session.CurrentService" render="Label" position="324,46" size="64,36" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;26" halign="center" valign="center">
       <convert type="PolsQChannelNumber" />
     </widget>
-    <widget source="session.CurrentService" render="Label" position="396,46" size="1092,36" foregroundColor="muted" transparent="1" font="PolsQStrong;26" wrap="ellipsis">
+    <widget source="session.CurrentService" render="Label" position="404,46" size="1084,36" foregroundColor="muted" transparent="1" font="PolsQStrong;26" wrap="ellipsis" valign="center">
       <convert type="ServiceName">NameOnly</convert>
     </widget>
-    <widget source="session.Event_Now" render="PolsQSummary" position="310,84" size="1178,104" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;40" shadowColor="#00030814" shadowOffset="2,2">
+    <widget source="session.Event_Now" render="PolsQSummary" position="324,84" size="1164,104" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;40" shadowColor="#00030814" shadowOffset="2,2">
       <convert type="EventName">Name</convert>
       <convert type="PolsQUpper" />
     </widget>
-    <widget source="session.Event_Now" render="Label" position="310,192" size="92,32" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="session.Event_Now" render="Label" position="324,192" size="92,32" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Now" render="Label" position="402,192" size="112,32" foregroundColor="white" transparent="1" font="PolsQText;24">
+    <widget source="session.Event_Now" render="Label" position="416,192" size="112,32" foregroundColor="white" transparent="1" font="PolsQText;24">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Format:– %H:%M</convert>
     </widget>
-    <widget source="session.Event_Now" render="Progress" position="530,205" size="958,6" foregroundColor="newsYellow" transparent="1" backgroundColor="line" borderWidth="0">
+    <widget source="session.Event_Now" render="Progress" position="544,205" size="944,6" foregroundColor="newsYellow" transparent="1" backgroundColor="line" borderWidth="0">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="1544,58" size="296,30" foregroundColor="muted" transparent="1" font="PolsQStrong;22">
+    <widget source="global.CurrentTime" render="Label" position="1536,60" size="296,32" foregroundColor="muted" transparent="1" font="PolsQStrong;22">
       <convert type="ClockToText">Format:%d.%m.%Y</convert>
     </widget>
-    <widget source="session.Event_Now" render="Label" position="1544,96" size="296,36" foregroundColor="white" transparent="1" font="PolsQStrong;26">
+    <widget source="session.Event_Now" render="Label" position="1536,100" size="296,36" foregroundColor="white" transparent="1" font="PolsQStrong;26">
       <convert type="PolsQEventRemaining" />
     </widget>
-    <widget source="session.RecordState" render="FixedLabel" position="1544,140" size="296,32" foregroundColor="red" transparent="1" font="PolsQText;24" text="● NAGRYWANIE">
+    <widget source="session.RecordState" render="FixedLabel" position="1536,144" size="296,32" foregroundColor="red" transparent="1" font="PolsQText;24" text="● NAGRYWANIE">
       <convert type="ConditionalShowHide" />
     </widget>
     <eLabel position="0,226" size="1920,60" backgroundColor="newsRed" />
-    <eLabel position="0,228" size="292,58" backgroundColor="newsRedDark" zPosition="1" />
-    <eLabel text="POTEM" position="40,228" size="232,58" font="PolsQStrong;28" foregroundColor="white" transparent="1" halign="center" valign="center" zPosition="2" />
-    <widget source="session.Event_Next" render="Label" position="316,228" size="110,58" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;30" valign="center" zPosition="2">
+    <eLabel position="0,226" size="300,60" backgroundColor="newsRedDark" zPosition="1" />
+    <eLabel text="POTEM" position="64,226" size="236,60" font="PolsQStrong;28" foregroundColor="white" transparent="1" halign="center" valign="center" zPosition="2" />
+    <widget source="session.Event_Next" render="Label" position="324,226" size="110,60" foregroundColor="newsYellow" transparent="1" font="PolsQStrong;30" valign="center" zPosition="2">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="436,228" size="1428,58" foregroundColor="white" transparent="1" font="PolsQStrong;30" valign="center" wrap="ellipsis" zPosition="2">
+    <widget source="session.Event_Next" render="Label" position="444,226" size="1412,60" foregroundColor="white" transparent="1" font="PolsQStrong;30" valign="center" wrap="ellipsis" zPosition="2">
       <convert type="EventName">Name</convert>
       <convert type="PolsQUpper" />
     </widget>
